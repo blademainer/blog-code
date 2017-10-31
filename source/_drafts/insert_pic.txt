@@ -1,0 +1,6 @@
+<center>{% asset_img intern.jpg Intern%}</center>
+<img src=http://img.blog.csdn.net/20160721220526502 alt="Lytro相机" width="100%">
+<center>Lytro</center>
+</br>
+<img src=http://img.blog.csdn.net/20160721220359828 alt="ILLUM相机" width="100%">
+<center>Illum</center>
