@@ -1,9 +1,14 @@
-# NexT
-
-> NexT is a high quality elegant [Hexo](http://hexo.io) theme. It is crafted from scratch, with love.
+# Modified Version of NexT
 
 
-[Live Preview](http://notes.iissnan.com)
+
+
+
+
+
+
+
+[Live Preview](www.vincentqin.tech)
 
 ## Screenshots
 

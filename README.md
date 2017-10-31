@@ -12,21 +12,13 @@ firstly, you should make sure you have installed **Nodejs** and **hexo**. Then, 
 
 ```git
 git clone https://git.coding.net/vincentqin/blog-code.git
-git checkout dev-v1
-git clone https://git.coding.net/vincentqin/node_modules.git
 cd blog-code
-git clone https://git.coding.net/vincentqin/next-vincent.git themes/next
-cd theme/next/
-git checkout next-dev-v1
-cd ../../
-hexo s	# to see your site locally, localhost:4000
-hexo g	# generate rendered fiels
-hexo d	# deploy file to remote repos
+git clone https://git.coding.net/vincentqin/node_modules.git
 
 ```
 
 ## Some Third-party Service
-
+- [hexo-git-backup](https://github.com/coneycode/hexo-git-backup)
 - Gitalk (self-defined comment system powered by github), together with [disqus](www.disqus.com).
 - Images are stored to [QiNiu Cloud](https://www.qiniu.com/) & [Jijian Tuchuang](https://jiantuku.com).
 - DNS (domain name resolution) is powered by [Aliyun](https://www.aliyun.com/)
