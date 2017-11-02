@@ -27,6 +27,15 @@ coding: https://git.coding.net/Your_Coding_ID/Your_Repo_Name.coding.me.git
 
 ## 版本管理
 
+### 方案 1（推荐）
+
+下载第三方插件，more information refers to this link [hexo-git-backup](https://github.com/coneycode/hexo-git-backup). When you are well configured, you can just run the following command.
+```git
+hexo backup		#或 hexo b
+```
+
+### 方案 2
+
 这里涉及到`git`的部分知识。
 > 目的：实现整个blog源码级别的代码管理，包括**站点配置**&**主题配置**。
 
