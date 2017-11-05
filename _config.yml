@@ -122,7 +122,7 @@ deploy:
 backup:
     type: git
     theme: next
-    message: 改变头像
+    message: add readme.md
     repository:
        github: https://github.com/Vincentqyw/blog-code.git,master
        coding: https://git.coding.net/vincentqin/blog-code.git,master
