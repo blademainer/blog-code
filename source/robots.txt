@@ -5,9 +5,7 @@ Allow: /categories/
 Allow: /images/
 Allow: /tags/
 Allow: /guestbook/
-Allow: /mylove/
-Allow: /guestbook/
-Allow: /ganhuo/
+Allow: /collections/
 Allow: /page/
 Allow: /2016/
 Allow: /2017/
