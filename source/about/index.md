@@ -66,9 +66,9 @@ ___
 
 ## ACADEMIC ACTIVITY
 
-- Attend the ISPACS 2017 in Xiamen, FuJian, China, Nor. 2017
-- Attend the ICASSP 2017 in New Orleans, LA, U.S.A, Mar. 2017
-- Attend the ICASSP 2016 in Shanghai, China, Mar. 2016
+- Attend the [ISPACS 2017](http://ispacs2017.hqu.edu.cn/) in Xiamen, FuJian, China, Nor. 2017
+- Attend the [ICASSP 2017](http://www.ieee-icassp2017.org/) in New Orleans, LA, U.S.A, Mar. 2017
+- Attend the [ICASSP 2016](http://www.icassp2016.org/) in Shanghai, China, Mar. 2016
 - Visit Japanese Universities and Exchange Research Ideas(Japan), Jan 2017
 - Student Member, IEEE
 

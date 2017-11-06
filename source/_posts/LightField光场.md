@@ -10,12 +10,12 @@ tags:
   - Light Field
 abbrlink: 61110
 date: 2017-02-16 10:45:54
-updated: 2017-04-14 22:01:30
+updated: 2017-11-06 14:30:30
 ---
 
 <center>{% asset_img lf_cover.jpg Magic Leap %}</center>
 
-这里我汇总了有关光场（Light Field）一些有用的链接以及光场数据的处理过程。目前还在整理中，随时更新。
+[这里](https://www.vincentqin.tech/collections/)我汇总了有关光场（Light Field）一些有用的链接以及光场数据的处理过程。目前还在整理中，随时更新。
 <span id="inline-red">声明</span>：<u>**一切理解都是本人观点，如有疑问，还望在**评论**中留言。如需转载请与本人联系，谢谢合作**</u>! 邮箱：[点我](www.vincentqin.tech/about)
 
 <!-- more -->
