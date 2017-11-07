@@ -13,7 +13,7 @@ date: 2017-11-07 00:24:45
 <center><img src="http://oofx6tpf6.bkt.clouddn.com/17-11-7/9721733.jpg" width="75%" Dense-Net></center>
 
 
-本文来自于CS231N（2017 Spring），将介绍几种较为常见的CNN结构。以下网络结构均是ImageNet比赛的冠军之作，我们将从网络结构，参数大小，运算量等来描述各个网络的特点。
+本文来自于CS231N（2017 Spring），将介绍几种较为常见的CNN结构。以下网络均是ImageNet比赛的冠军之作，我们将从网络结构，参数规模，运算量等来描述各个网络的特点。
 
 <!--more-->
 
@@ -36,8 +36,9 @@ Plus：
 
 ## AlexNet
 
+### 网络结构
 ![AlexNet](http://oofx6tpf6.bkt.clouddn.com/17-10-24/99013631.jpg)
-The input size is 227\*227\*3.
+网络的输入大小为：227\*227\*3，每一层的结构以及参数设置如下：
 
 |Layer Type| \#Filters  |   Stride | Pading  |OUTPUT SIZE|Parameters|
 |:-----|:-----|:-----|:-----|:-----|:-----|
@@ -61,7 +62,7 @@ The size of output image is $\frac{N-Conv+2\times Pading}{stride}+1$
 ## VGGNet
 
 The winner of ImageNet Large Scale Visual Recognition Challenge (ILSVRC) 2014.
-### 结构
+### 网络结构
 **small filters, deeper networks**。
 将原来8层的AlexNet扩展到了16&19层。卷积层的大小仅仅有3\*3，stride=1，pad=1；池化层仅仅有stride=2的2\*2的MAXPOOL。以下是其与AlexNet的结构对比图。
 ![VGG](http://oofx6tpf6.bkt.clouddn.com/17-11-6/89475867.jpg)
@@ -70,9 +71,9 @@ The winner of ImageNet Large Scale Visual Recognition Challenge (ILSVRC) 2014.
 ![VGG-details](http://oofx6tpf6.bkt.clouddn.com/17-11-6/31257061.jpg)
 
 Q：为何采用更小的CONV？
-A：几个3\*3的CONV叠加后的接受域和一个7\*7大小的CONV的接受域一致，但是与此同时，**网络层数变深，引入了更多的非线性，参数数量更少**。（Stack of three 3x3 conv (stride 1) layers has same effective receptive field as one 7x7 conv layer，But deeper, more non-linearities. And fewer parameters: ($3\times3^2C^2$) vs. $7^2C^2$ for C channels per layer）
+A：几个3\*3的CONV叠加后的接受域和一个7\*7大小的CONV的接受域一致，但是与此同时，**网络层数变深，引入了更多的非线性，参数数量更少**。（Stack of three 3x3 conv (stride 1) layers has same effective receptive field as one 7x7 conv layer，But deeper, more non-linearities. And fewer parameters: $3\times3^2C^2$ vs. $7^2C^2$ for C channels per layer）
 
-### 更多信息
+### 更多细节
 
 - ILSVRC'14 2nd in classification, 1st in localization Similar training
 - procedure as Krizhevsky 2012 No Local Response Normalisation (LRN)
