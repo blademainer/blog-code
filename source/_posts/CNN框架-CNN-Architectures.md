@@ -108,6 +108,8 @@ Inception包含几个接受域不同的CONV核（1\*1，3\*3，5\*5）以及池�
 ## ResNet
 
 利用**残差**连接成的超级深网络。
+这里有一个何凯明在ICML2016的Tutorial，内容比较详细。[ICML 2016 Tutorial on Deep Residual Networks](http://kaiminghe.com/icml16tutorial/index.html)
+代码在这里[Code: deep-residual-networks](https://github.com/KaimingHe/deep-residual-networks)
 
 ### 概况
 - 152-layer model for ImageNet
@@ -116,7 +118,7 @@ Inception包含几个接受域不同的CONV核（1\*1，3\*3，5\*5）以及池�
 
 ### 深度增加带来的问题
 ![deeper-nets-problems](http://oofx6tpf6.bkt.clouddn.com/17-11-6/22279699.jpg)
-从上图可以发现，当网络层数增加时，训练误差和测试误差都有所下降。这并不符合以往的经验，我们会想，既然网络层数增加了，那么模型参数势必僧多，此时会造成过拟合。然而过拟合的表现是：训练误差减小，测试误差增大。但是事实和分析并不吻合。
+从上图可以发现，当网络层数增加时，训练误差和测试误差都有所下降。这并不符合以往的经验，我们会想，既然网络层数增加了，那么模型参数势必增多，此时会造成过拟合。然而过拟合的表现是：训练误差减小，测试误差增大。但是事实和分析并不吻合。
 何凯明认为：**The problem is an optimization problem, deeper models are harder to optimize**。这是一个优化问题，更深的网络更难优化。并且，更深的网络应该至少比浅层网络不差，这是因为我们可以通过拷贝浅层网络+identity mapping（恒等映射）来构造一个更深的网络，这个结构化的方案表明深层网络可以达到和浅层网络一致的性能。
 
 ### 解决方案
@@ -141,7 +143,7 @@ Use network layers to fit a residual mapping instead of directly trying to fit a
 ## 总结
 论文[An Analysis of Deep Neural Network Models for Practical Applications](https://arxiv.org/pdf/1605.07678.pdf) 比较了2016年以来的一些神经网络的规模、运算量、能耗以及精度等项目。
 ![complexity-compare](http://oofx6tpf6.bkt.clouddn.com/17-11-6/40479799.jpg)
-
+可以从上图总结出以下几点：
 - GoogLeNet: most efficient
 - VGG: Highest memory, most operations
 - AlexNet: Smaller compute, still memory heavy, lower accuracy
@@ -165,3 +167,4 @@ Use network layers to fit a residual mapping instead of directly trying to fit a
 5. [An Analysis of Deep Neural Network Models for Practical Applications](https://arxiv.org/pdf/1605.07678.pdf)
 6. [CS231n: Convolutional Neural Networks for Visual Recognition](http://cs231n.stanford.edu/)
 7. [Densely Connected Convolutional Networks](https://arxiv.org/pdf/1608.06993.pdf)
+8. [Deep Residual Networks (Deep Learning Gets Way Deeper)](http://kaiminghe.com/icml16tutorial/icml2016_tutorial_deep_residual_networks_kaiminghe.pdf)
