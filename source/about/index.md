@@ -25,9 +25,10 @@ ___
 
 ## RESEARCH INTEREST
 
-- Computer Vision: image processing (depth estimation from light field) and patternrecognition (license plate recognition).
+- Computer Vision: image processing (depth estimation from light field) and pattern recognition (license plate recognition).
 - GPU Acceleration: code optimization,thread scheduling, memory management.
 - Computational photography
+- Deep Learning（*be studying* ）
 ___
 
 ## EDUCATION EXPERIENCE
@@ -35,7 +36,7 @@ ___
 #### Tsinghua University(THU), Beijing, China
 M.E., Department of Automation(Sep 2015 – Now)
 - Major in Control Engineering
-- Advisor: _Prof_. [Jin](http://www.sz.tsinghua.edu.cn/publish/sz/139/2012/20121022091023919775632/20121022091023919775632_.html)
+- Advisor: [Prof.Jin](http://www.sz.tsinghua.edu.cn/publish/sz/139/2012/20121022091023919775632/20121022091023919775632_.html)
 - GPA: 3.5/4
 
 #### Chongqing University of Posts and Telecommunications(CQUPT), Chongqing, China

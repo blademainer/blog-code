@@ -22,7 +22,7 @@ date: 2017-11-07 00:24:45
 - GoogLeNet
 - ResNet
 
-Plus：
+后续将补充以下几种网络：
 
 - NiN(Network in Network)
 - wide ResNet

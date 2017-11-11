@@ -13,3 +13,5 @@ comments: false
 ![](http://oofx6tpf6.bkt.clouddn.com/17-11-3/35039818.jpg)
 
 ~~我去睡觉了先，大家散了吧。~~
+突然有种想做**全栈AI工程师**(Full Stack AI Engineer)的冲动！自己挖的坑，一定要自己填上。
+~~我吃饭去了，大家继续~~
