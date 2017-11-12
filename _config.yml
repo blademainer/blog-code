@@ -122,7 +122,7 @@ deploy:
 backup:
     type: git
     theme: next
-    message: 新增CNN框架
+    message: 更新next版本至5.1.2
     repository:
        github: https://github.com/Vincentqyw/blog-code.git,master
        coding: https://git.coding.net/vincentqin/blog-code.git,master
