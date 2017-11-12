@@ -379,6 +379,14 @@ han: false
 daovoice:
   enable: true
   app_id: "bba10a5e"
+gitalk:
+  enable: true
+  click_show: false # if true,need to click to show
+  owner: Vincentqyw
+  repo: gitalk
+  client_id: fbf87ffe2080934209fc
+  client_secret: 23048ae0f682b6e34844f41d2b84d171bb7b2854
+  admin: Vincentqyw
 # Disqus
 disqus:
   enable: false
@@ -428,10 +436,10 @@ gitment:
   lazy: false # Comments lazy loading with a button
   cleanly: true # Hide 'Powered by ...' on footer, and more
   language: # Force language, or auto switch by theme
-  github_user: 18531182 # MUST HAVE, Your Github ID
-  github_repo: gitment # MUST HAVE, The repo you use to store Gitment comments
-  client_id: 1d31240899ffa36d1682 # MUST HAVE, Github client id for the Gitment
-  client_secret: cbd11ab5426a0611fee867023066e67ac5eab2e8 # EITHER this or proxy_gateway, Github access secret token for the Gitment
+  github_user: Vincentqyw # MUST HAVE, Your Github ID
+  github_repo: Gitment # MUST HAVE, The repo you use to store Gitment comments
+  client_id: 12c4bbcdc09235fdb668 # MUST HAVE, Github client id for the Gitment
+  client_secret: 31179aa98fb086ba01a75d116fdd2d846cfc9a0d # EITHER this or proxy_gateway, Github access secret token for the Gitment
   proxy_gateway: # Address of api proxy, See: https://github.com/aimingoo/intersect
   redirect_protocol: # Protocol of redirect_uri with force_redirect_protocol when mint enabled
 
