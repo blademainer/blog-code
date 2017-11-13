@@ -8,7 +8,7 @@ var OriginTitile = document.title;
          clearTimeout(titleTime);
      }
      else {
-         $('[rel="icon"]').attr('href', "/favicon.ico");
+         $('[rel="icon"]').attr('href', "/favicon-64x64-vincent.ico");
          document.title = '(ฅ>ω<*ฅ)噫又好了~' + OriginTitile;
          titleTime = setTimeout(function () {
              document.title = OriginTitile;
