@@ -12,8 +12,9 @@ date: 2017-11-07 00:24:45
 ---
 <center><img src="http://oofx6tpf6.bkt.clouddn.com/17-11-7/9721733.jpg" width="75%" Dense-Net></center>
 
-
+{% note %}
 本文来自于CS231N（2017 Spring），将介绍几种较为常见的CNN结构。以下网络均是ImageNet比赛的冠军之作，我们将从网络结构，参数规模，运算量等来描述各个网络的特点。
+{% endnote %}
 
 <!--more-->
 
@@ -31,6 +32,8 @@ date: 2017-11-07 00:24:45
 - [DenseNet](https://github.com/liuzhuang13/DenseNet)
 - FractalNet
 - SqueezeNet
+
+
 
 以下是正文。
 

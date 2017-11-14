@@ -131,7 +131,7 @@ social:
 social_icons:
   enable: true
   icons_only: false
-  transition: false
+  transition: true
 
 # Blog rolls
 #links_icon: link
@@ -140,7 +140,7 @@ social_icons:
 #links_layout: inline
 #links:
   #Title: http://example.com/
-
+links_icon: battery-1 #2
 links_title: Links
 links_layout: inline
 
@@ -379,8 +379,9 @@ han: false
 daovoice:
   enable: true
   app_id: "bba10a5e"
+
 gitalk:
-  enable: true
+  enable: false
   click_show: false # if true,need to click to show
   owner: Vincentqyw
   repo: gitalk
@@ -406,14 +407,15 @@ changyan:
 # Valine.
 # You can get your appid and appkey from https://leancloud.cn
 # more info please open https://valine.js.org
+
 valine:
-  enable: false
-  appid:  # your leancloud application appid
-  appkey:  # your leancloud application appkey
+  enable: true
+  appid: gW2gPJn72UA5SIcq03J1SD94-gzGzoHsz # your leancloud application appid
+  appkey: qRCCImMfpduRBJN8FRj8pJF4 # your leancloud application appkey
   notify: false # mail notifier , https://github.com/xCss/Valine/wiki
   verify: false # Verification code
   placeholder: Just go go # comment box placeholder
-  avatar: mm # gravatar style
+  avatar: retro # gravatar style
   guest_info: nick,mail,link # custom comment header
   pageSize: 10 # pagination size
 
@@ -658,7 +660,7 @@ note:
   #  - modern    bs-callout new (v2-v3) alert style.
   #  - flat      flat callout style with background, like on Mozilla or StackOverflow.
   #  - disabled  disable all CSS styles import of note tag.
-  style: simple
+  style: modern #simple
   icons: false
   border_radius: 3
   # Offset lighter of background in % for modern and flat styles (modern: -12 | 12; flat: -18 | 6).
