@@ -62,6 +62,8 @@ The size of output image is $\frac{N-Conv+2\times Pading}{stride}+1$
 
 ![AlexNet-details](http://oofx6tpf6.bkt.clouddn.com/17-10-24/33818113.jpg)
 
+*后续将使用[Matlab DL 工具包](https://cn.mathworks.com/help/nnet/examples.html?s_cid=doc_flyout#bvljehw)补充Alexnet实验...*
+
 ## VGGNet
 
 The winner of ImageNet Large Scale Visual Recognition Challenge (ILSVRC) 2014.

@@ -190,7 +190,7 @@ toc:
 
 sidebar:
   # Sidebar Position, available value: left | right (only for Pisces | Gemini).
-  position: right
+  position: left
   #position: right
 
   # Sidebar Display, available value (only for Muse | Mist):
@@ -381,8 +381,8 @@ daovoice:
   app_id: "bba10a5e"
 
 gitalk:
-  enable: false
-  click_show: false # if true,need to click to show
+  enable: true
+  click_show: true # if true,need to click to show
   owner: Vincentqyw
   repo: gitalk
   client_id: fbf87ffe2080934209fc
@@ -390,7 +390,7 @@ gitalk:
   admin: Vincentqyw
 # Disqus
 disqus:
-  enable: false
+  enable: true
   shortname: vincentqin
   count: true
 
@@ -661,8 +661,8 @@ note:
   #  - flat      flat callout style with background, like on Mozilla or StackOverflow.
   #  - disabled  disable all CSS styles import of note tag.
   style: modern #simple
-  icons: false
-  border_radius: 3
+  icons: true
+  border_radius: 2
   # Offset lighter of background in % for modern and flat styles (modern: -12 | 12; flat: -18 | 6).
   # Offset also applied to label tag variables. This option can work with disabled note tag.
   light_bg_offset: 0

@@ -2,7 +2,7 @@
 
     {% if theme.gitalk.enable %}
       {% if theme.gitalk.click_show %}
-          <div onclick="showGitalk();" id="gitalk_title" class="gitalk_title">œ‘ æ Gitalk ∆¿¬€</div>
+          <div onclick="showGitalk();" id="gitalk_title" class="gitalk_title">Click Gitalk Comments</div>
       {% endif %}
       <div id="gitalk_container" style="display:none;"></div>
     {% endif %}

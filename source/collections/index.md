@@ -94,6 +94,10 @@ This is a (work in progress) repo for collecting links to data sets, source code
 - [HCI, Heidelberg Collaboratory for Image Processing, Heidelberg University, Germany](http://lightfieldgroup.iwr.uni-heidelberg.de/?page_id=453)
 - *please add more :)*
 
+## Deep Learning Related
+
+- [Deep Learning in Matlab](https://cn.mathworks.com/help/nnet/examples.html?s_cid=doc_flyout#bvljehw)
+- *please add more :)*
 
 ## Others
 - [Free Images](https://unsplash.com/)
