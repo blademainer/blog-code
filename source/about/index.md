@@ -6,7 +6,7 @@ comments: false
 
 ---
 
-# <blockquote class="blockquote-center"> Yanwen Qin (秦延文) </blockquote>
+# [<blockquote class="blockquote-center"> Yanwen Qin (秦延文) </blockquote>](./CV_YanwenQin.pdf)
 
 
 ## BIOGRAPHY
@@ -21,7 +21,7 @@ His current research interests include computational photography and computer vi
  - Email: qin123yw#163.com（replace # with @）
  - Github: https://github.com/Vincentqyw
  - Homepage: https://www.vincentqin.tech
-
+ 
 <br>
 ## RESEARCH INTEREST
 
