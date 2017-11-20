@@ -1,4 +1,4 @@
-# Hexo Configuration
+﻿# Hexo Configuration
 ## Docs: https://hexo.io/docs/configuration.html
 ## Source: https://github.com/hexojs/hexo/
 
@@ -112,7 +112,7 @@ baidu_analytics: c6e58e5665d2cb4a832117302943c909
 deploy:
   type: git
   images: images
-  message: 添加新文章<关于Matlab上使用DL>
+  message: 修复侧边栏留言板显示错误
   repo: 
     github: https://github.com/Vincentqyw/Vincentqyw.github.io.git 
     coding: https://git.coding.net/vincentqin/vincent.coding.me.git
@@ -123,7 +123,7 @@ deploy:
 backup:
     type: git
     theme: next
-    message: 添加新文章<关于Matlab上使用DL>
+    message: 修复侧边栏留言板显示错误
     repository:
        github: https://github.com/Vincentqyw/blog-code.git,master
        coding: https://git.coding.net/vincentqin/blog-code.git,master
