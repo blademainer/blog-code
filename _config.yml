@@ -73,7 +73,7 @@ type: atom
 path: atom.xml
 limit: 20
 
-google_site_verification: google9052d4d2b41d4fe2.html
+#google_site_verification: 
 baidu-site-verification: baidu_verify_MtcbwE45ft.html
 
 # sitemap
@@ -112,7 +112,7 @@ baidu_analytics: c6e58e5665d2cb4a832117302943c909
 deploy:
   type: git
   images: images
-  message: 新增腾讯分析
+  message: 更新google验证
   repo: 
     github: https://github.com/Vincentqyw/Vincentqyw.github.io.git 
     coding: https://git.coding.net/vincentqin/vincent.coding.me.git
@@ -123,7 +123,7 @@ deploy:
 backup:
     type: git
     theme: next
-    message: 新增腾讯分析
+    message: 更新google验证
     repository:
        github: https://github.com/Vincentqyw/blog-code.git,master
        coding: https://git.coding.net/vincentqin/blog-code.git,master
