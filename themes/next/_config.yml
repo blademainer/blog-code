@@ -382,7 +382,7 @@ daovoice:
 
 gitalk:
   enable: true
-  click_show: true # if true,need to click to show
+  click_show: false # if true,need to click to show
   owner: Vincentqyw
   repo: gitalk
   client_id: fbf87ffe2080934209fc
@@ -409,7 +409,7 @@ changyan:
 # more info please open https://valine.js.org
 
 valine:
-  enable: true
+  enable: false
   appid: gW2gPJn72UA5SIcq03J1SD94-gzGzoHsz # your leancloud application appid
   appkey: qRCCImMfpduRBJN8FRj8pJF4 # your leancloud application appkey
   notify: false # mail notifier , https://github.com/xCss/Valine/wiki
@@ -496,7 +496,7 @@ needmoreshare2:
 google_site_verification: u46QTaG_Dv3OZLpOBKYtqyuiNtIdnhSG5ASKoNvGBCM
 
 # Google Analytics
-#google_analytics:
+google_analytics: 97856334-1
 
 # Bing Webmaster tools verification setting
 # See: https://www.bing.com/webmaster/
