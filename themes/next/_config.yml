@@ -314,7 +314,7 @@ font:
   enable: true
 
   # Uri of fonts host. E.g. //fonts.googleapis.com (Default).
-  host:
+  host: 
 
   # Font options:
   # `external: true` will load this font family from `host` above.
@@ -324,8 +324,8 @@ font:
   # Global font settings used on <body> element.
   global:
     external: true
-    family: Monda #Lato
-    size:
+    family: Monda #
+    size: 
 
   # Font settings for Headlines (h1, h2, h3, h4, h5, h6).
   # Fallback to `global` font settings.
@@ -338,7 +338,7 @@ font:
   # Fallback to `global` font settings.
   posts:
     external: true
-    family:
+    family: Garamond
 
   # Font settings for Logo.
   # Fallback to `global` font settings.
