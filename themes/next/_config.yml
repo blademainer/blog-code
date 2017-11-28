@@ -324,8 +324,8 @@ font:
   # Global font settings used on <body> element.
   global:
     external: true
-    family: Monda #
-    size: 
+    family: Monda
+    size:  
 
   # Font settings for Headlines (h1, h2, h3, h4, h5, h6).
   # Fallback to `global` font settings.

@@ -2,6 +2,7 @@
 title: Markdown 学习
 comments: true
 categories: 建站
+mathjax: true
 tags:
   - Markdown
   - 资料
@@ -16,11 +17,148 @@ date: 2016-08-08 22:10:22
 
 <!-- more -->
 
+## Note Tag 测试
+
+``` html
+/**
+ * note.js | global hexo script.
+ *
+ * ATTENTION! No need to write this tag in 1 line if u don't want see probally bugs.
+ *
+ * Usage:
+ *
+ * {% note [class] %}
+ * Any content (support inline tags too).
+ * {% endnote %}
+ *
+ * [class] : default | primary | success | info | warning | danger.
+ *           May be not defined.
+ */
+```
+
+{% note default %}
+### Test note default
+昏鴉盡，小立恨因誰 ?急雪乍翻香閣絮，輕風吹到膽瓶梅，心字已成灰。
+{% endnote %}
+
+{% note primary %}
+### Test note primary
+昏鴉盡，小立恨因誰 ?急雪乍翻香閣絮，輕風吹到膽瓶梅，心字已成灰。
+{% endnote %}
+
+{% note success %}
+### Test note success
+昏鴉盡，小立恨因誰 ?急雪乍翻香閣絮，輕風吹到膽瓶梅，心字已成灰。
+{% endnote %}
+
+{% note info %}
+### Test note info
+昏鴉盡，小立恨因誰 ?急雪乍翻香閣絮，輕風吹到膽瓶梅，心字已成灰。
+{% endnote %}
 
 
-# 插入不同颜色的字体
+{% note warning %}
+### Test note warning
+昏鴉盡，小立恨因誰 ?急雪乍翻香閣絮，輕風吹到膽瓶梅，心字已成灰。
+{% endnote %}
 
-```js
+{% note danger %}
+### Test note danger
+昏鴉盡，小立恨因誰 ?急雪乍翻香閣絮，輕風吹到膽瓶梅，心字已成灰。
+{% endnote %}
+
+
+## Button 标签测试
+
+```html
+Usage: {% button /path/to/url/, text, icon [class], title %}
+Alias: {% btn /path/to/url/, text, icon [class], title %}
+```
+
+### Button内嵌文字
+
+``` html
+{% button #, Text %}{% button #插入不同颜色的字体, 插入不同颜色的字体,heart %}
+```
+{% button #, Text %}{% button #插入不同颜色的字体, 插入不同颜色的字体,heart %}
+
+### Button内嵌logo
+``` html
+<div class="text-center"><span>{% btn ##插入不同颜色的字体,, header %}{% btn #,, edge %}{% btn #,, times %}{% btn #,, circle-o %}</span>
+<span>{% btn #,, italic %}{% btn #,, scribd %}</span>
+<span>{% btn #,, google %}{% btn #,, chrome %}{% btn #,, opera %}{% btn #,, diamond fa-rotate-270 %}</span></div>
+```
+
+<div class="text-center"><span>{% btn #插入不同颜色的字体,插入不同颜色的字体, header %}{% btn #,, edge %}{% btn #,, times %}{% btn #,, circle-o %}</span>
+<span>{% btn #,, italic %}{% btn #,, scribd %}</span>
+<span>{% btn #,, google %}{% btn #,, chrome %}{% btn #,, opera %}{% btn #,, diamond fa-rotate-270 %}</span></div>
+
+
+### Button Margin
+``` html
+<div class="text-center">{% btn #, Almost, adn fa-fw fa-lg %} {% btn #, Over, terminal fa-fw fa-lg %}</div>
+```
+<div class="text-center">{% btn #, Almost, adn fa-fw fa-lg %} {% btn #, Over, terminal fa-fw fa-lg %}</div>
+
+``` html
+<div class="text-right">
+{% btn #, Test is finished., check fa-fw fa-lg, Button tag test is finished. %}
+</div>
+```
+<div class="text-right">
+{% btn #, Test is finished., check fa-fw fa-lg, Button tag test is finished. %}
+</div>
+
+
+
+## Label Tag测试文中字体颜色
+
+``` html
+Lorem {% label @ipsum %} {% label primary@dolor sit %} amet, consectetur {% label success@adipiscing elit, %} sed {% label info@do eiusmod %} tempor incididunt ut labore et dolore magna aliqua.
+
+Ut enim *{% label warning @ad %}* minim veniam, quis **{% label danger @nostrud %}** exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+Duis aute irure dolor in reprehenderit in voluptate ~~{% label default @velit %}~~ <mark>esse</mark> cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+```
+Lorem {% label @ipsum %} {% label primary@dolor sit %} amet, consectetur {% label success@adipiscing elit, %} sed {% label info@do eiusmod %} tempor incididunt ut labore et dolore magna aliqua.
+
+Ut enim *{% label warning @ad %}* minim veniam, quis **{% label danger @nostrud %}** exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+Duis aute irure dolor in reprehenderit in voluptate ~~{% label default @velit %}~~ <mark>esse</mark> cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+## 表格Tag测试
+
+``` html
+{% tabs First unique name %}
+<!-- tab -->
+**This is Tab 1.**
+<!-- endtab -->
+<!-- tab -->
+**This is Tab 2.**
+<!-- endtab -->
+<!-- tab -->
+**This is Tab 3.**
+<!-- endtab -->
+{% endtabs %}
+```
+
+{% tabs First unique name %}
+<!-- tab -->
+**This is Tab 1.**
+<!-- endtab -->
+<!-- tab -->
+**This is Tab 2.**
+<!-- endtab -->
+<!-- tab -->
+**This is Tab 3.**
+<!-- endtab -->
+{% endtabs %}
+
+
+
+### 插入不同颜色的字体
+
+```html
 <table><tr><td bgcolor=LimeGreen><font color=white size=3>我是白色的字体，背景是色的~</font></td></tr></table>
 ```
 
@@ -52,11 +190,7 @@ date: 2016-08-08 22:10:22
 
 
 
-Ref: [颜色](http://blog.csdn.net/testcs_dn/article/details/45719357/)
-
-
-
-# 插入代码
+## 插入代码
 
 
 
@@ -99,7 +233,7 @@ return temp
 
 
 
-```js
+``` markdown
 # 一级标题
 
 ## 二级标题
@@ -113,58 +247,30 @@ return temp
 ###### 六级标题
 ```
 
-# 一级标题
-
-## 二级标题
-
-### 三级标题
-
-#### 四级标题
-
-##### 五级标题
-
-###### 六级标题
 
 
 
 ## 列表
 
-```js
+``` markdown
 - 文本1
-
 - 文本2
-
 - 文本3
-
-
-
 1. 文本一
-
 2. 文本二
-
 3. 文本三
 ```
-
-
 - 文本1
-
 - 文本2
-
 - 文本3
-
-
 1. 文本一
-
 2. 文本二
-
 3. 文本三
-
-
 
 ## 插入图像
 
 
-```js
+``` html
 ![](http://pic1.win4000.com/wallpaper/0/54cae8e69ac8b.jpg)
 ```
 
@@ -172,30 +278,39 @@ return temp
 
 
 或者：
-```js
+``` html
 <center><img src="http://i2.wp.com/posturemag.com/online/wp-content/uploads/2015/07/Kaz7.jpg" width="100%" ></center>
 ```
 
 <center><img src="http://i2.wp.com/posturemag.com/online/wp-content/uploads/2015/07/Kaz7.jpg" width="100%" ></center>
 
 
-# 插入链接
+## 插入链接
 
 - segmentfault上的一个[Markdown学习手册](https://segmentfault.com/markdown)
 - 有道云笔记的Markdown[学习指南-基础篇](http://note.youdao.com/iyoudao/?p=2411)
 - [Git学习手册](http://iissnan.com/progit/)
 
 
-# 插入公式
+## 插入公式
+
+``` math
+$$E=mc^2$$
+```
+$$E=mc^2$$
 
 Hexo文档使用Markdown语言对文档进行编辑，Hexo自身对公式可以进行渲染但是效果不佳，我们采用的是mathjax对Markdown中的公式进行渲染。
 首先[修复Hexo与mathjax之间的渲染冲突](http://2wildkids.com/2016/10/06/%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86Hexo%E5%92%8CMathJax%E7%9A%84%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98/#小结)，然后可以参考mathjax的[说明文档](http://mlworks.cn/posts/introduction-to-mathjax-and-latex-expression/)编辑公式。
 
-[一个关于Latex不短的介绍](http://www.mohu.org/info/lshort-cn.pdf)
-[Latex常用命令摘录](http://www.mohu.org/info/symbols/symbols.htm)
 
 
 
+## 参考
+
+1. [Hexo Theme Next Test](https://almostover.ru/2016-01/hexo-theme-next-test/#)
+2. [Color map](http://blog.csdn.net/testcs_dn/article/details/45719357/)
+3. [一个关于Latex不短的介绍](http://www.mohu.org/info/lshort-cn.pdf)
+4. [Latex常用命令摘录](http://www.mohu.org/info/symbols/symbols.htm)
 
 
 

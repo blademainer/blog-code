@@ -112,7 +112,7 @@ baidu_analytics: c6e58e5665d2cb4a832117302943c909
 deploy:
   type: git
   images: images
-  message: 开启google分析，打开gitalk
+  message: 增加Note Tag使用方法
   repo: 
     github: https://github.com/Vincentqyw/Vincentqyw.github.io.git 
     coding: https://git.coding.net/vincentqin/vincent.coding.me.git
@@ -123,7 +123,7 @@ deploy:
 backup:
     type: git
     theme: next
-    message: 开启google分析，打开gitalk
+    message: 增加Note Tag使用方法
     repository:
        github: https://github.com/Vincentqyw/blog-code.git,master
        coding: https://git.coding.net/vincentqin/blog-code.git,master
