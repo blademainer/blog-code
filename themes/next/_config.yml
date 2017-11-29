@@ -376,32 +376,6 @@ han: false
 # Duoshuo ShortName
 #duoshuo_shortname:
 
-daovoice:
-  enable: true
-  app_id: "bba10a5e"
-
-gitalk:
-  enable: true
-  click_show: false # if true,need to click to show
-  owner: Vincentqyw
-  repo: gitalk
-  client_id: fbf87ffe2080934209fc
-  client_secret: 23048ae0f682b6e34844f41d2b84d171bb7b2854
-  admin: Vincentqyw
-# Disqus
-disqus:
-  enable: true
-  shortname: vincentqin
-  count: true
-
-# Hypercomments
-#hypercomments_id:
-
-# changyan
-changyan:
-  enable: false
-  appid:
-  appkey:
 
 
 # Valine.
@@ -409,15 +383,45 @@ changyan:
 # more info please open https://valine.js.org
 
 valine:
-  enable: false
+  enable: true
   appid: gW2gPJn72UA5SIcq03J1SD94-gzGzoHsz # your leancloud application appid
   appkey: qRCCImMfpduRBJN8FRj8pJF4 # your leancloud application appkey
-  notify: false # mail notifier , https://github.com/xCss/Valine/wiki
+  notify: true # mail notifier , https://github.com/xCss/Valine/wiki
   verify: false # Verification code
   placeholder: Just go go # comment box placeholder
   avatar: retro # gravatar style
   guest_info: nick,mail,link # custom comment header
   pageSize: 10 # pagination size
+
+
+daovoice:
+  enable: false
+  app_id: "bba10a5e"
+
+gitalk:
+  enable: true
+  click_show: true #false # if true,need to click to show
+  owner: Vincentqyw
+  repo: gitalk
+  client_id: fbf87ffe2080934209fc
+  client_secret: 23048ae0f682b6e34844f41d2b84d171bb7b2854
+  admin: Vincentqyw
+
+# Disqus
+disqus:
+  enable: false
+  shortname: vincentqin
+  count: true
+
+# Hypercomments
+# hypercomments_id: 98388
+
+# changyan
+changyan:
+  enable: false
+  appid:
+  appkey:
+
 
 
 # Support for youyan comments system.

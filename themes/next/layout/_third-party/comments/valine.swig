@@ -10,6 +10,7 @@
     });
     new Valine({
         el: '#comments' ,
+        lang:'en',
         verify: {{ theme.valine.verify }},
         notify: {{ theme.valine.notify }},
         appId: '{{ theme.valine.appid }}',
