@@ -11,10 +11,12 @@ abbrlink: 25505
 date: 2017-11-19 01:22:40
 ---
 
-
 ![](http://oofx6tpf6.bkt.clouddn.com/cifar10-fig.jpg)
 
+{%note %}
 最近对深度学习尤其着迷，是时候用万能的Matlab去践行我的DL学习之路了。之所以用Matlab，是因为Matlab真的太强大了！自从大学开始我就一直用这个神奇的软件，算是最熟悉的编程工具。加上最近mathworks公司一大波大佬的不懈努力，在今年下半年发行的R2017b版本中又加入了诸多新颖的[特性](https://cn.mathworks.com/products/new_products/latest_features.html?s_tid=hp_release_2017b&from=timeline&isappinstalled=0)，尤其在[DL](https://cn.mathworks.com/solutions/deep-learning.html)方面，可以发现：仅仅几条简单的代码，就能够实现复杂的功能。基于以上，我在本文列举了几个在Matlab上学习Deep Learning的例子：1. [手写字符识别](#example1)；2. [搭建网络对CIFAR10分类](#example2)；3.[搭建一个Resnet](#example3)。务必保证主机已经安装Matlab 2017a及以上。
+{%endnote%}
+
 <!--more-->
 
 ## <span id="example1">手写字符识别</span>

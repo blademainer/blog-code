@@ -337,7 +337,7 @@ font:
   # Font settings for posts.
   # Fallback to `global` font settings.
   posts:
-    external: true
+    external: false
     family: Garamond
 
   # Font settings for Logo.
@@ -345,13 +345,13 @@ font:
   logo:
     external: true
     family: Lobster Two
-    size: 24
+    size: 30 #24
 
   # Font settings for <code> and code blocks.
   codes:
     external: true
-    family: true
-    size: PT Mono
+    family: PT Mono
+    size: 
 
 
 # ---------------------------------------------------------------

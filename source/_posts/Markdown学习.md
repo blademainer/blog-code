@@ -12,6 +12,8 @@ date: 2016-08-08 22:10:22
 
 <center>{% asset_img i-love-markdown.png %}</center>
 
+<!--<a href="https://www.vincentqin.tech"><img border="0" src="i-love-markdown.png" /></a>-->
+
 本文涉及学习Markdown文本标记语言的一些练习笔记。
 
 
@@ -114,17 +116,36 @@ Alias: {% btn /path/to/url/, text, icon [class], title %}
 ## Label Tag测试文中字体颜色
 
 ``` html
-Lorem {% label @ipsum %} {% label primary@dolor sit %} amet, consectetur {% label success@adipiscing elit, %} sed {% label info@do eiusmod %} tempor incididunt ut labore et dolore magna aliqua.
-
-Ut enim *{% label warning @ad %}* minim veniam, quis **{% label danger @nostrud %}** exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-Duis aute irure dolor in reprehenderit in voluptate ~~{% label default @velit %}~~ <mark>esse</mark> cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+From {% label @fairest creatures %} we desire increase,
+That thereby {% label primary@beauty's rose %} might never die,
+But as the {% label success@riper %} should by time decease,
+His tender heir might {% label info@bear his memory %}:
+But thou contracted to thine own bright eyes,
+Feed'st thy light's flame with *{% label warning @self-substantial fuel%}*,
+Making a famine where ~~{% label default @abundance lies %}~~,
+Thy self thy foe, to thy <mark>sweet self too cruel</mark>:
+Thou that art now the world's fresh ornament,
+And only herald to the gaudy spring,
+Within thine own bud buriest thy content,
+And {% label danger@tender churl mak'st waste in niggarding %}:
+Pity the world, or else this glutton be,
+{% label warning@To eat the world's due, by the grave and thee %}.
 ```
-Lorem {% label @ipsum %} {% label primary@dolor sit %} amet, consectetur {% label success@adipiscing elit, %} sed {% label info@do eiusmod %} tempor incididunt ut labore et dolore magna aliqua.
 
-Ut enim *{% label warning @ad %}* minim veniam, quis **{% label danger @nostrud %}** exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-Duis aute irure dolor in reprehenderit in voluptate ~~{% label default @velit %}~~ <mark>esse</mark> cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+From {% label @fairest creatures %} we desire increase,
+That thereby {% label primary@beauty's rose %} might never die,
+But as the {% label success@riper %} should by time decease,
+His tender heir might {% label info@bear his memory %}:
+But thou contracted to thine own bright eyes,
+Feed'st thy light's flame with *{% label warning @self-substantial fuel%}*,
+Making a famine where ~~{% label default @abundance lies %}~~,
+Thy self thy foe, to thy <mark>sweet self too cruel</mark>:
+Thou that art now the world's fresh ornament,
+And only herald to the gaudy spring,
+Within thine own bud buriest thy content,
+And {% label danger@tender churl mak'st waste in niggarding %}:
+Pity the world, or else this glutton be,
+{% label warning@To eat the world's due, by the grave and thee %}.
 
 ## 表格Tag测试
 
