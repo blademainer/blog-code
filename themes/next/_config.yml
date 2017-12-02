@@ -93,6 +93,7 @@ menu:
   guest_comments: /guestbook || heartbeat
   schedule: /schedule/ || calendar
   about: /about/ || user
+  Friends: /Friends || th
 
 # Enable/Disable menu icons.
 menu_icons:
@@ -127,6 +128,7 @@ social:
   Coding: https://coding.net/vincentqin || code
   Weibo: http://weibo.com/273224402 || weibo # 我的微博地址哈哈 
 #  Twitter: https://twitter.com/Alpha_Qin
+#  Slack: https://vincentqin.slack.com/ || slack
 
 social_icons:
   enable: true
