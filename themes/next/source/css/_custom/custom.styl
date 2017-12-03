@@ -363,16 +363,13 @@ p#div-border-top-purple {
 
 
 
-
-
-
-// 手机端不显示Daovoice
 +mobile() { #daodream-container { display: none; }}
 
 
 $shadowColor	  = #333
 $themeColor       = #222	
-$link-image-size  = 180px;		
+$link-image-size-width   = 180px;		
+$link-image-size-height  = 230px;
 
 .link-body{
 	ul{
@@ -385,10 +382,10 @@ $link-image-size  = 180px;
 
 		.link{
 
-			max-width: $link-image-size; 
-			min-width: $link-image-size; 
-			max-height: $link-image-size; 
-			min-height: $link-image-size; 
+			max-width: $link-image-size-width; 
+			min-width: $link-image-size-width; 
+			max-height: $link-image-size-height; 
+			min-height: $link-image-size-height; 
 
 			position: relative;
 			box-shadow: 0 0 1px $shadowColor;
@@ -415,13 +412,28 @@ $link-image-size  = 180px;
 			}
 			.link-name{
 				position: absolute;
-				bottom: 0;
+				bottom: 53px;
 				width: 100%;
 				color: #666;
 				text-align: center;
-				text-shadow: 0 0 1px rgba(0,0,0,.4);
-				background: rgba(255,255,255,.7);
+				//text-shadow: 0 0 1px rgba(0,0,0,.4);
+				background: rgba(255,255,255,.8);
 			}
+			.link-name-below{
+				position: absolute;
+				bottom: 0;
+				font-size: 13px; 
+				font-weight: 300; 
+				margin: 0 0 15px; 
+				line-height: 13px;
+				width: 100%;
+				color: #666;
+				text-align: center;
+				//text-shadow: 0 0 1px rgba(0,0,0,.4);
+				//background: rgba(255,255,255,.7);
+			}
+
+
 			&:hover{
 				img{
 					
@@ -437,7 +449,9 @@ $link-image-size  = 180px;
 				}
 				.link-name{
 					color: $themeColor;
-					text-shadow: 0 0 1px $themeColor;
+					font-weight: bold;
+					text-align: center;
+					//text-shadow: 0 0 1px $themeColor;
 					
 				}
 			}
