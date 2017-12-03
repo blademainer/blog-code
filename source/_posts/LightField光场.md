@@ -10,7 +10,7 @@ tags:
   - Light Field
 abbrlink: 61110
 date: 2017-02-16 10:45:54
-updated: 2017-11-06 14:30:30
+updated: 2017-12-03 14:30:30
 top: 1000
 ---
 
@@ -262,19 +262,10 @@ toc
 
 ___
 
-## Lytro官网可视化工具
+~~## Lytro官网可视化工具~~
 
-谁让人家Lytro不开源呢，人家自己做的Demo还不错。通过鼠标就可以对以下图像进行**重聚焦，变化视角，以及缩放**等操作。话不多说，上图！
-
-<center><iframe width='600' height='434' src='https://pictures.lytro.com/89268543555/pictures/1083179/embed' frameborder='0' allowfullscreen scrolling='no'></iframe></center>
-
-<center><iframe width='600' height='434' src='https://pictures.lytro.com/michaelsternoffphoto/pictures/1030057/embed' frameborder='0' allowfullscreen scrolling='no'></iframe></center>
-
-<center><iframe width='600' height='434' src='https://pictures.lytro.com/karinaguillenphoto/pictures/926574/embed' frameborder='0' allowfullscreen scrolling='no'></iframe></center>
-
-<center><iframe width='600' height='434' src='https://pictures.lytro.com/karinaguillenphoto/pictures/1004450/embed' frameborder='0' allowfullscreen scrolling='no'></iframe></center>
-
-更多图像在[这里](https://pictures.lytro.com/)。
+~~谁让人家Lytro不开源呢，人家自己做的Demo还不错。通过鼠标就可以对以下图像进行**重聚焦，变化视角，以及缩放**等操作。话不多说，上图！~~ 呵，人家公司在2017年11月30号之后停止了对lytro live photo的线上支持，所以以下啥都没有了。
+<!--<center><iframe width='600' height='434' src='https://pictures.lytro.com/89268543555/pictures/1083179/embed' frameborder='0' allowfullscreen scrolling='no'></iframe></center> <center><iframe width='600' height='434' src='https://pictures.lytro.com/michaelsternoffphoto/pictures/1030057/embed' frameborder='0' allowfullscreen scrolling='no'></iframe></center> <center><iframe width='600' height='434' src='https://pictures.lytro.com/karinaguillenphoto/pictures/926574/embed' frameborder='0' allowfullscreen scrolling='no'></iframe></center> <center><iframe width='600' height='434' src='https://pictures.lytro.com/karinaguillenphoto/pictures/1004450/embed' frameborder='0' allowfullscreen scrolling='no'></iframe></center>更多图像在[这里](https://pictures.lytro.com/)。-->
 
 日常来首歌曲：
 <center><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=600 height=86 src="http://music.163.com/outchain/player?type=2&id=33538955&auto=0&height=66"></iframe></center>

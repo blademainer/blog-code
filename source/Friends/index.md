@@ -50,9 +50,9 @@ That friends should come to one from afar, is this not after all delightful?
 
 
 <!--next begin-->
-        <li class="link"><a href="https://github.com/iissnan/hexo-theme-next" title="Elegant theme for Hexo" target="_blank">
-        <img src= "index/next.png" alt="NexT"/>
-        <span class="link-name"> NexT</span></a></li>
+        <li class="link"><a href="https://hesperme.wordpress.com/" title="Hesper是琛琛" target="_blank">
+        <img src= "index/hesper1.png" alt="hesper"/>
+        <span class="link-name"> Hesper</span></a></li>
 <!--next end-->
 
 
@@ -61,10 +61,6 @@ That friends should come to one from afar, is this not after all delightful?
         <img src= "index/ehlxr.jpg" alt="ehlxr"/>
         <span class="link-name"> Ehlxr</span></a></li>
 <!--ehlxr end-->
-
-
-
-
 
 
 
