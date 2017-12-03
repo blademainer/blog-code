@@ -370,9 +370,9 @@ p#div-border-top-purple {
 +mobile() { #daodream-container { display: none; }}
 
 
-$shadowColor	  = #555
-$themeColor       = #4b0909	
-$link-image-size  = 150px;		
+$shadowColor	  = #333
+$themeColor       = #222	
+$link-image-size  = 200px;		
 
 .link-body{
 	ul{
@@ -391,7 +391,7 @@ $link-image-size  = 150px;
 			min-height: $link-image-size; 
 
 			position: relative;
-			box-shadow: 0 0 4px $shadowColor;
+			box-shadow: 0 0 1px $shadowColor;
 			magin: 6px;
 			width: 20%;
 			list-style: none!important;
@@ -434,57 +434,6 @@ $link-image-size  = 150px;
 					overflow: hidden;
 					//transition: scale(1.2);
 					border-radius: 0 0 0 0;
-				}
-				.link-name{
-					color: $themeColor;
-					text-shadow: 0 0 1px $themeColor;
-					
-				}
-			}
-		}
-	}
-}
-
-
-.link-body-images-layout{
-	ul{
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		flex-wrap: wrap;
-		margin: 0;
-		padding: 0;
-
-		.link{
-
-			max-width: 289px; 
-			min-width: 289px; 
-			max-height: 289px; 
-			min-height: 289px; 
-
-			position: relative;
-			box-shadow: 0 0 4px $shadowColor;
-			magin: 6px;
-			width: 20%;
-			list-style: none!important;
-			overflow: hidden;
-			//border-radius: 6px;
-			img{
-				object-fit: cover;
-				transition: transform .6s ease-out;				
-			}
-			.link-name{
-				position: absolute;
-				bottom: 0;
-				width: 100%;
-				color: #666;
-				text-align: center;
-				text-shadow: 0 0 1px rgba(0,0,0,.4);
-				background: rgba(255,255,255,.7);
-			}
-			&:hover{
-				img{				
-					overflow: hidden;
 				}
 				.link-name{
 					color: $themeColor;

@@ -8,6 +8,7 @@ NexT.utils = NexT.$u = {
     $('.content img')
       .not('[hidden]')
       .not('.group-picture img, .post-gallery img')
+      .not('a img') // Exclude img in link from fancybox
       .each(function () {
         var $image = $(this);
         var imageTitle = $image.attr('title');

@@ -90,10 +90,10 @@ menu:
   categories: /categories/ || th
 # sitemap: /sitemap.xml || sitemap
   collections: /collections || diamond
-  guest_comments: /guestbook || heartbeat
+  guest_comments: /guestbook || send
   schedule: /schedule/ || calendar
   about: /about/ || user
-  Friends: /Friends || th
+  Friends: /Friends || address-card-o
 
 # Enable/Disable menu icons.
 menu_icons:
@@ -148,22 +148,22 @@ links_layout: inline
 
 links:
   Hexo: http://theme-next.iissnan.com/faqs.html
-  Theme: http://blog.ynxiu.com/2016/hexo-next-theme-optimize.html
-  DandyWeng: http://www.dandyweng.com/
+  #Theme: http://blog.ynxiu.com/2016/hexo-next-theme-optimize.html
+  #DandyWeng: http://www.dandyweng.com/
   #IIssnan: http://notes.iissnan.com/
-  Simshang: http://simtalk.cn/
-  Tomato: https://sttomato.github.io
-  Newdee: https://newdee.cf/
-  FENG: https://bojackchen.github.io/about/
-  Ehlxr: https://ehlxr.me/about/
+  #Simshang: http://simtalk.cn/
+  #Tomato: https://sttomato.github.io
+  #Newdee: https://newdee.cf/
+  #FENG: https://bojackchen.github.io/about/
+  #Ehlxr: https://ehlxr.me/about/
   #建站: https://zhuanlan.zhihu.com/p/24171691
   #Git: http://backlogtool.com/git-guide/cn
   FontAwesome: http://fontawesome.io/icons/
-  Interactive: http://strml.net/
-  CloudFlare: https://www.cloudflare.com/a/dns/vincentqin.tech
-  Markdown: https://jbt.github.io/markdown-editor/
-  Qiniu: https://portal.qiniu.com/bucket/blogdata/resource
-  TuKu: http://jiantuku.com/#/
+  #Interactive: http://strml.net/
+  #CloudFlare: https://www.cloudflare.com/a/dns/vincentqin.tech
+  #Markdown: https://jbt.github.io/markdown-editor/
+  #Qiniu: https://portal.qiniu.com/bucket/blogdata/resource
+  #TuKu: http://jiantuku.com/#/
 #  Hackmd: https://hackmd.io/
 
 
