@@ -68,6 +68,5 @@ That friends should come to one from afar, is this not after all delightful?
 
 
 
-
 	</ul>
 </div>

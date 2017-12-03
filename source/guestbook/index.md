@@ -7,7 +7,7 @@ type: guestbook
 ---
 
 
-<blockquote class="blockquote-center"> Say Something 一句话证明你来过 </blockquote>
+<blockquote class="blockquote-center"> You can leave your opinion here </blockquote>
 
 <center><img src="/images/logo.png" width="50%" site logo></center>
 

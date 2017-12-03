@@ -1,8 +1,10 @@
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
 {% if theme.valine.enable and theme.valine.appid and theme.valine.appkey %}
-  
-  <script type="text/javascript">
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+
+    <script type="text/javascript">
     var GUEST = ['nick','mail','link'];
     var guest = '{{ theme.valine.guest_info }}';
     guest = guest.split(',').filter(item=>{
