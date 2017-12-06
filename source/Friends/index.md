@@ -22,7 +22,7 @@ That friends should come to one from afar, is this not after all delightful?
 	<ul>
     
 <!--simshang begin-->
-		<li class="link"><a href="http://simtalk.cn/" title="" target="_blank" >
+	<li class="link"><a href="http://simtalk.cn/" title="" target="_blank" >
         <img src= "index/simshang.jpg" alt=""/>
         <span class="link-name"> Simshang</span>
         <span class="link-name-below"> Technical oriented Man.</span>
