@@ -43,5 +43,20 @@ comments: false
 **`2017年11月15日11:10:54`**
 
 抽时间看一下[Deep Learning in Matlab](http://cn.mathworks.com/help/nnet/ug/deep-learning-in-matlab.html)，现在已经装好Matlab2017b，赶紧行动起来。[click link here](http://blog.csdn.net/Mr_Curry/article/details/53160914?locationNum=4&fps=1)
+{% endnote %}
+
+
+{% note %}
+**`2017年12月8日21:56:03`**
+
+在两个月前就已经把博客同时托管在github和coding上了。因为国内访问的话coding是比较快的，所以我把博客部署到了coding的静态pages。今天抽了点时间把博客重新部署在了coding最近公测的**动态pages**，发现访问速度变快了，非常棒！
+
+
+
+
+
+
+
+
 
 {% endnote %}

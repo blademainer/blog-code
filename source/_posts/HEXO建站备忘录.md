@@ -196,6 +196,28 @@ $link-image-size  = 180px;
 </div>
 ```
 
+## 增加gitter即时聊天到sidebar
+
+在`themes\next\layout\_layout.swig`的`</body>`前增加如下代码：
+``` html
+  <!-- add gitter on sidebar -->
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'vincentqin-blog-chat/Lobby'
+    };
+  </script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+```
+
+然后在`themes\next\source\css\_custom\custom.styl`里增加如下设置：
+``` css
+// adjust the position
+.gitter-open-chat-button {
+      right: 20px;
+	  padding: 10px;
+	  background-color: #555;	  
+}
+```
 
 ## MarkDown编辑器
 

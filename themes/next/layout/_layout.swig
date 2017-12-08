@@ -96,5 +96,18 @@
 
   <!-- 页面点击小红心 -->
   <script type="text/javascript" src="/js/src/love.js"></script>
+
+  <!-- add gitter on sidebar -->
+
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'vincentqin-blog-chat/Lobby'
+    };
+  </script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+
 </body>
+
+
 </html>
