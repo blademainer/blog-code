@@ -1,8 +1,13 @@
 
 ## Welcome
+😀 This is remote source files of my personal [blog](www.vincentqin.tech)🤙. The code is deployed to my [github](https://github.com/Vincentqyw/Vincentqyw.github.io) and [coding](https://coding.net/u/vincentqin/p/vincent.coding.me/git). You are welcome to visit my blog, here is the screenshot of it.
+![](http://oofx6tpf6.bkt.clouddn.com/17-12-9/90754588.jpg)
 
-This is remote source files of my personal [blog](www.vincentqin.tech). The code is deployed to my [github](https://github.com/Vincentqyw/Vincentqyw.github.io) and [coding](https://coding.net/u/vincentqin/p/vincent.coding.me/git). You are welcome to visit my blog, here is the screenshot of it.
-![](http://oofx6tpf6.bkt.clouddn.com/17-10-30/3047920.jpg)
+I also put [gitter](https://gitter.im) on the sidebar, we can have a conversation at any time.
+![](http://oofx6tpf6.bkt.clouddn.com/17-12-9/85243611.jpg)
+
+Addtionally, some of my friends are listed here. If you are intereted in them, have you time to visit their homepages.
+![](http://oofx6tpf6.bkt.clouddn.com/17-12-9/92978310.jpg)
 
 The blog is powered by [Hexo](https://hexo.io/), and one of the most popular theme [Next](http://theme-next.iissnan.com/). Thanks to the anthors of these open sources.
 
