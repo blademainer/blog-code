@@ -108,7 +108,7 @@ img:hover {
 ``` bash
 hexo new page Friends
 ```
-新建样式，进入`E:\Blog-new-gitment-new-theme\themes\next\source\css\_custom\custom.styl`，在最后新加上几行代码:
+新建样式，进入`themes\next\source\css\_custom\custom.styl`，在最后新加上几行代码:
 
 ``` css
 $shadowColor	  = #333;
@@ -198,7 +198,7 @@ $link-image-size  = 180px;
 
 ## 增加gitter即时聊天到sidebar
 
-在`themes\next\layout\_layout.swig`的`</body>`前增加如下代码：
+参考[sidecar](https://sidecar.gitter.im)的示例，在`themes\next\layout\_layout.swig`的`</body>`前增加如下代码：
 ``` html
   <!-- add gitter on sidebar -->
   <script>
@@ -211,13 +211,21 @@ $link-image-size  = 180px;
 
 然后在`themes\next\source\css\_custom\custom.styl`里增加如下设置：
 ``` css
-// adjust the position
+// adjust the position of gitter
 .gitter-open-chat-button {
       right: 20px;
 	  padding: 10px;
-	  background-color: #555;	  
+	  background-color: #777;
+}
+
+@media (max-width: 600px) {
+    .gitter-open-chat-button,
+    .gitter-chat-embed {
+        display: none;
+    }
 }
 ```
+这里是我[custom.styl](https://github.com/Vincentqyw/blog-code/blob/master/themes/next/source/css/_custom/custom.styl)所有配置，仅供参考。
 
 ## MarkDown编辑器
 
