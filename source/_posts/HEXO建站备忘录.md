@@ -225,6 +225,27 @@ $link-image-size  = 180px;
     }
 }
 ```
+
+
+## 添加页面背景
+
+将背景图片放在`themes\next\source\images`下，例如bg.jpg，然后`themes\next\source\css\_custom\custom.styl`里增加如下设置：
+``` css
+@media screen and (min-width:1200px) {
+
+    body {
+	background:url(/images/bg.jpg);
+    background-repeat: no-repeat;
+    background-attachment:fixed; // 鼠标滚动背景不动
+    background-position:50% 50%;
+    }
+    #footer {
+        color:#c8c8c8;
+    }
+}
+```
+
+
 这里是我[custom.styl](https://github.com/Vincentqyw/blog-code/blob/master/themes/next/source/css/_custom/custom.styl)所有配置，仅供参考。
 
 ## MarkDown编辑器
