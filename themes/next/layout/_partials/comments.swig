@@ -1,11 +1,12 @@
 {% if page.comments %}
 
-    {% if theme.gitalk.enable %}
+  {% if theme.gitalk.enable %}
       {% if theme.gitalk.click_show %}
           <div onclick="showGitalk();" id="gitalk_title" class="gitalk_title">Click Gitalk Comments</div>
       {% endif %}
       <div id="gitalk_container" style="display:none;"></div>
-    {% endif %}
+  {% endif %}
+	
   {% if (theme.duoshuo and theme.duoshuo.shortname) or theme.duoshuo_shortname %}
     <div class="comments" id="comments">
       <div class="ds-thread" data-thread-key="{{ page.path }}"

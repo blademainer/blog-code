@@ -422,5 +422,7 @@ git push    # 上传到远程仓库（站点目录、next主题目录、node_mod
 Good luck:)
 
 
+## 参考
 
+[主题优化](https://reuixiy.github.io/technology/computer/computer-aided-art/2017/06/09/hexo-next-optimization.html)
 
