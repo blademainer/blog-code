@@ -51,12 +51,12 @@ comments: false
 
 在两个月前就已经把博客同时托管在github和coding上了。因为国内访问的话coding是比较快的，所以我把博客部署到了coding的静态pages。今天抽了点时间把博客重新部署在了coding最近公测的**动态pages**，发现访问速度变快了，非常棒！
 
-
-
-
-
-
-
-
-
 {% endnote %}
+
+
+
+{% note%}
+**`2017年12月18日13:27:47`**
+发现[jekyl](http://jekyllthemes.org/)主题模板挺不错，有时间可以仔细看看~
+
+{% endnote%}
