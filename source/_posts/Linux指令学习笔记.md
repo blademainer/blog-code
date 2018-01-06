@@ -15,6 +15,7 @@ date: 2017-05-06 17:04:20
 
 今天看了基本的<span id="inline-purple">Linux</span>指令以及<span id="inline-red">makefile</span>的写法，大体总结了一下。
 <!--more-->
+
 ## 常用指令及意义
 - **root** 表示根目录
 - **cd** path 切换到path目录， cd / 切换到根目录
@@ -50,6 +51,37 @@ date: 2017-05-06 17:04:20
 file.txt`
 同样可以用二进制设置权限 `chmod 444 file.txt`，表示：u,g,o都只有读的权限。
 
+
+## 远程连接服务器
+
+``` bash
+ssh username@server_IP_address
+```
+之后会提示输入密码。
+
+## 远程拷贝文件
+和`cp`一样，我们改用`scp`。在本机键入如下命令，其中file是本地的文件，后面的一长串是目标主机的以及其相应目录。
+
+``` bash
+scp -f file username@serverIP:/yourfolder
+```
+
+## 监视GPU状态
+
+``` bash
+ watch -n 0.2 nvidia-smi
+```
+
+## 无法连接远程服务器
+
+首先明确两点：
+- make sure you have connected the internet.
+- make sure you have installed `openssh-server`, if not, you can install it by using the following comands:
+
+``` bash
+sudo apt-get update
+sudo apt-get install openssh-server
+```
 
 
 
