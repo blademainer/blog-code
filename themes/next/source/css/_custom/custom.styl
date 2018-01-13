@@ -20,6 +20,91 @@ code {color:#c7254e;background:#f9f2f4;border:1px solid #d6d6d6;}
   }
 }
 
+// 增大post之间的margin 
+.post {
+    margin-bottom: 30px;
+    //padding: 45px 36px 36px 36px;
+    //box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255,0.8);
+}
+
+// delete the border of image
+.posts-expand .post-body img {
+    border: none;
+    padding: 0px;
+}
+
+// [Read More]按钮样式: 黑底绿字
+.post-button .btn:hover {
+	
+    color: rgb(136, 255, 13) !important;
+	background-color: rgba(0, 0, 0, 0.75); //black
+}
+// 页面底部页码
+.pagination .page-number.current {
+	
+    border-radius: 100%;
+    background-color: rgba(100, 100, 100, 0.75);
+}
+// 页面底部页码, 去除鼠标置于上方时，数字上方的线
+.pagination .prev, .pagination .next, .pagination .page-number {
+    margin-bottom: 10px;
+    border: none;
+	color: rgb(1, 1, 1);
+}
+
+// 页面底部页码，鼠标置于上方，黑底绿字
+.page-number:hover,.page-number:active{
+	color: rgb(136, 255, 13);
+	border-radius: 100%;
+    //background-color: rgba(255, 0, 100, 0.75); //品红
+	background-color: rgba(0, 0, 0, 0.75); //black
+	
+}
+.pagination .space {
+    color: rgb(0, 0, 0);
+}
+.pagination {
+    border: none;
+    margin: 0px;
+}
+
+// 已运行时间
+#days {
+    display: block;
+    color: rgba(0, 0, 0,0.75);
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+// 自定义页脚跳动的心样式
+@keyframes heartAnimate {
+    0%,100%{transform:scale(1);}
+    10%,30%{transform:scale(0.9);}
+    20%,40%,60%,80%{transform:scale(1.1);}
+    50%,70%{transform:scale(1.1);}
+}
+#heart {
+    animation: heartAnimate 1.0s ease-in-out infinite;
+}
+.with-love {
+    color: rgb(236, 25, 27);
+}
+
+// 自定义的文章置顶样式
+.post-sticky-flag {
+    font-size: inherit;
+    float: right;
+    color: rgb(0, 0, 0);
+    cursor: help;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+}
+.post-sticky-flag:hover {
+    color: #07b39b;
+}
+
 
 // 下载样式
 a#download {
@@ -36,7 +121,6 @@ a#download {
 		color: #fff;
 	}
 }
-
 
 // 颜色块-黄
 span#inline-yellow {

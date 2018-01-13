@@ -1,3 +1,4 @@
+
 ---
 title: Light Field 光场以及MATLAB光场工具包(LightField ToolBox)的使用说明
 comments: true
@@ -11,13 +12,16 @@ tags:
 abbrlink: 61110
 date: 2017-02-16 10:45:54
 updated: 2017-12-03 14:30:30
-top: 1000
+sticky: 1000
 ---
 
-<center>{% asset_img lf_cover.jpg Magic Leap %}</center>
 
+<img src="http://oofx6tpf6.bkt.clouddn.com/18-1-13/91252468.jpg" alt="Magic Leap">
+
+{%note success%}
 [这里](https://www.vincentqin.tech/collections/)我汇总了有关光场（Light Field）一些有用的链接以及光场数据的处理过程。目前还在整理中，随时更新。
-<span id="inline-red">声明</span>：<u>**一切理解都是本人观点，如有疑问，还望在**评论**中留言。如需转载请与本人联系，谢谢合作**</u>! 邮箱：[点我](www.vincentqin.tech/about)
+<span id="inline-red">声明</span>：<u>**一切理解都是本人观点，如有疑问，还望在**评论**中留言。如需转载请与本人联系，谢谢合作**</u>! 邮箱：[点我](/about)
+{%endnote%}
 
 <!-- more -->
 
@@ -107,7 +111,7 @@ DecodeOptions = LFDefaultField( 'DecodeOptions', 'WhiteImageDatabasePath'...
 ```
 
 经过这样的修改之后，这下应该可以跑了。我们可以得到以下图像：
-<center><img src="deer.png" width="80%" ></center>
+<center><img src="deer.jpg" width="80%" ></center>
 
 
 局部放大效果图：

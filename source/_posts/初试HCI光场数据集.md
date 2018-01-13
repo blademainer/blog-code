@@ -9,21 +9,22 @@ tags:
   - Light Field
 abbrlink: 20681
 date: 2017-04-30 14:22:20
+sticky: 20
 ---
 
 <center>{% asset_img buddha2.gif Buddha2%}</center>
 
-<p id="div-border-left-green"> 好的数据集是做出漂亮实验的必要条件</p>
-
+{%note success%}
+好的数据集是做出漂亮实验的必要条件.
+<span id="inline-red">声明</span>：<u>一切理解都是本人观点，如有疑问，还望在**评论**中留言。如需转载请与本人联系，谢谢合作</u>! 邮箱：[点我](/about)
+{%endnote%}
 <!--more-->
 
-<span id="inline-red" >声明</span>：一切理解都是本人观点，如有错误，还望指出。如需转载请与本人联系，谢谢合作！邮箱：[qin123yw@163.com](mailto:qin123yw@163.com)
-
 ## Wanner光场数据集
-目前光场数据集有如下几种主流的数据集：
-1. [斯坦福大学光场数据集](http://lightfield.stanford.edu/lfs.html)
-2. [Wanner(HCI)数据集](http://lightfieldgroup.iwr.uni-heidelberg.de/?page_id=713)(Old 4D Light Field Benchmark)
-3. [4D Light Field Dataset](http://hci-lightfield.iwr.uni-heidelberg.de/)(Konstanz大学与Heidelberg大学的HCI合作,New 4D Light Field Benchmark)
+目前光场数据集有如下几种主流的数据集，
+1. [斯坦福大学光场数据集](http://lightfield.stanford.edu/lfs.html)；
+2. [Wanner(HCI)数据集](http://lightfieldgroup.iwr.uni-heidelberg.de/?page_id=713)(Old 4D Light Field Benchmark)；
+3. [4D Light Field Dataset](http://hci-lightfield.iwr.uni-heidelberg.de/)(Konstanz大学与Heidelberg大学的HCI合作,New 4D Light Field Benchmark)。
 
 下面对Wanner数据集进行讨论。学习光场的同学应该很熟悉Wanner提供的数据集共有**10**个场景，分别是：
 1. Buddha
