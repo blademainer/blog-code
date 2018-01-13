@@ -13,7 +13,7 @@
   	a.coding a.visited {color:#999999;text-decoration:none;} 
   	a.coding a.active {color:#999999;text-decoration:none;} 
   </style>  
-  <span>Hosted by <a href="https://pages.coding.me" style="font-weight: bold" class="coding">Coding Pages</a></span>
+  <span>Hosted by <a href="https://pages.coding.me" style="font-weight: bold;" id="coding">Coding Pages</a></span>
 
   {% if theme.post_wordcount.totalcount %}
     <span class="post-meta-divider">|</span>
