@@ -16,7 +16,7 @@ sticky: 20
 
 {%note success%}
 好的数据集是做出漂亮实验的必要条件.
-<span id="inline-red">声明</span>：<u>一切理解都是本人观点，如有疑问，还望在**评论**中留言。如需转载请与本人联系，谢谢合作</u>! 邮箱：[点我](/about)
+<span id="inline-red">声明</span>：<u>一切理解都是本人观点，如有疑问，还望在**评论**中留言。如需转载请与本人联系，谢谢合作</u>! 邮箱：[点我](/about#CONTACT INFORMATION)
 {%endnote%}
 <!--more-->
 
