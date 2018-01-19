@@ -9,7 +9,7 @@ tags:
   - Light Field
 abbrlink: 20681
 date: 2017-04-30 14:22:20
-sticky: 20
+
 ---
 
 <center>{% asset_img buddha2.gif Buddha2%}</center>
