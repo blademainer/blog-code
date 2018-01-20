@@ -35,14 +35,12 @@ hexo new blog_name #　新建以blog_name为名的blog
 另外：[显示文章阅读量](https://notes.wanghao.work/2015-10-21-%E4%B8%BANexT%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD.html#%E9%85%8D%E7%BD%AELeanCloud)， 服务主要用了[LeanCloud](https://leancloud.cn/)服务提供商
 
 
-## 主题设置
-[Make the theme more beautiful, recommended](http://www.arao.me/)
+## 官方主题设置
 
-Plus: 我使用的是[Next](http://theme-next.iissnan.com/)主题
+我使用的是[Next](http://theme-next.iissnan.com/)主题， [Make the theme more beautiful, recommended](http://www.arao.me/)
 
-
-## 关于多说
-多说已死，~~评论系统转到了Disqus，但是被墙的事实让人感觉不爽~~。几经周折，从多说转到Disqus，然后在gitment和gitalk之间徘徊，最后还是选择了[valine](https://valine.js.org/#/)，不过它只能在中国区进行评论，于是我还是保留了gitalk。于是我总结出来我属于爱折腾的那种人。
+## 关于评论系统
+多说已死，~~评论系统转到了Disqus，但是被墙的事实让人感觉不爽~~。几经周折，从多说转到Disqus，然后在gitment和gitalk之间徘徊，最后还是选择了[valine](https://valine.js.org/#/)，不过它只能在中国区进行评论，于是我还是保留了gitalk。然后，最后的最后我还是选择了**Hypercomment**。
 
 ## 关于旋转头像
 
@@ -79,7 +77,6 @@ img:hover {
   -moz-transform: rotateZ(360deg);
   transform: rotateZ(360deg);
 }
-```language
 ```
 
 ## 背景颜色设置
@@ -196,7 +193,7 @@ $link-image-size  = 180px;
 </div>
 ```
 
-## 增加gitter即时聊天到sidebar
+## 增加Gitter
 
 参考[sidecar](https://sidecar.gitter.im)的示例，在`themes\next\layout\_layout.swig`的`</body>`前增加如下代码：
 ``` html
@@ -383,7 +380,7 @@ themes/
 
 ``` bash
 # 创建仓库
-git init    
+git init
 # 为本地仓库添加文件
 git add -A
 # 提交到本地仓库
@@ -410,6 +407,7 @@ git push --set-upstream origin another-branch
 #### 设置node_modules远程仓库
 之所以将这个模块单独拎出来处理，是因为这个文件夹虽然容量不大，但是其中文件个数特别多。当和blog源文件一同被`git add`到暂存区之后，git shell的运行速度就会超慢。我的解决思路就是将其创建成一个仓库，这样git shell的速度就会快一些。具体步骤不再赘述，同上。
 
+
 ### 结语
 经过建立以上的3个仓库，实现了blog源码级别的版本管理。当然，如果你不想暴露自己的源码，那么你只需要在coding申请一个私有仓库并部署就ok了。虽然看起来有些麻烦，但是一旦配置完毕之后，我们就只需要以下几个步骤就可以实现管理。
 ``` bash
@@ -421,6 +419,496 @@ git push    # 上传到远程仓库（站点目录、next主题目录、node_mod
 ```
 Good luck:)
 
+## 所有配置集锦
+
+最后附上我的全部配置。文件位置：`themes\next\source\css\_custom\custom.styl`。
+``` css
+// Custom styles.
+
+//修改文章内code样式
+code {color:#c7254e;background:#f9f2f4;border:1px solid #d6d6d6;}
+
+//修改文章中图片样式，改为居中
+.posts-expand .post-body img {
+	margin: 0 auto;
+}
+
+// 更改文中链接的颜色
+.post-body p a {
+  color: $orange;
+  text-decoration: none;
+  border-bottom: 1;
+  &:hover {
+    color: $blue;
+    //text-decoration: underline;
+  }
+}
+
+// 增大post之间的margin
+.post {
+    margin-bottom: 30px;
+    //padding: 45px 36px 36px 36px;
+    //box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255,0.8);
+}
+// delete the border of image
+.posts-expand .post-body img {
+    border: none;
+    padding: 0px;
+}
+
+// [Read More]按钮样式: 黑底绿字
+.post-button .btn:hover {
+    color: rgb(136, 255, 13) !important;
+	background-color: rgba(0, 0, 0, 0.75); //black
+}
+// 页面底部页码
+.pagination .page-number.current {
+    border-radius: 100%;
+    background-color: rgba(100, 100, 100, 0.75);
+}
+// 页面底部页码, 去除鼠标置于上方时，数字上方的线
+.pagination .prev, .pagination .next, .pagination .page-number {
+    margin-bottom: 10px;
+    border: none;
+	color: rgb(1, 1, 1);
+}
+
+// 页面底部页码，鼠标置于上方，黑底绿字
+.page-number:hover,.page-number:active{
+	color: rgb(136, 255, 13);
+	border-radius: 100%;
+    //background-color: rgba(255, 0, 100, 0.75); //品红
+	background-color: rgba(0, 0, 0, 0.75); //black
+}
+.pagination .space {
+    color: rgb(0, 0, 0);
+}
+.pagination {
+    border: none;
+    margin: 0px;
+}
+
+// 已运行时间
+#days {
+    display: block;
+    color: rgba(0, 0, 0,0.75);
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+// 自定义页脚跳动的心样式
+@keyframes heartAnimate {
+    0%,100%{transform:scale(1);}
+    10%,30%{transform:scale(0.9);}
+    20%,40%,60%,80%{transform:scale(1.1);}
+    50%,70%{transform:scale(1.1);}
+}
+#heart {
+    animation: heartAnimate 1.0s ease-in-out infinite;
+}
+.with-love {
+    color: rgb(236, 25, 27);
+}
+
+// 自定义的文章置顶样式
+.post-sticky-flag {
+    font-size: inherit;
+    float: right;
+    color: rgb(0, 0, 0);
+    cursor: help;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+}
+.post-sticky-flag:hover {
+    color: #07b39b;
+}
+
+// 右下角返回顶部按钮样式
+
+.back-to-top:hover {
+    color: rgb(136, 255, 13);
+	background-color: rgba(0, 0, 0, 0.75); //black
+}
+
+// 下载样式
+a#download {
+	display: inline-block;
+	padding: 0 10px;
+	color: #000;
+	background: transparent;
+	border: 2px solid #000;
+	border-radius: 2px;
+	transition: all .5s ease;
+	font-weight: bold;
+	&:hover {
+		background: #000;
+		color: #fff;
+	}
+}
+
+// 颜色块-黄
+span#inline-yellow {
+	display:inline;
+//	padding:.2em .6em .3em;
+	padding:.1em .4em .1em;
+	font-size:90%;
+	font-weight:bold;
+	line-height:1;
+	color:#fff;
+	text-align:center;
+	white-space:nowrap;
+	vertical-align:baseline;
+	border-radius:0;
+	background-color: #f0ad4e;
+}
+// 颜色块-绿
+span#inline-green {
+	display:inline;
+//	padding:.2em .6em .3em;
+	padding:.1em .4em .1em;
+	font-size:90%;
+	font-weight:bold;
+	line-height:1;
+	color:#fff;
+	text-align:center;
+	white-space:nowrap;
+	vertical-align:baseline;
+	border-radius:0;
+	background-color: #5cb85c;
+}
+// 颜色块-蓝
+span#inline-blue {
+	display:inline;
+//	padding:.2em .6em .3em;
+	padding:.1em .4em .1em;
+	font-size:90%;
+	font-weight:bold;
+	line-height:1;
+	color:#fff;
+	text-align:center;
+	white-space:nowrap;
+	vertical-align:baseline;
+	border-radius:0;
+	background-color: #2780e3;
+}
+// 颜色块-紫
+span#inline-purple {
+	display:inline;
+//	padding:.1em .2em .1em;
+	padding:.1em .4em .1em;
+	font-size:90%;
+	font-weight:bold;
+	line-height:1;
+	color:#fff;
+	text-align:center;
+	white-space:nowrap;
+	vertical-align:baseline;
+	border-radius:0;
+	background-color: #9954bb;
+}
+// 颜色块-红
+span#inline-red {
+	display:inline;
+//	padding:.2em .6em .3em;
+	padding:.1em .4em .1em;
+	font-size:90%;
+	font-weight:bold;
+	line-height:1;
+	color:#fff;
+	text-align:center;
+	white-space:nowrap;
+	vertical-align:baseline;
+	border-radius:0;
+	background-color: #df3e3e;
+}
+
+// 左侧边框红色块级
+p#div-border-left-red {
+	display: block;
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid #ccc;
+	border-left-width: 5px;
+	border-radius: 3px;
+	border-left-color: #df3e3e;
+}
+// 左侧边框黄色块级
+p#div-border-left-yellow {
+	display: block;
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid #ccc;
+	border-left-width: 5px;
+	border-radius: 3px;
+	border-left-color: #f0ad4e;
+}
+// 左侧边框绿色块级
+p#div-border-left-green {
+	display: block;
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid #ccc;
+	border-left-width: 5px;
+	border-radius: 3px;
+	border-left-color: #5cb85c;
+}
+// 左侧边框蓝色块级
+p#div-border-left-blue {
+	display: block;
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid #ccc;
+	border-left-width: 5px;
+	border-radius: 3px;
+	border-left-color: #2780e3;
+}
+// 左侧边框紫色块级
+p#div-border-left-purple {
+	display: block;
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid #ccc;
+	border-left-width: 5px;
+	border-radius: 3px;
+	border-left-color: #9954bb;
+}
+// 右侧边框红色块级
+p#div-border-right-red {
+	display: block;
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid #ccc;
+	border-right-width: 5px;
+	border-radius: 3px;
+	border-right-color: #df3e3e;
+}
+// 右侧边框黄色块级
+p#div-border-right-yellow {
+	display: block;
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid #ccc;
+	border-right-width: 5px;
+	border-radius: 3px;
+	border-right-color: #f0ad4e;
+}
+// 右侧边框绿色块级
+p#div-border-right-green {
+	display: block;
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid #ccc;
+	border-right-width: 5px;
+	border-radius: 3px;
+	border-right-color: #5cb85c;
+}
+// 右侧边框蓝色块级
+p#div-border-right-blue {
+	display: block;
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid #ccc;
+	border-right-width: 5px;
+	border-radius: 3px;
+	border-right-color: #2780e3;
+}
+// 右侧边框紫色块级
+p#div-border-right-purple {
+	display: block;
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid #ccc;
+	border-right-width: 5px;
+	border-radius: 3px;
+	border-right-color: #9954bb;
+}
+// 上侧边框红色
+p#div-border-top-red {
+	display: block;
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid #ccc;
+	border-top-width: 5px;
+	border-radius: 3px;
+	border-top-color: #df3e3e;
+}
+// 上侧边框黄色
+p#div-border-top-yellow {
+	display: block;
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid #ccc;
+	border-top-width: 5px;
+	border-radius: 3px;
+	border-top-color: #f0ad4e;
+}
+// 上侧边框绿色
+p#div-border-top-green {
+	display: block;
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid #ccc;
+	border-top-width: 5px;
+	border-radius: 3px;
+	border-top-color: #5cb85c;
+}
+// 上侧边框蓝色
+p#div-border-top-blue {
+	display: block;
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid #ccc;
+	border-top-width: 5px;
+	border-radius: 3px;
+	border-top-color: #2780e3;
+}
+// 上侧边框紫色
+p#div-border-top-purple {
+	display: block;
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid #ccc;
+	border-top-width: 5px;
+	border-radius: 3px;
+	border-top-color: #9954bb;
+}
+
+// gitalk config.
+.gitalk_title {
+    display: inline-block;
+    padding: 0 15px;
+    color: #0a9caf;
+    border: 1px solid #0a9caf;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    // float: left;
+}
+.gitalk_title:hover {
+    color: #fff;
+    background: #0a9caf;
+}
+.gitalk_container {
+    margin-bottom: 50px;
+    border-bottom: 1px solid #e9e9e9;
+}
+
+$shadowColor	  = #333
+$themeColor       = #222
+$link-image-size-width   = 180px;
+$link-image-size-height  = 230px;
+
+.link-body{
+	ul{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		margin: 0;
+		padding: 0;
+
+		.link{
+			max-width: $link-image-size-width;
+			min-width: $link-image-size-width;
+			max-height: $link-image-size-height;
+			min-height: $link-image-size-height;
+
+			position: relative;
+			box-shadow: 0 0 1px $shadowColor;
+			magin: 6px;
+			width: 20%;
+			list-style: none!important;
+			overflow: hidden;
+			border-radius: 6px;
+			img{
+				object-fit: cover;
+				transition: transform .6s ease-out;
+				vertical-align: middle;
+				border-bottom: 4px solid #eee;//#e5642b;
+				transition: 0.4s ;
+				width: 100%;
+				border-radius: 90px 90px 90px 90px;
+				display: inline-block;
+				float: none;
+				vertical-align: middle;
+			}
+			.link-name{
+				position: absolute;
+				bottom: 53px;
+				width: 100%;
+				color: #666;
+				text-align: center;
+				//text-shadow: 0 0 1px rgba(0,0,0,.4);
+				background: rgba(255,255,255,.8);
+			}
+			.link-name-below{
+				position: absolute;
+				bottom: 0;
+				font-size: 13px;
+				font-weight: 300;
+				margin: 0 0 15px;
+				line-height: 13px;
+				width: 100%;
+				color: #666;
+				text-align: center;
+				//text-shadow: 0 0 1px rgba(0,0,0,.4);
+				//background: rgba(255,255,255,.7);
+			}
+			&:hover{
+				img{
+					overflow: hidden;
+					//transition: 0.4s;
+					border-radius: 0 0 0 0;
+				}
+				.link-name{
+					color: $themeColor;
+					font-weight: bold;
+					text-align: center;
+					//text-shadow: 0 0 1px $themeColor;
+				}
+			}
+		}
+	}
+}
+// adjust the position of gitter
+.gitter-open-chat-button {
+      right: 20px;
+	  padding: 10px;
+	  background-color: rgba(45,45,45,0.80);
+	  color: rgba(255,255,255,0.75)
+}
+@media (max-width: 600px) {
+    .gitter-open-chat-button,
+    .gitter-chat-embed {
+        display: none;
+    }
+}
+@media screen and (min-width:1200px) {
+
+    body {
+	background:url(/images/50.jpg);
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-position:50% 50%;
+    }
+
+    #footer {
+        color:#c8c8c8;
+    }
+}
+#coding:link,#coding:visited{
+	color: rgb(153,153,153);
+	//font-weight: normal;
+	text-decoration: none;
+}
+
+#coding:hover,#coding:active{
+	color: rgb(153,153,153);
+	text-decoration: none;
+}
+```
 
 ## 参考
 
