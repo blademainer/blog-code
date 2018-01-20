@@ -1,5 +1,19 @@
 // Custom styles.
 
+// 添加背景
+@media screen and (min-width:1200px) {
+    body {
+	background:url(/images/50.jpg);
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-position:50% 50%;
+	background-size:cover;
+    }
+    #footer {
+        color:#c8c8c8;
+    }
+}
+
 //修改文章内code样式
 code {color:#c7254e;background:#f9f2f4;border:1px solid #d6d6d6;}
 
@@ -484,19 +498,6 @@ $link-image-size-height  = 230px;
 }
 
 
-@media screen and (min-width:1200px) {
-
-    body {
-	background:url(/images/50.jpg);
-    background-repeat: no-repeat;
-    background-attachment:fixed;
-    background-position:50% 50%;
-    }
-
-    #footer {
-        color:#c8c8c8;
-    }
-}
 #coding:link,#coding:visited{
 	color: rgb(153,153,153);
 	//font-weight: normal;
@@ -507,3 +508,6 @@ $link-image-size-height  = 230px;
 	color: rgb(153,153,153);
 	text-decoration: none;
 }
+
+
+
