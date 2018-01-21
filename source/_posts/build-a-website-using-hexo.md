@@ -271,7 +271,7 @@ $link-image-size  = 180px;
 ```
 	[点我，这里是PDF文档](latex入门教程.pdf)
 
-2. 利用js嵌入图片
+2. 利用html`img`标签嵌入图片
 ``` js
 <img src= image_path alt="Lytro相机" width="100%">
 <center>Lytro</center>
@@ -290,13 +290,17 @@ $link-image-size  = 180px;
     ```
 - 修改Hexo根目录下_config.yml文件
 
-    打开Hexo根目录, 找到_config.yml文件, 用任何一个文本编辑器打开, 找到如下代码
+    打开Hexo根目录, 找到站点配置文件`_config.yml`文件, 用任何一个文本编辑器打开, 找到如下代码
 
     ```javascript
     post_asset_folder: false
     ```
-- 测试插入
-<center>{% asset_img 1.jpg 林青霞%}</center>
+	将`false`改成`true`即可。测试插入代码：
+``` js
+<center>{% asset_img Naruto.jpg Naruto%}</center>
+```
+	效果如下：
+<center>{% asset_img Naruto.jpg Naruto%}</center>
 
 
 
@@ -338,12 +342,26 @@ $font-family-logo	= "Lobster Two"
 - 在Markdown文档里插入如下代码
 
 ```js
-<center><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=500 height=86 src
-="http://music.163.com/outchain/player?type=2&id=29722263&auto=0&height=66"></iframe></center>
+<center><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=500 height=86 src="http://music.163.com/outchain/player?type=2&id=29722263&auto=0&height=66"></iframe></center>
 ```
 
 <center><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=500 height=86 src="http://music.163.com/outchain/player?type=2&id=29722263&auto=0&height=66"></iframe></center>
 
+## 播放视频
+推荐使用[Dplayer](https://github.com/MoePlayer/DPlayer)。首先在站点文件夹根目录安装`Dplayer`插件：
+``` sh
+npm install hexo-tag-dplayer --save
+```
+然后文章中的写法：
+
+``` markdown
+{% dplayer url"=https://******.mp4" "http://******.jpg" "api=https://api.prprpr.me/dplayer/" "id=" "loop=false" %}
+```
+
+要使用弹幕，必须有api和id两项。id 的值自己随便取，唯一要求就是前面这点。可以通过[这里](http://tool.oschina.net/encrypt?type=2)获取id，保证每次都不一样。
+
+献上**Maddi Jane** 翻唱的**Jessie J**的**Price Tag**。
+{% dplayer url="http://oofx6tpf6.bkt.clouddn.com/Maddi-Jane-Price-Tag.mp4" "http://oofx6tpf6.bkt.clouddn.com/18-1-21/60820048.jpg" "api=https://api.prprpr.me/dplayer/" "id=bbe4286bf164ef6a1497f18a7b42ff944e684b82" "loop=false" %}
 
 
 
