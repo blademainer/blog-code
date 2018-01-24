@@ -82,6 +82,14 @@ That friends should come to one from afar, is this not after all delightful?
         </a></li>
 <!--ehlxr end-->
 
+<!--yifu begin-->
+        <li class="link"><a href="http://cs-people.bu.edu/yfhu" title="大师兄" target="_blank">
+        <img src= "index/yifu.jpg" alt="yifu"/>
+        <span class="link-name"> Yihu Hu</span>
+        <span class="link-name-below"> Ph.D. Student Boston University.</span>
+        </a></li>
+<!--yifu end-->
+
 
 
 	</ul>
