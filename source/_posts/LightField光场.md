@@ -11,7 +11,7 @@ tags:
   - Light Field
 abbrlink: 61110
 date: 2017-02-16 10:45:54
-updated: 2017-12-03 14:30:30
+updated: 2018-01-24 23:17:30
 sticky: 1000
 ---
 
@@ -44,7 +44,7 @@ sticky: 1000
 
 ### 下载光场工具包（LFToolBox）
 
-首先下载[光场工具箱](http://cn.mathworks.com/matlabcentral/fileexchange/49683-light-field-toolbox-v0-4)并仔细阅读说明文档，根据文档把相应的数据拷贝到工具箱的文件夹下(这一步很关键，要仔细配置)。如果不想在官网下载的话我上传到了度娘的云盘链接：[链接](http://pan.baidu.com/s/1hsDo0ks) 密码：yykc。这是我修改后的一个版本，可以直接运行，推荐下载这个版本。**<font color=red >另外我在Github上传了一个版本，大家可以git clone[链接](https://github.com/Vincentqyw/Light_Field_TB)</font>**。下载下来的工具包是这样的：
+首先下载[光场工具箱](http://cn.mathworks.com/matlabcentral/fileexchange/49683-light-field-toolbox-v0-4)并仔细阅读说明文档，根据文档把相应的数据拷贝到工具箱的文件夹下(这一步很关键，要仔细配置)。如果不想在官网下载的话我上传到了度娘的云盘链接：[链接](http://pan.baidu.com/s/1hsDo0ks) 密码：yykc。这是我修改后的一个版本，可以直接运行。**<font color=red >另外我在Github上传了一个版本，大家可以git clone[链接](https://github.com/Vincentqyw/Light_Field_TB)</font>**。下载下来的工具包是这样的：
 <center>{% asset_img LF-TB-main.png 工具包文件夹 %}</center> 
 
 LFToolbox0.4就是我们要的工具包，里面包含很多函数，如下图：
@@ -136,7 +136,10 @@ DecodeOptions = LFDefaultField( 'DecodeOptions', 'WhiteImageDatabasePath'...
 
 经过以上的步骤我们可以学习到白图像的处理，以及光场图像的处理等操作。当然我没有列出这个工具包所有的功能介绍，大家可以根据需要建立自己工程，对自己的数据进行测试，以上！
 
-**<font color=red >注意</font>**：
+## **<font color=red >注意事项及测试代码</font>**
+
+### 参数设置好了再Run
+不少同学是因为设置不当，导致运行错误，以下我列举了可能出现错误的地方。
 - 务必在WhiteImagesPath处写明相机型号，确定好到底是Lytro还是Illum
 - 注意Illum相机的白图像们在相机的SD卡中，那些白图像们拷贝出来放在路径**Sample_test\Cameras\B5151500510\**下即可
 - 白图像的处理过程比较久，耐心等待就行即可
@@ -144,6 +147,39 @@ DecodeOptions = LFDefaultField( 'DecodeOptions', 'WhiteImageDatabasePath'...
 - 结果存放在**Results_saving**文件夹下
 - 再次提醒，由于Illum图像的分辨率比较大，所以当程序运行到LFLytroDecodeImage以及频域滤波时会造成内存以及磁盘的大量使用，慎重考虑。
 - 如有Bug请及时联系我，请在评论区留言。
+
+### 解码效果为何不佳？
+另外，很多童鞋问过我一些问题，例如**为何光场工具包解码出来的图像质量如此之差，始终达不到Lytro Desktop导出图像的质量**。其实该问题是个普遍现象，目前没有一个好的解决方法。光场工具包的发明者**Donald Dansereau**在[Google Plus](https://plus.google.com/communities/114934462920613225440)也是这么认为的，我把原话附在下面：
+
+{% note %}
+Q from email: there are differences between the toolbox decoded output and the Lytro Desktop's image. The differences involve color, intensity and noise. How can I fix this?
+
+A: Thanks for the email. There will always be important differences between the Lytro software output and the toolbox output. The toolbox tries to generate a 4D light field that is as close as possible to the raw image measured by the camera, while still being a standard two-plane parameterized 4D light field. The Lytro software has a very different goal. They do not produce a 4D light field, they produce 2D renders. These are optimized to look nice, and evidently look much nicer than any 2D slice taken from the toolbox output. They use sophisticated decoding and denoising techniques to do this.
+The philosophy of the toolbox is to provide a 4D light field close to the raw image captured by the camera, to allow researchers to explore the characteristics of this kind of signal. It should, in theory, be possible to go from the 4D light field output by the toolbox to nice 2D renderings like those produced by the Lytro software. Making nice 2D renderings can also be accomplished by working directly from the lenslet image, as has been demonstrated in a few papers by researchers at Lytro and elsewhere.
+{% endnote %}
+从他的回复可以看到，他提供的**光场工具包的目的是尽量提供光场相机采集的原汁原味的数据（raw data）用来逼近4D光场信息**；同时让研究者去研究这些数据，为他们所用。但是Lytro公司提供**Lytro desktop的目的是渲染出漂亮的2D图像，以供用户使用**。以上也反映了研究和商业重要区别，Lytro并未提供他们渲染的方式，属内部机密。
+
+此外我也单独问了Donald Dansereau同样的问题，他我把他的回复建议原话附在下面：
+{% note success %}
+If you want to make nice 2D images, I suggest
+
+**Filter before colour correction**.  Try a simple planar focus filter (LFFiltShiftSum, or one of the linear filters in the LFDemoBasicFilt* examples).
+
+**Don't use the toolbox colour correction**, the code is extremely simplistic and is mostly meant to show you where the metadata is.
+Look into some **4D - to - 2D rendering techniques** for light fields.
+
+Look into some **2D denoising techniques** and apply them to your 2D render, or to the 4D light field slices.
+
+If you do find something that works well for you please share, as this is a common question.
+{% endnote %}
+
+我习惯的参数设置：颜色校正的参数设为**Gamma=0.8或者小于0.8**，这个参数你可以不停地试。另外，我一般不用我公布代码里的频域滤波，因为我认为这步会很大程度地破坏原始数据。我会选用中心视角邻域的几个视角，例如原来ILLUM提供的是15x15个视角，但是我只用其中的11x11或者更少，这样就可以不用考虑边界视角黑暗的问题了。当然大家可以尝试下按照Donald Dansereau的说法进行尝试，如果大家有好的方法，也可以告诉我。（PS：以上为回复@lixiaohao同学邮件部分内容）
+
+
+
+
+
+### 测试代码
 
 以下是Demo文件的代码，仅供学习使用。
 
@@ -271,7 +307,7 @@ ___
 ~~谁让人家Lytro不开源呢，人家自己做的Demo还不错。通过鼠标就可以对以下图像进行**重聚焦，变化视角，以及缩放**等操作。话不多说，上图！~~ 呵，人家公司在2017年11月30号之后停止了对lytro live photo的线上支持，所以以下啥都没有了。
 <!--<center><iframe width='600' height='434' src='https://pictures.lytro.com/89268543555/pictures/1083179/embed' frameborder='0' allowfullscreen scrolling='no'></iframe></center> <center><iframe width='600' height='434' src='https://pictures.lytro.com/michaelsternoffphoto/pictures/1030057/embed' frameborder='0' allowfullscreen scrolling='no'></iframe></center> <center><iframe width='600' height='434' src='https://pictures.lytro.com/karinaguillenphoto/pictures/926574/embed' frameborder='0' allowfullscreen scrolling='no'></iframe></center> <center><iframe width='600' height='434' src='https://pictures.lytro.com/karinaguillenphoto/pictures/1004450/embed' frameborder='0' allowfullscreen scrolling='no'></iframe></center>更多图像在[这里](https://pictures.lytro.com/)。-->
 
-以上！
+**<center>以上，如有问题欢迎评论，不出意外我一直在线</center>**
 
 
 
