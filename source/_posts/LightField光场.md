@@ -159,7 +159,7 @@ The philosophy of the toolbox is to provide a 4D light field close to the raw im
 {% endnote %}
 从他的回复可以看到，他提供的**光场工具包的目的是尽量提供光场相机采集的原汁原味的数据（raw data）用来逼近4D光场信息**；同时让研究者去研究这些数据，为他们所用。但是Lytro公司提供**Lytro desktop的目的是渲染出漂亮的2D图像，以供用户使用**。以上也反映了研究和商业重要区别，Lytro并未提供他们渲染的方式，属内部机密。
 
-此外我也单独问了Donald Dansereau同样的问题，他我把他的回复建议原话附在下面：
+此外我也单独问了Donald Dansereau同样的问题，我把他的回复建议原话附在下面：
 {% note success %}
 If you want to make nice 2D images, I suggest
 
