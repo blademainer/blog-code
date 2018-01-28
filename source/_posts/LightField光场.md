@@ -11,7 +11,7 @@ tags:
   - Light Field
 abbrlink: 61110
 date: 2017-02-16 10:45:54
-updated: 2018-01-24 23:17:30
+updated: 2018-01-28 22:55:30
 sticky: 1000
 ---
 
@@ -148,7 +148,16 @@ DecodeOptions = LFDefaultField( 'DecodeOptions', 'WhiteImageDatabasePath'...
 - 再次提醒，由于Illum图像的分辨率比较大，所以当程序运行到LFLytroDecodeImage以及频域滤波时会造成内存以及磁盘的大量使用，慎重考虑。
 - 如有Bug请及时联系我，请在评论区留言。
 
-### 解码效果为何不佳？
+### 没有图像文件怎么搞
+
+1. 下载整个[工程](https://github.com/Vincentqyw/light-field-TB)；
+2. 下载数据集：可以在[这里](https://www.irisa.fr/temics/demos/lightField/index.html)下载Lytro数据集，该数据集包括白图像以及图像原文件；
+3. 然后将工程`Sample_test/Cameras/`下的文件`Axxxxxxxxxxx`修改为`A303134643`，然后将数据集`LytroDataset\sn-A303134643`文件夹下的`data.C.0.1/2/3`放在`Sample_test/Cameras/A303134643`文件夹下；
+4. 将`LytroDataset\raws`文件夹下的图像原文件放在工程`Sample_test/Images/B01/`文件夹下；
+5. 修改`Demo.m`中`WhiteImagesPath='Sample_test\Cameras\Axxxxxxxxxx'`，以及`lfpname='test'`改成步骤4中的任何一个图像原文件即可。
+6. run起来吧~
+
+### 解码效果为何不佳
 另外，很多童鞋问过我一些问题，例如**为何光场工具包解码出来的图像质量如此之差，始终达不到Lytro Desktop导出图像的质量**。其实该问题是个普遍现象，目前没有一个好的解决方法。光场工具包的发明者**Donald Dansereau**在[Google Plus](https://plus.google.com/communities/114934462920613225440)也是这么认为的，我把原话附在下面：
 
 {% note %}
@@ -184,7 +193,6 @@ If you do find something that works well for you please share, as this is a comm
 以下是Demo文件的代码，仅供学习使用。
 
 ```matlab
-
 clc;
 clear all;
 clc;
