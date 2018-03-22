@@ -40,7 +40,7 @@ hexo new blog_name #　新建以blog_name为名的blog
 我使用的是[Next](http://theme-next.iissnan.com/)主题， [Make the theme more beautiful, recommended](http://www.arao.me/)
 
 ## 关于评论系统
-多说已死，~~评论系统转到了Disqus，但是被墙的事实让人感觉不爽~~。几经周折，从多说转到Disqus，然后在gitment和gitalk之间徘徊，最后还是选择了[valine](https://valine.js.org/#/)，不过它只能在中国区进行评论，于是我还是保留了gitalk。然后，最后的最后我还是选择了**Hypercomment**。
+多说已死，~~评论系统转到了Disqus，但是被墙的事实让人感觉不爽~~。几经周折，从多说转到Disqus，然后在gitment和gitalk之间徘徊，最后还是选择了[valine](https://valine.js.org/#/)，不过它只能在中国区进行评论，于是我还是保留了[gitalk](http://www.whtis.com/2017/10/19/%E7%BB%99hexo%E5%8D%9A%E5%AE%A2nexT%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0Gitalk%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/)。然后，最后的最后我还是选择了**Hypercomment**。
 
 ## 关于旋转头像
 
