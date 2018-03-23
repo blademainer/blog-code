@@ -7,10 +7,8 @@ abbrlink: 22789
 date: 2017-01-16 10:43:01
 ---
 
+<img src="http://oofx6tpf6.bkt.clouddn.com/matlab.jpg" width=1000px>
 
-<center>
-![](/matlab.jpg)
-</center>
 
 以下是我在使用Matlab编程时遇到的问题以及解决方法，最后彩蛋随时补充。
 
@@ -29,12 +27,13 @@ date: 2017-01-16 10:43:01
 
 问题解决：xlswrite函数在调用时会占用Excel的com端口，所以要保证在调用时这个端口是开放的，也就是没有被其他程序占用。打开任意一个Excel（我的是16版）文档，点击**文件**--**选项**，弹出Excel选项卡，在**加载项**中可以看到，活动应用程序加载项，以及非活动应用程序加载项；
 由于我的系统中装了一个福昕阅读器，该程序占用了Excel的com端口，所以当Matlab再去调用这个端口时就会出现异常。具体解决方法：点击管理旁边的下拉菜单，选择COM加载项，点击转到，把福昕阅读器的前面的勾去掉，然后确定。
-![这里写图片描述](http://img.blog.csdn.net/20160628202102846)
-![这里写图片描述](http://img.blog.csdn.net/20160628202117268)
 
+<img src="http://oofx6tpf6.bkt.clouddn.com/issue-matlab-1.png" width=1000px>
+<img src="http://oofx6tpf6.bkt.clouddn.com/issue-matlab-2.png" width=1000px>
 
 
 ## Matlab设置绘图坐标轴信息
+
 ### 问题描述
 >Matlab 作图时更改纵轴刻度为科学计数法，指数放在框左上方
  

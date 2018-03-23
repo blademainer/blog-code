@@ -47,19 +47,19 @@ VR、AR的难点都在感知和显示，感知是一种映射，VR 映射的是�
 
 ###	技术支持
 Metaio 是由德国大众的一个项目衍生出来的一家虚拟现实初创公司，现已被苹果公司收购。 专门从事增强现实和机器视觉解决方案，产品主要包括Metaio SDK 和 Metaio Creator。 Metaio SDK 支持移动设备的AR应用开发，它在内部提供增强现实显示组件ARView，该组件将摄像机层、3D 空间计算以及POI信息的叠加等功能全部封装在一起，用户在使用增强现实功能时，只需要关注用户操作的监听器即可，摄像机层、3D 空间计算、图形识别以及空间信息叠加等逻辑，完全由ARView组件自己处理 。Metaio Creator相对Metaio SDK 来说，使用门槛更低，用户无需掌握移动开发技术，就可以通过 Metaio Creator 用户图形接口中简单的点击、拖拽、拉伸等方式，控制软件中组件的功能，以构建出自己的增强现实结果。（但是被苹果收购了，目前不提供服务）
+
+![图一Wikitude 官网界面](http://oofx6tpf6.bkt.clouddn.com/160405_WT_HomeSlider_Image_3D-Tracking.png)
+
 Wikitude 是由美国 Mobilizy 公司于 2008 年秋推出的一款移动增强现实开发平台， 支持 Android、 iOS、Black Berry 以及 Windows Phone 多个手机智能操作系统Wikitude SDK 是一款优秀的增强现实开发工具包， 它能够帮助开发人员减小增强现实应用程序开发的复杂性。 目前，Wikitude SDK 支持载入真实的物理环境向 AR 环境中添加虚拟物体、支持用户与虚拟物体的交互、响应用户的位置变化、AR 环境中信息提示、从本地或网络加载资源等功能。
-![图一Wikitude 官网界面](http://www.wikitude.com/wp-content/uploads/2016/04/160405_WT_HomeSlider_Image_3D-Tracking.png)
-图一Wikitude 官网界面
+
+<img src="http://oofx6tpf6.bkt.clouddn.com/wakingapp.jpg" width=1000px>
 
 ENTiTi Creator是由以色列一家创业公司 Waking App 开发的一款 AR 作品制作工具，易学易用是它的最大特色。用户可以使用ENTiTi平台上传图片和视频以及相应的动作指令， 并通过简单的逻辑串联，就可以轻松创建出包含3D图像、动画或者游戏的AR/VR 内容。该平台不需要任何编程、完全依靠鼠标拖放就能完成整个创建过程。EN-TiTi是基于云计算的平台，可以在线 3D 视角查看内容，并自动适配各种终端，比如，手机或平台电脑、三星 Gear VR 盒子、Vuzix 智能眼镜等。开发者通过它所发布出来的AR内容，只需要通过一个叫作 EN-TiTi View 软件的入口，就可以轻松访问。 这意味着全球所有开发者所开发出的成千上万的 AR 内容，只需要一个软件即可全部浏览。
-![](http://i1.piimg.com/567571/4738bb1d449bd227.jpg)
-<center><embed src=".././images/realmax.jpg" ></center>
 
-图二ENTiTi Creator 官网介绍
+<center><img src="http://oofx6tpf6.bkt.clouddn.com/realmax.jpg" width=1000px></center>
 
 Realmax公司是一个国际化AR生态级企业，在上海、香港、纽约、慕尼黑都设立了分公司，并建立了5个全球实验室，完成了硬件量产、软件算法、应用开发和内容制作的AR技术储备，AR操作系统“Realcast”也有可观的用户量，在工业、幼教、电商、旅游等领域积累了大量客户，是AR领域唯一的一家完成“平台+内容+终端+应用”生态链布局的企业。
-![](http://i1.piimg.com/567571/f4e18a5fdef099fb.jpg)
-图三 Realmax公司官网主页
+
 
 根据以上分析，如果想完成某一个特定的AR或者VR应用，可以使用上述公司提供的SDK，在一定程度上会加快开发速度。
 ***
