@@ -105,7 +105,7 @@ Lytro VT可以使用任何DCC和渲染引擎（例如Maya和VRay）来生成一�
 
 光线跟踪的样本包括对**颜色和深度信息（RGBZ等数据）的跟踪**。摄像机的数量及其配置取决于场景的视觉复杂程度以及播放过程中所需视图的预定大小。
 
-<img src="http://oofx6tpf6.bkt.clouddn.com/devices.webp" width=1000px>
+<img src="http://oofx6tpf6.bkt.clouddn.com/devices.jpg" width=1000px>
 
 Lytro VT处理来自于该2D样本的颜色以及深度信息，并通过Lytro Player创建用于在VR中展示的光场体。
 
@@ -125,7 +125,7 @@ Lytro VT处理来自于该2D样本的颜色以及深度信息，并通过Lytro P
 
 作为从虚拟3D场景创建真实2D图像的渲染技术，光线追踪能够产生极高质量的图像。用最简单的术语来说，基于模拟光线与3D场景中的物体表面的相互作用，反映在2D图像平面就是被渲染的彩色像素。
 
-<img src="http://oofx6tpf6.bkt.clouddn.com/vr_experience.webp" width=1000px>
+<img src="http://oofx6tpf6.bkt.clouddn.com/vr_experience.jpg" width=1000px>
 
 光线追踪适用于精确渲染某些光学效果，例如如反射，折射和散射（光度），但这些需要大量的计算时间。具有全光学效果的光线追踪对于实时帧率而言简直太慢。但是不得不说，光线追踪非常适合需要最高级别图像质量并可以脱机的应用，如电影视觉效果。
 
@@ -133,7 +133,7 @@ Lytro VT处理来自于该2D样本的颜色以及深度信息，并通过Lytro P
 
 上图为光线跟踪的过程：**通过虚拟相机的视角可以看到，虚拟相机跟踪到了物体与物体之间的光线反复反射，并最终到达光源的位置**。如果有些物体遮挡了光线，那么就会产生被遮挡的光线。这种技术的计算效率很高，因为它只需追踪相机通过虚拟镜头看到的光线路径。Lytro VT和光线追踪是相辅相成的，然而在光线追踪的概念方向上形成对比。如上所示，光线跟踪通过跟踪从固定摄像机向外看光线的路径，从而呈现图像中的彩色像素。相反，Lytro VT通过从一个视觉体内的每个视点向内朝着观察者，去追踪来自每个渲染像素的光线来重建光场体。于是在Lytro Player中，观众在这些密集的光线的移动，沉浸在具有最高级视觉质量的重建CG场景中，并且在每个方向都具有完美的视差和六个自由度。
 
-<img src="http://oofx6tpf6.bkt.clouddn.com/cinema.webp" width=1000px>
+<img src="http://oofx6tpf6.bkt.clouddn.com/cinema.jpg" width=1000px>
 
 在这种体验中，光线不是实时呈现，而是从大量预先渲染的光线中实时获取，为视图体积内每个位置的每只眼睛组成一张图像。
 
