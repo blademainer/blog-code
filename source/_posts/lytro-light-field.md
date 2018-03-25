@@ -95,7 +95,7 @@ date: 2018-03-23 09:57:02
 
 不安分的Lytro最近发布了名为“Lytro Volumn Tracer”(Lytro VT)的产品，它作为一套强大的工具可以用于CG 3D场景的光场体的创建，同时能够为用户提供视觉高质量以及完全沉浸式的VR体验。
 
-<img src="http://oofx6tpf6.bkt.clouddn.com/vr1.png" width=1000px>
+<img src="http://oofx6tpf6.bkt.clouddn.com/vr1.jpg" width=1000px>
 
 Lytro VT可以使用任何DCC和渲染引擎（例如Maya和VRay）来生成一组3D场景的2D采样。首先，Lytro VT将虚拟相机放置于CG场景中，虚拟相机包含场景中任何可能的视角，需要注意的是这些场景已经包含在定义好的光场体中，并且虚拟相机可以根据需要调整以最大限度地提高显示质量和性能。渲染引擎用于追踪场景中的虚拟光线，并从设备中每个摄像头捕获一定数量的2D图像样本。Lytro VT通过追踪从每个被渲染的像素到其相机的原点的光线(光积跟踪)来创建**视觉体**，通过以上神操作就可以感受到沉浸式的光场VR体验。
 

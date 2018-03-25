@@ -18,11 +18,34 @@ comments: false
 
 
 
-目前工作已经尘埃落定，我现在能做的就是养精蓄锐，准备毕设。在做毕设的同时，我还打算利用空余时间来补习AI相关的内容。目前AI大热，传统算法遇到深度学习时略显力不从心。为了提高竞争力，我还是多学习下吧，避免被机器“淘汰”。所以呢，我先在这里占个坑。
+此处占坑。
 
 ![](http://oofx6tpf6.bkt.clouddn.com/17-11-3/35039818.jpg)
 
+{% note%}
+**`2018年03月24日17:14:02`**
+基于深度学习的单目、双目深度估计了解一下。
+{% endnote%}
 
+{% note%}
+**`2017年12月18日13:27:47`**
+发现[jekyll](http://jekyllthemes.org/)主题模板挺不错，有时间可以仔细看看~
+
+{% endnote%}
+
+{% note %}
+**`2017年12月8日21:56:03`**
+
+在两个月前就已经把博客同时托管在github和coding上了。因为国内访问的话coding是比较快的，所以我把博客部署到了coding的静态pages。今天抽了点时间把博客重新部署在了coding最近公测的**动态pages**，发现访问速度变快了，非常棒！
+
+{% endnote %}
+
+{% note %}
+
+**`2017年11月15日11:10:54`**
+
+抽时间看一下[Deep Learning in Matlab](http://cn.mathworks.com/help/nnet/ug/deep-learning-in-matlab.html)，现在已经装好Matlab2017b，赶紧行动起来。[click link here](http://blog.csdn.net/Mr_Curry/article/details/53160914?locationNum=4&fps=1)
+{% endnote %}
 
 {% note %}
 
@@ -38,25 +61,10 @@ comments: false
 
 
 
-{% note %}
-
-**`2017年11月15日11:10:54`**
-
-抽时间看一下[Deep Learning in Matlab](http://cn.mathworks.com/help/nnet/ug/deep-learning-in-matlab.html)，现在已经装好Matlab2017b，赶紧行动起来。[click link here](http://blog.csdn.net/Mr_Curry/article/details/53160914?locationNum=4&fps=1)
-{% endnote %}
-
-
-{% note %}
-**`2017年12月8日21:56:03`**
-
-在两个月前就已经把博客同时托管在github和coding上了。因为国内访问的话coding是比较快的，所以我把博客部署到了coding的静态pages。今天抽了点时间把博客重新部署在了coding最近公测的**动态pages**，发现访问速度变快了，非常棒！
-
-{% endnote %}
 
 
 
-{% note%}
-**`2017年12月18日13:27:47`**
-发现[jekyl](http://jekyllthemes.org/)主题模板挺不错，有时间可以仔细看看~
 
-{% endnote%}
+
+
+
