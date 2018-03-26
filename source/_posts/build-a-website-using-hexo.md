@@ -30,6 +30,48 @@ hexo new blog_name #　新建以blog_name为名的blog
 在.md文档中加入 <!-- more --> 可以显示“阅读全文”
 ```
 
+## 修复行内公式显示乱码
+以下解决方案来自[这里](https://www.jianshu.com/p/7ab21c7f0674)。
+
+更换Hexo的markdown渲染引擎，hexo-renderer-kramed引擎是在默认的渲染引擎hexo-renderer-marked的基础上修改了一些bug，两者比较接近，也比较轻量级。
+``` sh
+npm uninstall hexo-renderer-marked --save
+npm install hexo-renderer-pandoc --save
+```
+执行上面的命令即可，先卸载原来的渲染引擎，再安装新的。
+
+然后，跟换引擎后行间公式可以正确渲染了，但是这样还没有完全解决问题，行内公式的渲染还是有问题，因为hexo-renderer-kramed引擎也有语义冲突的问题。接下来到博客根目录下，找到`node_modules\kramed\lib\rules\inline.js`，把第11行的escape变量的值做相应的修改：
+
+``` c
+// escape: /^\\([\\`*{}\[\]()#$+\-.!_>])/,
+   escape: /^\\([`*\[\]()#$+\-.!_>])/,
+```
+
+这一步是在原基础上取消了对\,{,}的转义(escape)。同时把第20行的em变量也要做相应的修改。
+
+``` c
+// em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
+   em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/
+```
+重新启动hexo（先clean再generate）,问题完美解决。哦，如果不幸还没解决的话，看看是不是还需要在使用的主题中配置mathjax开关。如何使用了主题，要在主题（Theme）中开启mathjax开关，下面以next主题为例，介绍下如何打开mathjax开关。进入到主题目录，找到_config.yml配置问题，把mathjax默认的false修改为true，具体如下：
+
+``` yml
+# MathJax Support
+mathjax:
+  enable: true
+  per_page: true
+```
+
+别着急，这样还不够，还需要在文章的Front-matter里打开mathjax开关，如下：
+
+    ---
+    title: index.html
+    date: 2016-12-28 21:01:30
+    tags:
+    mathjax: true
+    --
+不要嫌麻烦，之所以要在文章头里设置开关，是因为考虑只有在用到公式的页面才加载 Mathjax，这样不需要渲染数学公式的页面的访问速度就不会受到影响了。
+
 
 ## 显示文章阅读数量
 另外：[显示文章阅读量](https://notes.wanghao.work/2015-10-21-%E4%B8%BANexT%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD.html#%E9%85%8D%E7%BD%AELeanCloud)， 服务主要用了[LeanCloud](https://leancloud.cn/)服务提供商
