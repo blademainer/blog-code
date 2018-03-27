@@ -13,7 +13,7 @@ mathjax: true
 
 ![](https://source.unsplash.com/random/1600x900)
 
-文中主要介绍以下几个方面的内容：
+本文翻译自文[Mattoccia](www.vision.deis.unibo.it/smatt)的双目视差估计综述，如有错误还望指出。文中主要介绍以下几个方面的内容：
 
 - Introduction to stereo vision
 - Overview of a stereo vision system
@@ -40,7 +40,7 @@ mathjax: true
 对于双目相机，$O_R$和$O_T$分别是左右相机的光学中心，对于在参考相机像平面上被汇聚的两点（p和q），在目标相机像平面上会被区分开来，那么我们可以找到双目或者多目相机中匹配的点利用三角相似原理来估计深度。那么我们怎么寻找相对应的点呢？2D范围的寻找？
 <img src="http://p66ri5yke.bkt.clouddn.com/p8.png" width=1200px>
 
-不，多亏了极线约束，我们可以在**1D**范围上进行搜索。
+多亏了极线约束，我们可以在**1D**范围上进行搜索。以下将要对极线约束进行解释。
 
 ### 极线约束
 
@@ -128,7 +128,7 @@ $$\frac{b}{Z}=\frac{(b+x_T)-x_R}{Z-f}$$
 
 ## 立体匹配的挑战性
 
-- 光度失真以及噪声
+### 光度失真以及噪声
 
 <img src="http://p66ri5yke.bkt.clouddn.com/p37-1.png" width=1200px>
 ### 高光表面
@@ -233,7 +233,170 @@ $$C(x,y,d)=\sum_{x\in S}\{|I_R(x,y)-I_T(x+d,y),T\}$$
 
 ## 损失聚合
 
-未完待续...
+那么从最简单的固定窗口（FW）损失聚合开始，以下为利用FW聚合的TAD损失然后利用WTA得到的深度图。理想是完美的，但现实是骨感的，可以看到下图给出的结果并不佳，这是什么原因呢？
+<img src="http://p66ri5yke.bkt.clouddn.com/p57.png" width=1200px>
+<img src="http://p66ri5yke.bkt.clouddn.com/p58.png" width=1200px>
+a. 隐含地假设前额表面处于同一视差
+b. 忽略了深度的非连续性
+c. 平坦区域的处理不佳
+d. 重复的区域
+
+对于a. 隐含地假设前额表面处于同一视差，很多即使是当前最好的损失聚合算法也会假设：在一个小的支持域里面的所有点所处的视差是相同的。但实际情况并非如此，可以观察以上两图，人体头像模型的面部是不规则的表面，展现出来的是视差的不断变化；下面的图是桌子平面，它表面是倾斜的，同样表现出来的是视差的变化。
+
+<img src="http://p66ri5yke.bkt.clouddn.com/p59.png" width=1200px>
+
+对于b. 忽略了深度的非连续性，原本假设真实场景中的正面平行表面在支持域内深度不会变化，但是这个假设在深度不连续处的附近被打破。可以看到下图中在台灯灯罩的边界处出现了深度的间断，这样经过损失聚合之后得到的深度就会出现边界误匹配的现象，表现在图中为边界没有很好的对齐。不过利用TAD可以在一定程度上减少这种现象。
+
+<img src="http://p66ri5yke.bkt.clouddn.com/p60-1.png" width=1200px>
+<img src="http://p66ri5yke.bkt.clouddn.com/p60-2.png" width=1200px>
+
+目前最好的损失聚合算法都在想方设法地改变支持域的形状以适应在仅在相同的已知视差上做匹配。对于FW而言，就是减小其窗口大小，来减少边界定位问题。但是与此同时，这个改变使得匹配问题变得含糊不清，特别是对于有重复区域以及平滑区域的情形。
+<img src="http://p66ri5yke.bkt.clouddn.com/p61.png" width=1200px>
+
+对于c与d，FW并不能很好地处理。在这两种情况下，损失聚合算法应该不断地加大支持域的尺寸以获得更多的相同深度上的点。
+<img src="http://p66ri5yke.bkt.clouddn.com/p62.png" width=1200px>
+
+以上为FW所面对的诸多问题。令人吃惊的是，虽然FW看起来如此不堪一击，但是其应用却是如此广泛。原因可能有以下几点：
+1. 容易实现；
+2. 快！(特别感谢增量计算框架)；
+3. 可以在传统的处理器上实时完成计算；
+4. 仅需要很小的内存；
+5. 可硬件（FPGA）实时实现，且功率小（\<1W）
+
+在介绍更加复杂的算法之前，我们首先介绍积分图像（Integral Images (II)）以及箱滤波（Box-Filtering (BF)）。
+
+### 积分图像
+
+<img src="http://p66ri5yke.bkt.clouddn.com/p64.png" width=1200px>
+
+### 箱滤波器
+
+<img src="http://p66ri5yke.bkt.clouddn.com/p65.png" width=1200px>
+<img src="http://p66ri5yke.bkt.clouddn.com/p66.png" width=1200px>
+
+可以总结出积分图与箱滤波器的关系：
+1. 每个点需要4个运算
+2. 积分图可以支持不同的支持域尺寸
+3. 积分图有溢出风险
+4. 积分图对内存消耗较大
+
+在实际应用当中，积分图对于可变支持域的情况会有帮助。
+
+## 立体匹配中损失聚合策略的分类及评估
+
+在文献[1]中，作者实现、分类以及评估了超过10种损失聚合算法。这些损失聚合的策略包含几种方式：
+- 位置
+- 方向
+- 位置与方向
+- 权重
+接下来就对文中但不限于文中提到的诸多算法进行介绍 (i.e. Fast Aggregation [64], Fast Bilateral Stereo (FBS) [65] and the Locally Consistent (LC) methodology [66])。
+
+### 固定窗口
+
+<img src="http://p66ri5yke.bkt.clouddn.com/p87.png" width=1200px>
+
+### 可移动窗口[11]
+这种方法是为了应对场景边界定位问题，这种算法不限制当前位置位于支持域中心。
+<img src="http://p66ri5yke.bkt.clouddn.com/p88.png" width=1200px>
+<img src="http://p66ri5yke.bkt.clouddn.com/p89.png" width=1200px>
+
+### 多窗口[7]
+支持域内元素个数为常数；支持域的形状不限于为矩形；支持域大小可为5、9、25（5W,9W,25W）。下图所示的为9W：
+<img src="http://p66ri5yke.bkt.clouddn.com/p90.png" width=1200px>
+<img src="http://p66ri5yke.bkt.clouddn.com/p91.png" width=1200px>
+<img src="http://p66ri5yke.bkt.clouddn.com/p92.png" width=1200px>
+
+### 可变窗口[12]
+这种方式，支持域的形状是固定的但是尺寸是变化的。支持域的位置是可变的。
+<img src="http://p66ri5yke.bkt.clouddn.com/p94.png" width=1200px>
+<img src="http://p66ri5yke.bkt.clouddn.com/p95.png" width=1200px>
+
+### 基于分割的窗口[5]
+这种方式根据图像的颜色相似性将其分割成一系列图像块，这对于损失聚合、深度图像优化以及离群点检测都有帮助。这种算法假设：每个分割块内深度平滑变化。由于涉及到图像分割此时要求分割的精度很高，并且分割后的每个支持域的形状也是不规则的。如下图所示，对于一个可允许的最大支持域范围内，包含支持域中心点所在的分割所覆盖支持域权重赋值为1，支持域的其余部分赋值为$\lambda$，其中$\lambda<<1$。
+<img src="http://p66ri5yke.bkt.clouddn.com/p98-1.png" width=1200px>
+<img src="http://p66ri5yke.bkt.clouddn.com/p98-2.png" width=1200px>
+<img src="http://p66ri5yke.bkt.clouddn.com/p99.png" width=1200px>
+
+### 自适应加权[14][51]
+首先介绍双边滤波，双边滤波是一种边缘保持滤波器，它是根据图像的邻域的颜色以及空间相关性对每个中心点进行加权。类似于双边滤波，自适应加权对其进行了简化，只考虑颜色的相关性。每一个损失都被乘以了一个这样的权重可以得到$C(p_c,q_c)$。
+<img src="http://p66ri5yke.bkt.clouddn.com/p101.png" width=1200px>
+<img src="http://p66ri5yke.bkt.clouddn.com/p102.png" width=1200px>
+以下是自适应加权的结果：
+<img src="http://p66ri5yke.bkt.clouddn.com/p103.png" width=1200px>
+
+### 可分支持域[10]
+
+
+### 快速聚合[64]
+- 假设：在每个分割块内的深度变化平缓；
+- 损失量：TAD；
+- 只对参考图像进行聚合；
+- 对称的支持域
+- 支持域覆盖整个分割块
+<img src="http://p66ri5yke.bkt.clouddn.com/p107.png" width=1200px>
+$$C_{agg}(p,q,d)=\frac{C_S(p,q,d)}{|S_p|}+\frac{C_W(p,q,d)}{|r^2|}$$
+$$C_S(p,q,d)=\sum_{p_i \in S_p}{TAD(p_i,q_{i+d})}$$
+$$C_W(p,q,d)=\sum_{p_i \in W_p}{TAD(p_i,q_{i+d})}$$
+其中$C_W$为了消除“分割锁定”，这一项可能在纹理稠密的区域很有帮助，但是这一项有可能带来深度的不连续性。
+<img src="http://p66ri5yke.bkt.clouddn.com/p111.png" width=1200px>
+
+### [快速双边滤波](http://vision.deis.unibo.it/~smatt/fast_bilateral_stereo.htm)[65]
+该方法兼顾了自适应加权的精度以及传统方法的效率。通过逐块的利用双边滤波对损失进行规范化，通过这种方式可以增加对噪声的鲁棒性。可以利用前面提及的积分图或者箱滤波的方式快速计算。由于双边滤波的局部计算特性，可以利用GPU进行加速，[GPU加速版本](http://vision.deis.unibo.it/~smatt/FBS_GPU.html)。结果如下所示：
+<img src="http://p66ri5yke.bkt.clouddn.com/p115.png" width=1200px>
+
+### [局部一致性](http://vision.deis.unibo.it/~smatt/lc_stereo.htm)
+通过对像素之间的一致性约束进行建模寻找像素之间的相关关系，这种方法对于目前最好的方法具有显著的效果提升。
+<img src="http://p66ri5yke.bkt.clouddn.com/p122.png" width=1200px>
+
+### O(1) adaptive cost aggregation[75]
+该方法受引导滤波的启发，效果还不错，可与最佳效果相媲美。
+<img src="http://p66ri5yke.bkt.clouddn.com/p127.png" width=1200px>
+
+## 视差/深度计算以及优化
+
+该步骤是为了寻找可最小化损失函数的视差（或者得到DSI图像的最佳路径以最小化能量函数）。通常情况下，能量函数可以表示为以下形式
+$$E(d)=E_{data}(d)+E_{smooth}(d)$$
+其中的数据项$E_{data}(d)$为了衡量目前假定的视差能够以何等程度接近真实视差。目前已经有不少逐像素的损失构造策略，但是目前也涌现了许多基于支持域的数据项。
+另外一项是平滑项或者叫做正则项$E_{smooth}(d)$，它可以对像素之间的连续性或者相似性进行约束：这一项对大的视差给予大的惩罚，同时对于边界处的大视差变化以及小的惩罚。也就是说，视差的变化在边界处是被允许的。
+
+以上模型的求解是个NP-hard问题，在这里可以借助几种常用的策略对其进行求解。
+- Graph Cuts [52]
+- Belief Propagation [53]
+- Cooperative optimization [54]
+
+这些方法的比较在[63]中进行了详述。有意思的是，上述问题的解决可以由动态规划以及扫描线优化来解决。
+
+
+
+
+
+### 动态规划
+- 高效 (polynomial time) ≈ 1 sec
+- 边界以及纹理稀疏区域有所帮助
+- 条带现象
+<img src="http://p66ri5yke.bkt.clouddn.com/p135.png" width=1200px>
+
+### 扫描线优化（Scanline Optimization，SO[30]）
+- 高效 (polynomial time) ≈ few seconds
+- 边界以及纹理稀疏区域有所帮助
+- 条带现象
+- 高内存消耗
+<img src="http://p66ri5yke.bkt.clouddn.com/p139.png" width=1200px>
+
+
+## 视差精化
+
+原始视差中包含的离群点需要被检测以及被移除；同时，视差是离散的数据点，有时需要更高的精度；以下将会介绍亚像素插值、图像滤波、双向验证。
+
+<img src="http://p66ri5yke.bkt.clouddn.com/p166.png" width=1200px>
+<img src="http://p66ri5yke.bkt.clouddn.com/p167.png" width=1200px>
+<img src="http://p66ri5yke.bkt.clouddn.com/p168.png" width=1200px>
+<img src="http://p66ri5yke.bkt.clouddn.com/p169.png" width=1200px>
+<img src="http://p66ri5yke.bkt.clouddn.com/p170.png" width=1200px>
+<img src="http://p66ri5yke.bkt.clouddn.com/p181.png" width=1200px>
+<img src="http://p66ri5yke.bkt.clouddn.com/p183.png" width=1200px>
+
+<font color="F08080" size=5>未完待续...</font>
 
 ## 参考文献
 [1] F. Tombari, S. Mattoccia, L. Di Stefano, E. Addimanda, Classification and evaluation of cost aggregation methods for stereo correspondence, IEEE International Conference on Computer Vision and Pattern Recognition (CVPR 2008)
