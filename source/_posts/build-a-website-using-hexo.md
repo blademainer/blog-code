@@ -30,6 +30,59 @@ hexo new blog_name #　新建以blog_name为名的blog
 在.md文档中加入 <!-- more --> 可以显示“阅读全文”
 ```
 
+## 代码区高级设置
+
+可以参考这里：[HEXO下的语法高亮拓展修改](https://www.ofind.cn/blog/HEXO/HEXO%E4%B8%8B%E7%9A%84%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E6%8B%93%E5%B1%95%E4%BF%AE%E6%94%B9.html)，具体而言，Markdown的代码段的语法是这样的。
+格式：
+
+
+```
+```[language] [:title] [lang:language] [line_number:(true|false)] [first_line:number] [mark:#,#-#] [diff:true|false] [url:http...]
+       code snippet
+```    ```
+
+
+支持的语言包括：c, abnf, accesslog, actionscript, ada, apache, applescript, arduino, armasm, asciidoc, aspectj, autohotkey, autoit, avrasm, awk, axapta, bash, basic, bnf, brainfuck, cal, capnproto, ceylon, clean, clojure, clojure-repl, cmake, coffeescript, coq, cos, cpp, crmsh, crystal, cs, csp, css, d, dart, delphi, diff, django, dns, dockerfile, dos, dsconfig, dts, dust, ebnf, elixir, elm, erb, erlang, erlang-repl, excel, fix, flix, fortran, fsharp, gams, gauss, gcode, gherkin, glsl, go, golo, gradle, groovy, haml, handlebars, haskell, haxe, hsp, htmlbars, http, hy, inform7, ini, irpf90, java, javascript, json, julia, kotlin, lasso, ldif, leaf, less, lisp, livecodeserver, livescript, llvm, lsl, lua, makefile, markdown, mathematica, matlab, maxima, mel, mercury, mipsasm, mizar, mojolicious, monkey, moonscript, n1ql, nginx, nimrod, nix, nsis, objectivec, ocaml, openscad, oxygene, parser3, perl, pf, php, pony, powershell, processing, profile, prolog, protobuf, puppet, purebasic, python, q, qml, r, rib, roboconf, rsl, ruby, ruleslanguage, rust, scala, scheme, scilab, scss, smali, smalltalk, sml, sqf, sql, stan, stata, step21, stylus, subunit, swift, taggerscript, tap, tcl, tex, thrift, tp, twig, typescript, vala, vbnet, vbscript, vbscript-html, verilog, vhdl, vim, x86asm, xl, xml, xquery, yaml, zephir。
+
+以具体的例子进行讲解，以下是一段matlab程序，我们对其位置进行描述同时标记第1,3-4行，修改部分代码。
+
+
+``` matlab  mark:1,3:4 diff:true first_line=22
+r = 7;
+eps = 0.0001;
+-tic;
++tic
+reverseStr = ''  ;
+for d=1:nD
+        p = weight_cost(:,:,d);
+        q = guidedfilter_color(double(img_view), double(p), r, eps);
+        weight_cost(:,:,d) = q;
+        msg = sprintf('Processing: %d/%d done!\n',d, nD)  ;
+        fprintf([reverseStr, msg]);
+        reverseStr = repmat(sprintf('\b'), 1, length(msg));
+end
+fprintf('Final depth estimation completed in %.2f sec\n', toc);
+[~,weightD] = max(weight_cost,[],3);
+save_img = uint8((256/(nD))*(weightD-1));
+imwrite(save_img,strcat(output_path,'SPO_depth.bmp'));
+```
+
+<font color="red">注意，我的网站此处显示有误（先占坑）!</font>另外修改代码块颜色样式,
+``` css 文件位置:~/blog/themes/next/source/css/_custom/custom.styl
+// 文章```代码块顶部样式
+.highlight figcaption {
+    margin: 0em;
+    padding: 0.5em;
+    background: #eee;
+    border-bottom: 1px solid #e9e9e9;
+}
+.highlight figcaption a {
+    color: rgb(80, 115, 184);
+}
+```
+
+
+
 ## 修复行内公式显示乱码
 以下解决方案来自[这里](https://www.jianshu.com/p/7ab21c7f0674)。
 

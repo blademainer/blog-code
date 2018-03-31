@@ -222,15 +222,33 @@ zoom(1.2)
 结果如下所示：
 <center>{% asset_img PCs.gif 点云%}</center>
 
-<span id="inline-red" >注意</span>：生成点云这一步，低版本的MATLAB（如R2014a）由于没有加入相应的函数所以不能够生成点云，高版本（R2016b）可以正常生成。
+<span id="inline-red" >注意</span>：生成点云这一步，低版本的MATLAB（如R2014a）由于没有加入相应的函数所以不能够生成点云，高版本（R2016b）可以正常生成。另外，在此提供另外一个函数`visualizeZ_3D`，该函数将depth map当做彩色图像的z向延伸，然后构图。
+<img src="http://p66ri5yke.bkt.clouddn.com/3d-demo.jpg" width=1200px>
 
 
+``` matlab 文件名: visualizeZ_3D.m
+<!--The function visualizeZ_3D-->
+function visualizeZ_3D(Z,im)
 
+if (im == 0)
+    surf(Z, visualizeZ(Z), 'EdgeColor', 'none'); imtight; axis image ij; %view(-180, 91);
+else
+    surf(Z, im, 'EdgeColor', 'none'); imtight; axis image ij; %view(-180, 91);
+end
 
+end
 
-
-
-
+function imtight
+axis image off;
+xMult = 1;
+yMult = 1;
+borderSize = 0;
+PLOTBASESIZE = 500;
+set(gca, 'PlotBoxAspectRatio', [xMult yMult 1])
+set(gcf, 'Position', get(gcf, 'Position') .* [1 1 0 0] + [0 0 PLOTBASESIZE*xMult PLOTBASESIZE*yMult]);
+set(gca, 'Position', [borderSize borderSize 1-2*borderSize 1-2*borderSize]);
+end
+```
 
 
 
