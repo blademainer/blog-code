@@ -95,7 +95,7 @@ That friends should come to one from afar, is this not after all delightful?
 <!--yulun begin-->
         <li class="link"><a href="http://yulunzhang.com/" title="大师兄" target="_blank">
         <img src= "index/yulun.jpg" alt="yulun"/>
-        <span class="link-name"> Yihu Hu</span>
+        <span class="link-name"> Yulun Zhang</span>
         <span class="link-name-below"> Ph.D. Student Northeastern University.</span>
         </a></li>
 <!--yulun end-->
@@ -103,7 +103,7 @@ That friends should come to one from afar, is this not after all delightful?
 <!--liqian begin-->
         <li class="link"><a href="http://qianli666.com/" title="李倩" target="_blank">
         <img src= "index/liqian.jpg" alt="liqian"/>
-        <span class="link-name"> Yihu Hu</span>
+        <span class="link-name">Qian Li</span>
         <span class="link-name-below"> Master candidate THU.</span>
         </a></li>
 <!--liqian end-->

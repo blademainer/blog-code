@@ -228,11 +228,10 @@ $$e(x,y,d)=(I_R(x,y)-I_T(x+d,y))^2$$
 如截断绝对误差（truncated absolute differences (TAD)）可以减少离群点的干扰：
 $$e(x,y,d)=min\{|I_R(x,y)-I_T(x+d,y),T\}$$
 
-- 相异性测量对于图像噪声不敏感（Birchfield and Tomasi[27]）
+- 相异性测量对于图像噪声不敏感（Birchfield and Tomasi[^27]）
 
 <img src="http://p66ri5yke.bkt.clouddn.com/p52.png" width=1200px>
-视差空间图像（DSI）是一个如下图所示张量（$W\times H\times(d_{max}-d_{min})$）
-其中的每一个元素$C(x,y,d)$表示$I_R(x_R,y)$与$I_T(x_R+d,y)$之间的匹配度。
+视差空间图像（DSI）是一个如下图所示张量$W\times H\times(d_{max}-d_{min})$，其中的每一个元素$C(x,y,d)$表示$I_R(x_R,y)$与$I_T(x_R+d,y)$之间的匹配度。
 
 <img src="http://p66ri5yke.bkt.clouddn.com/p53.png" width=1200px>
 
@@ -309,6 +308,7 @@ d. 重复的区域
 - 方向
 - 位置与方向
 - 权重
+
 接下来就对文中但不限于文中提到的诸多算法进行介绍 (i.e. Fast Aggregation [^64], Fast Bilateral Stereo (FBS) [^65] and the Locally Consistent (LC) methodology [^66])。
 
 ### 固定窗口
@@ -347,13 +347,14 @@ d. 重复的区域
 ### 可分支持域[^10]
 
 
+
 ### 快速聚合[^64]
 - 假设：在每个分割块内的深度变化平缓；
 - 损失量：TAD；
 - 只对参考图像进行聚合；
 - 对称的支持域
 - 支持域覆盖整个分割块
-<img src="http://p66ri5yke.bkt.clouddn.com/p107.png" width=1200px>
+<img src="http://p66ri5yke.bkt.clouddn.com/p109.png" width=1200px>
 $$C_{agg}(p,q,d)=\frac{C_S(p,q,d)}{|S_p|}+\frac{C_W(p,q,d)}{|r^2|}$$
 $$C_S(p,q,d)=\sum_{p_i \in S_p}{TAD(p_i,q_{i+d})}$$
 $$C_W(p,q,d)=\sum_{p_i \in W_p}{TAD(p_i,q_{i+d})}$$
