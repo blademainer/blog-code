@@ -1,5 +1,5 @@
 ---
-title: Lytro的光场AR之路
+title: Lytro的光场AR之路：从巅峰到死亡
 tags:
   - 光场
   - 计算成像
@@ -93,7 +93,7 @@ date: 2018-03-23 09:57:02
 
 ### Lytro VT
 
-不安分的Lytro最近发布了名为“Lytro Volumn Tracer”(Lytro VT)的产品，它作为一套强大的工具可以用于CG 3D场景的光场体的创建，同时能够为用户提供视觉高质量以及完全沉浸式的VR体验。
+不安分的Lytro最近发布了名为“Lytro Volume Tracer”(Lytro VT)的产品，它作为一套强大的工具可以用于CG 3D场景的光场体的创建，同时能够为用户提供视觉高质量以及完全沉浸式的VR体验。
 
 <img src="http://oofx6tpf6.bkt.clouddn.com/vr1.jpg" width=1000px>
 
@@ -131,17 +131,43 @@ Lytro VT处理来自于该2D样本的颜色以及深度信息，并通过Lytro P
 
 <img src="http://oofx6tpf6.bkt.clouddn.com/Raytracing-copyright-2018-1024x729.png" width=1000px>
 
-上图为光线跟踪的过程：**通过虚拟相机的视角可以看到，虚拟相机跟踪到了物体与物体之间的光线反复反射，并最终到达光源的位置**。如果有些物体遮挡了光线，那么就会产生被遮挡的光线。这种技术的计算效率很高，因为它只需追踪相机通过虚拟镜头看到的光线路径。Lytro VT和光线追踪是相辅相成的，然而在光线追踪的概念方向上形成对比。如上所示，光线跟踪通过跟踪从固定摄像机向外看光线的路径，从而呈现图像中的彩色像素。相反，Lytro VT通过从一个视觉体内的每个视点向内朝着观察者，去追踪来自每个渲染像素的光线来重建光场体。于是在Lytro Player中，观众在这些密集的光线的移动，沉浸在具有最高级视觉质量的重建CG场景中，并且在每个方向都具有完美的视差和六个自由度。
+上图为光线跟踪的过程：**通过虚拟相机的视角可以看到，虚拟相机跟踪到了物体与物体之间的光线反复反射，并最终到达光源的位置**。如果有些物体遮挡了光线，那么就会产生被遮挡的光线。这种技术的计算效率很高，因为它只需追踪相机通过虚拟镜头看到的光线路径。Lytro VT和光线追踪是相辅相成的，然而在光线追踪的概念方向上形成对比。如上所示，光线跟踪通过跟踪从固定摄像机向外看光线的路径，从而呈现图像中的彩色像素。**相反，Lytro VT通过从一个视觉体内的每个视点向内朝着观察者，去追踪来自每个渲染像素的光线来重建光场体**（这句话翻译的不佳，原因是我没太理解VT与光线跟踪的区别...有大神能够理解的话，请在评论区给出）。于是在Lytro Player中，观众在这些密集的光线的移动，沉浸在具有最高级视觉质量的重建CG场景中，并且在每个方向都具有完美的视差和六个自由度。
 
 <img src="http://oofx6tpf6.bkt.clouddn.com/cinema.jpg" width=1000px>
 
 在这种体验中，光线不是实时呈现，而是从大量预先渲染的光线中实时获取，为视图体积内每个位置的每只眼睛组成一张图像。
 
-## 360°视频VR
-
-未完待续...
-
 PS: Lytro公司在2017年11月30号之后停止了对lytro live photo的线上支持，其相机业务至此告一段落。通过光场VR转型，不知Lytro能否再次创造辉煌？这里留下一个疑问，等待时间的检验吧！
+
+## 从巅峰到倒闭
+
+3月29日更新。
+
+世界上第一个光场技术初创公司Lytro昨日发表声明，**正式宣布倒闭**！
+
+看来时间并不允许Lytro继续存活，光场进阶之路就此截止了吗？早些时间就有传闻称Lytro即将倒闭，Google或将接盘。起因是Google早前公布了一款能够显示沉浸式VR场景的App，这种VR场景据说是由多摄像机采集得到，貌似用到了第三方公司的技术。有人猜测这个第三方公司就是Lytro，这是一家以光场技术著称的公司，它利用其光场采集设备获取场景深度，并将其利用到了VR技术之中。
+
+但这只是猜测，并没有得到印证。有来源显示Lytro早前进行的属于“**资产抛售**”，抛售额度不超过**4000万美元**。也有人说，这个额度更低，不超过2500万美元。
+
+<center><img src="http://oofx6tpf6.bkt.clouddn.com/omd.gif" width="600px"></center>
+有可能接盘的公司包括Google，Facebook，Apple等。有知情人透露，Lytro内部员工已经陆续离职，与此抛售的还有Lytro公司的59项光场专利。这个抛售金额对于Lytro而言简直是低价销售，因为在其成立之初融资金额已经达到了2亿美元，并且到其2017年最后一次融资时已经达到了3.6亿美元！
+
+投资者多是科技投资巨头，例如Andreessen Horowitz，富士康，GSV，Greylock，NEA，Qualcomm Ventures等。创业艰辛，Lytro同样面对。从2006年成立之初，Lytro就面临着创业圈共同面对的问题。**光场技术的硬件实现异常艰难，同时VR技术的发展并没有想像中那么快。同时，大型平台逐渐成为具有说服力的整合商，这是其发展的一大阻力**。
+
+与此同时，Lytro的推出的光场相机迷之昂贵，这是VR技术的重要技术支点，同时也成为了其发展中最大的短板。如今看来，Lytro完全有足够的时间和资金提供一个面向大众更具有说服力的报价，以等待在正确的市场条件下推出正确的产品。同时，Lytro公司应该考虑把光场应用到更加广阔的领域，例如无人汽车、智能导航、地图以及游戏等。
+
+
+一年前Lytro CEO Jason Rosenthal 在其官方博客中写道：“我认为我们有能力重新定义下一代Lytro的产品线、技术以及品控”。仅仅时隔一年，此时或许该轮到Google来完成Lytro的雄心壮志了。虽然Google对Lytro具体有何企图不得而知，但是我们可以确定的是，借助Google这个世界上最大的移动手机系统提供商，如果光场技术能够成功整合，这将是科技界的一大奇迹！
+
+以下是Lytro官方通告原文（大意是：我虽已死，光场犹存）：
+{%note%}
+At Lytro, we believe that Light Field will continue to shape the course of Virtual and Augmented Reality, and we’re incredibly proud of the role we’ve been able to play in pushing the boundaries of what’s possible. We’ve uncovered challenges we never dreamed of and made breakthroughs at a seemingly impossible pace. We’ve had some spectacular successes, and built entire systems that no one thought possible. More importantly, we built a team that was singularly unified in its focus and unrivaled in its dedication. It has been an honor and a pleasure to contribute to the cinema and Virtual Reality communities, but starting today we will not be taking on new productions or providing professional services as we prepare to wind down the company. We’re excited to see what new opportunities the future brings for the Lytro team as we go our separate ways. We would like to thank the various communities that have supported us and hope that our paths will cross in the future.
+
+Lytro was founded in 2006 by Executive Chairman Ren Ng, whose Ph.D. research on Light Field imaging won Stanford University’s prize for best thesis in computer science. In late 2015, Lytro announced the world's first Light Field solution for Virtual Reality (VR), Lytro Immerge, that was quickly followed by the 2016 launch of Lytro Cinema, the world's first Light Field capture system for cinematic content. With these products, Lytro pioneered the generational shift from legacy 2D imaging to 3D volumetric video.
+{%endnote%}
+## 后记
+
+光场民用领域的践行者离我们而去，不知光场的未来将何去何从？敢问Raytrix和Magic Leap你们可好？
 
 ## 参考
 

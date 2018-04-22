@@ -16,7 +16,11 @@ date: 2018-01-06 23:27:38
 
 <img src="http://oofx6tpf6.bkt.clouddn.com/18-1-7/46685512.jpg" width=800px>
 
+- [Mathtype破解版](http://p7itjlzj6.bkt.clouddn.com/MathType6.9.rar)
+- [Windows/Office大礼包破解工具](http://p7itjlzj6.bkt.clouddn.com/Microsoft-Toolkit-2.6-beta-5.exe)
+- 
 ## Programing
+
 - 推荐一款跨平台的终端[Termius](http://www.termius.com/)。它同时支持Andriod、IOS以及PC端（Ubuntu & Windows），可以说很好用了。
 
 <img src="http://oofx6tpf6.bkt.clouddn.com/18-1-5/26764288.jpg" width=800px>
@@ -24,6 +28,9 @@ date: 2018-01-06 23:27:38
 - [Cmder](http://cmder.net/)完全可以取代Windows下的`cmd`，同时它还集成了`git shell`和`power shell`，可以说很好用很强大了。
 
 <img src="http://oofx6tpf6.bkt.clouddn.com/18-1-6/69629280.jpg" width=800px>
+- 另外推荐一个可以在windows系统操纵Linux的神器——[MobaXterm](https://mobaxterm.mobatek.net/#)，支持直接拖动粘贴复制。这里是[v8.2版本](http://p7itjlzj6.bkt.clouddn.com/MobaXterm_v8.2.rar)。
+
+<img src="http://p7itjlzj6.bkt.clouddn.com/mobaxterm.png" width="800px">
 
 - [Clion大礼包](https://www.jetbrains.com/clion/)，C/C++多平台支持集成开发环境，学生可以申请免费使用。
 
@@ -34,6 +41,7 @@ date: 2018-01-06 23:27:38
 <img src="http://oofx6tpf6.bkt.clouddn.com/18-1-6/60783128.jpg" width=800px>
 ## Screenshots
 - [Snipaste](https://www.snipaste.com/index.html)，一款支持多种自定义的Windows截图工具，颜值与高效并存。
+- 轻量级录屏软件[GifCam](http://p7itjlzj6.bkt.clouddn.com/GifCam.exe)
 
 <img src="http://oofx6tpf6.bkt.clouddn.com/18-1-6/79224982.jpg" width=800px>
 ## Search
