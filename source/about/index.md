@@ -61,7 +61,8 @@ B.E., Department of Automation(Sep 2011 – Jul 2015)
 <br>
 ## PATENTS
 
-- Xin Jin, **Yanwen Qin**, and Qionghai Dai, "__A Depth Estimation and Optimization Algorithm Based on Consistency of Angle Patch in Light Field Images__" China Patent 16A100535JYC
+- Xin Jin, **Yanwen Qin**, and Qionghai Dai, "__A GPU-Based Depth Estimation Method for Light Field Images__" China Patent No.201810119147.0
+- Xin Jin, **Yanwen Qin**, and Qionghai Dai, "__A Depth Estimation and Optimization Algorithm Based on Consistency of Angle Patch in Light Field Images__" China Patent No.2017101745053
 - Xin Jin, **Yanwen Qin**, and Qionghai Dai, "__A Depth Optimization Algorithm Based on Morphological Confidence Region Propagation__," China Patent No.201610823043.9
 
 <br>

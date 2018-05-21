@@ -51,7 +51,8 @@ This is a (work in progress) repo for collecting links to data sets, source code
 
 ## Other Light Field Datasets
 
-- [The (New) Stanford Light Field Archive](http://lightfield.stanford.edu/)
+- [The (New) Stanford Light Field Archive](http://lightfield.stanford.edu/lfs.html)
+- [Stanford Lytro Light Field Archive](http://lightfields.stanford.edu/index.html)
 - [MIT Synthetic Light Field Archive](http://web.media.mit.edu/~gordonw/SyntheticLightFields/index.php)
 - [4D Light Field Dataset (CVIA Konstanz & HCI Heidelberg)](http://lightfield-analysis.net/)
 - [HCI 4D Light Field Dataset](http://lightfieldgroup.iwr.uni-heidelberg.de/?page_id=713)
@@ -106,9 +107,17 @@ This is a (work in progress) repo for collecting links to data sets, source code
 - [Metheno](https://blog.metheno.net/)
 - [You Know](http://x.mouto.org/wb/)
 
+## Convert Latex to images
+- [Latex2png](http://www.latex2png.com/)
+- [Latex2html](https://www.codecogs.com/latex/eqneditor.php)
+- [Latex2svg](http://www.tlhiv.org/ltxpreview/)
 
-
-
+## Others
+- [Free Images](https://unsplash.com/)
+- [mouto](http://i.mouto.org/#kodak)
+- [Lab](http://lab.mouto.org/)
+- [Metheno](https://blog.metheno.net/)
+- [You Know](http://x.mouto.org/wb/)
 
 
 

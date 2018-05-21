@@ -5,7 +5,7 @@ date: 2018-03-14 23:43:53
 tags:
 - Stephen Hawking
 
-sticky: 1001
+
 ---
 
 <img src="http://oofx6tpf6.bkt.clouddn.com/Hawkingsig.svg" width=1600px>

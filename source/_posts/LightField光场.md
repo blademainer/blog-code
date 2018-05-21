@@ -4,6 +4,7 @@ title: Light Field 光场以及MATLAB光场工具包(LightField ToolBox)的使�
 comments: true
 categories: 计算机视觉
 copyright: false
+mathjax: true
 tags:
   - Matlab光场工具包
   - 光场
@@ -27,14 +28,15 @@ sticky: 1000
 
 
 ## 光场相机
-大家在刚刚入手光场领域的时候会用到现在的消费者用的手持光场相机Lytro或者ILLUM，如图（实验室的设备，我可买不起ILLUM）：
+大家在刚刚入手光场领域的时候可能会用到目前消费级的手持光场相机，如Lytro或者ILLUM，如图（实验室的设备，我可买不起ILLUM）：
 <center>{% asset_img LF-cameras.jpg (Left).Lytro;(Right).Illum%}</center>
 
 
 ## 获取.LFP(or .LFR)原文件
-由Lytro拍摄的图像的原格式是.lfp格式，我们要解码成我们需要的格式。
+由Lytro拍摄的图像的原格式是.lfp格式，我们要将其解码成我们需要的格式。
 工具：**Lytro Desktop**，**MATLAB光场工具包**（很强大，推荐，本文介绍该方法）。
-用数据线把设备连接到电脑，打开Lytro Desktop，点击想要导入的图片，选中点击右上角立即处理，然后打开我的电脑图片->Lytro Desktop\Libraries\Lytro 图库.lytrolibrary\*，就可以发现有很多文件夹名字是一串很长数字字母啥的。点击去就可以发现好几个文件，以lytro为例，这几个文件如下形式：
+
+首先用数据线把设备连接到电脑，打开Lytro Desktop，点击想要导入的图片，选中点击右上角立即处理，然后打开我的电脑图片->Lytro Desktop\Libraries\Lytro 图库.lytrolibrary\*，就可以发现有很多文件夹名字是一串很长数字字母云云。点击进去可以发现里面有几个文件，以lytro为例，这几个文件如下形式：
 <center>{% asset_img lfp_list.png Light field files %}</center>
 
 **<font color=red>raw.lfp</font>**就是我们需要的原文件，之后我们就要利用Matlab光场工具包对其进行解码操作。
@@ -44,16 +46,16 @@ sticky: 1000
 
 ### 下载光场工具包（LFToolBox）
 
-首先下载[光场工具箱](http://cn.mathworks.com/matlabcentral/fileexchange/49683-light-field-toolbox-v0-4)并仔细阅读说明文档，根据文档把相应的数据拷贝到工具箱的文件夹下(这一步很关键，要仔细配置)。如果不想在官网下载的话我上传到了度娘的云盘链接：[链接](http://pan.baidu.com/s/1hsDo0ks) 密码：yykc。这是我修改后的一个版本，可以直接运行。**<font color=red >另外我在Github上传了一个版本，大家可以git clone[链接](https://github.com/Vincentqyw/Light_Field_TB)</font>**。下载下来的工具包是这样的：
+首先下载[光场工具箱](http://cn.mathworks.com/matlabcentral/fileexchange/49683-light-field-toolbox-v0-4)并仔细阅读说明文档，根据文档把相应的数据拷贝到工具箱的文件夹下(这一步很关键，要仔细配置)。~~如果不想在官网下载的话我上传到了度娘的云盘链接：[链接](http://pan.baidu.com/s/1hsDo0ks) 密码：yykc。这是我修改后的一个版本，可以直接运行。~~**<font color=red >另外我在Github上传了一个版本，大家可以git clone[链接](https://github.com/Vincentqyw/Light_Field_TB)</font>**。下载下来的工具包是这样的：
 <center>{% asset_img LF-TB-main.png 工具包文件夹 %}</center> 
 
-LFToolbox0.4就是我们要的工具包，里面包含很多函数，如下图：
+LFToolbox0.4就是我们需要的工具包，该工具包里包含很多函数，如下图：
 <center>{% asset_img LF-TB-files.png 工具包函数 %}</center>
 
-我把一些比较常用的函数或者文档用红色的框标注出来，其中PDF文档是该工具包的说明书。这个说明书中详细的介绍了该工具包的使用方法，我们完全可以根据该文档的介绍来实现自己想要的功能。如下是该说明书的截图：
+在此，我把一些比较常用的函数及文档用红色的框标注出来，其中PDF文档是该工具包的说明书。这个说明书中详细地介绍了该工具包的使用方法，我们完全可以根据该文档的介绍来实现自己想要的功能。如下是该说明书的截图：
 <center>{% asset_img LF-TB.png 说明文档 %}</center>
 
-同时该说明文档提供了各种函数用于从LFP文件中提取出自己需要的各种信息：白图像(white image)，Raw Image，对齐后的图像，以及颜色校正，频域滤波后的图像等。
+该说明文档提供了各种函数用于从LFP文件中提取出自己需要的各种信息：白图像(white image)，Raw Image，对齐后的图像，以及颜色校正，频域滤波后的图像等。
 ~~因为时间不足没有整理的，感觉大家都对这个过程比较感兴趣，我觉得有必要写一下到底如何读取lfp、lfr、raw文件了。好了言归正传，开写。~~
 
 ### 前期准备
@@ -71,7 +73,7 @@ LFToolbox0.4就是我们要的工具包，里面包含很多函数，如下图�
 在每个序列号文件夹下又有一个文件夹<font color=red >WhiteImages</font>，这里面放着由该相机拍摄的白图像。所谓白图像就是一张由光场相机拍摄的白色的图像，当然自己也可以拿着光场相机对着白色的墙面拍几张，但是效果并不一定很好。庆幸的是LYTRO官方提供了白图像，以Lytro为例，我们可以从以下目录找到:<u> c:\Users\ **username**\AppData\Local\Lytro\cameras\sn- serial_number</u>。如下图所示：
 <center>{% asset_img white-image-files-folders.png 白图像目录 %}</center>
 
-我们发现这里有以下4个文件：**data.C.0/1/2/3**，这是官方把图像压缩成了这种格式，我们需要用工具箱进行解码。我们需要的就是这四个文件，拷贝出这4个文件，放在<font color=red >WhiteImages</font>文件夹里。这一步相当关键，一定要确保拷贝对了目录。<font color=red><u>注意，Illum相机的白图像与Lytro的白图像的存放位置不一样，在相机的SD卡里</u>。</font>
+我们发现这里有以下4个文件：**data.C.0/1/2/3**，这是官方把白图像压缩成了这种格式，我们需要用工具箱进行解码。我们需要的正是这四个文件，拷贝出这4个文件，放在<font color=red >WhiteImages</font>文件夹里。这一步相当关键，一定要确保拷贝对了目录。<font color=red><u>注意，Illum相机的白图像与Lytro的白图像的存放位置不一样，在相机的SD卡里</u>。</font>
 
 #### step 4: 将测试文件放到Images目录
 
@@ -88,15 +90,15 @@ LFToolbox0.4就是我们要的工具包，里面包含很多函数，如下图�
 
 #### 处理白图像
 
-处理白图像的目的为了得到相机的某些参数，我当时是为了获得每幅光场的中心点坐标才进行的这一步。以为白图像拍摄的场景没有纹理，此时可以清楚的观察到微透镜成像的边界信息。如下图所示：
+处理白图像的目的是得到相机的某些参数，我当时是为了获得每幅光场的中心点坐标才进行的这一步。白图像拍摄的场景没有纹理，此时可以清楚的观察到微透镜成像的边界信息。如下图所示：
 <center>{% asset_img white-image-macro-pixels.png 白图像宏像素块 %}</center>
 
-可以看到的是，微透镜下成像是这种正六边形的网格，类似于蜂窝的结构，感觉666。需要注意的是，该过程不是简单的提取出一张白图像来，而是提取几十张白图像对（image pairs），这个过程运行起来有点久，以下是运行的截图：
+可以看到的是，微透镜下成像是这种正六边形的网格，类似于蜂窝的结构，感觉很酷有木有。需要注意的是，该过程不是简单地提取出一张白图像来，而是提取几十张白图像对（image pairs），这个过程运行起来有点久，以下是运行的截图：
 <center> <img src="running-process.png" width="80%"></center>
 
 #### 解码LFP文件
 
-如果只是单纯的读出LFP/LFR、RAW文件的数据的话可以分别用工具包提供的如下函数：LFReadLFP、LFReadRaw。注意两个函数的返回值不一样。LFReadLFP返回一个结构体类型的变量，它包含相机的各个信息，我们可以根据自己的需要保留数据。LFReadRaw返回的是一张uint16的灰度图，还没有经过demosaicing操作。去马赛克操作在malatb中有相应的函数，这点不用担心。我们在这里不是直接调用的LFReadLFP而是调用了工具箱提供的LFLytroDecodeImage函数。如果运行有问题（<u>若是直接clone我github上项目的话，不需要修改</u>），将LFLytroDecodeImage中的WhiteImageDatabase路径由以下：
+如果只是单纯地读出LFP/LFR、RAW文件的数据的话可以分别用工具包提供的如下函数：LFReadLFP、LFReadRaw。注意两个函数的返回值不一样。LFReadLFP返回一个结构体类型的变量，它包含相机的各个信息，我们可以根据自己的需要保留数据。LFReadRaw返回的是一张uint16的灰度图，还没有经过demosaicing操作。去马赛克操作在malatb中有相应的函数，这点不用担心。我们在这里不是直接调用的LFReadLFP而是调用了工具箱提供的LFLytroDecodeImage函数。如果运行有问题（<u>若是直接clone我github上项目的话，不需要修改</u>），将LFLytroDecodeImage中的WhiteImageDatabase路径由以下：
 
 ```matlab
 DecodeOptions = LFDefaultField( 'DecodeOptions', 'WhiteImageDatabasePath'...
@@ -153,7 +155,7 @@ DecodeOptions = LFDefaultField( 'DecodeOptions', 'WhiteImageDatabasePath'...
 1. 下载整个[工程](https://github.com/Vincentqyw/light-field-TB)；
 2. 下载数据集：可以在[这里](https://www.irisa.fr/temics/demos/lightField/index.html)下载Lytro数据集，该数据集包括白图像以及图像原文件；
 3. 然后将工程`Sample_test/Cameras/`下的文件`Axxxxxxxxxxx`修改为`A303134643`，然后将数据集`LytroDataset\sn-A303134643`文件夹下的`data.C.0.1/2/3`放在`Sample_test/Cameras/A303134643`文件夹下；
-4. 将`LytroDataset\raws`文件夹下的图像原文件放在工程`Sample_test/Images/B01/`文件夹下；
+4. 将`LytroDataset\raws`文件夹下的图像原文件放在工程`Sample_test/Images/A01/`文件夹下；
 5. 修改`Demo.m`中`WhiteImagesPath='Sample_test\Cameras\Axxxxxxxxxx'`，以及`lfpname='test'`改成步骤4中的任何一个图像原文件即可。
 6. run起来吧~
 
@@ -315,10 +317,105 @@ ___
 ~~谁让人家Lytro不开源呢，人家自己做的Demo还不错。通过鼠标就可以对以下图像进行**重聚焦，变化视角，以及缩放**等操作。话不多说，上图！~~ 呵，人家公司在2017年11月30号之后停止了对lytro live photo的线上支持，所以以下啥都没有了。
 <!--<center><iframe width='600' height='434' src='https://pictures.lytro.com/89268543555/pictures/1083179/embed' frameborder='0' allowfullscreen scrolling='no'></iframe></center> <center><iframe width='600' height='434' src='https://pictures.lytro.com/michaelsternoffphoto/pictures/1030057/embed' frameborder='0' allowfullscreen scrolling='no'></iframe></center> <center><iframe width='600' height='434' src='https://pictures.lytro.com/karinaguillenphoto/pictures/926574/embed' frameborder='0' allowfullscreen scrolling='no'></iframe></center> <center><iframe width='600' height='434' src='https://pictures.lytro.com/karinaguillenphoto/pictures/1004450/embed' frameborder='0' allowfullscreen scrolling='no'></iframe></center>更多图像在[这里](https://pictures.lytro.com/)。-->
 
+### 数字重聚焦
+
+利用如下的重聚焦公式可以实现光场图像的重聚焦。
+$$
+L_{\alpha}(x,y,u,v)=L_0(x+(1-\frac{1}{\alpha})u,y+(1-\frac{1}{\alpha})v,u,v)
+$$
+
+![](http://oofx6tpf6.bkt.clouddn.com/concatImg.png)
+左图为其中心视角图像，右图为重聚焦（参数 $\alpha$ =0.5）之后的图像。
+
+给出部分测试代码如下，全部代码见**[Github](https://github.com/Vincentqyw/Light-Field-Refocusing)**;
+
+```matlab
+%% This is a demo of light field refocusing
+% input: LF 
+% ouput: refocused pinhole image
+% Writen by: Vincent Qin
+% Data: 2018 May 17th 21:35:14
+
+%% Note: the input is 5D LF data  decoded from Matlab Light field Toolbox
+
+clc;
+
+addpath(genpath(pwd));
+%% mex function
+cd('src'); 
+mex REMAP2REFOCUS_mex.c 
+mex BLOCKMEAN_mex.c 
+cd ..
+
+use_vincent_data=1;
+
+if use_vincent_data
+    disp('Downloading LF data, please wait...');
+
+    URL='http://p8vl2tjcq.bkt.clouddn.com/LF.mat';
+    [f, status] = urlwrite(URL,'input/LF_web.mat');
+    if status == 1;
+        fprintf(1,'Success！\n');
+    else
+        fprintf(1,'Failed！\n');
+    end
+    load('input/LF_web.mat');
+else
+    load('input/your_LF_data.mat');
+end
+
+disp('Processing LF to Remap image...');
+
+LF=LF(:,:,:,:,1:3);
+[UV_diameter,~,y_size,x_size,c]=size(LF);
+
+%  get LF remap and pinhole image before refocusing
+LF_Remap = LF2Remap(LF);
+% IM_Refoc_1 = zeros(y_size, x_size,3);temp = zeros(y_size, x_size);
+% BLOCKMEAN_mex(x_size, y_size, UV_diameter, LF_Remap(:,:,1), temp);IM_Refoc_1(:,:,1)=temp;
+% BLOCKMEAN_mex(x_size, y_size, UV_diameter, LF_Remap(:,:,2), temp);IM_Refoc_1(:,:,2)=temp;
+% BLOCKMEAN_mex(x_size, y_size, UV_diameter, LF_Remap(:,:,3), temp);IM_Refoc_1(:,:,3)=temp;
+
+% get params
+LF_x_size = x_size * UV_diameter;
+LF_y_size = y_size * UV_diameter;
+UV_radius = (UV_diameter-1)/2;
+UV_size   = UV_diameter*UV_diameter;
+
+% collect data
+LF_parameters       = struct(...
+                             'LF_x_size',LF_x_size,...
+                             'LF_y_size',LF_y_size,...
+                             'x_size',x_size,...
+                             'y_size',y_size,...
+                             'UV_radius',(UV_diameter-1)/2,...
+                             'UV_diameter',UV_diameter,...
+                             'UV_size',UV_diameter*UV_diameter) ;
+
+% predefine output
+LF_Remap_alpha   = zeros(LF_y_size,LF_x_size,3) ;
+IM_Refoc_alpha   = zeros(y_size,x_size,3)       ;
+
+% here begins refocusing
+disp('Processing refocusing...');
+alpha=0.5;    %　shearing number
+REMAP2REFOCUS_mex(x_size,y_size,UV_diameter,UV_radius,LF_Remap,LF_Remap_alpha,IM_Refoc_alpha,alpha);  
+
+% show figure
+central_view=squeeze(LF(UV_radius+1,UV_radius+1,:,:,:));
+figure; imshow(central_view);
+title('central view');set(gcf,'color',[1 1 1]);  
+figure; imshow(IM_Refoc_alpha);
+title(['refocused image pinhole at alpha = ' num2str(alpha)]);
+set(gcf,'color',[1 1 1]);  
+
+% concat them
+concatImg=[central_view,IM_Refoc_alpha];
+figure;imshow(concatImg);set(gcf,'color',[1 1 1]); 
+imwrite(concatImg,'concatImg.png');
+```
+
 **<center>以上，如有问题欢迎评论，不出意外我一直在线</center>**
-
-
-
 
 
 
