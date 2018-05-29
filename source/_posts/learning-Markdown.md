@@ -324,6 +324,36 @@ $$E=mc^2$$
 Hexo文档使用Markdown语言对文档进行编辑，Hexo自身对公式可以进行渲染但是效果不佳，我们采用的是mathjax对Markdown中的公式进行渲染。
 首先[修复Hexo与mathjax之间的渲染冲突](http://2wildkids.com/2016/10/06/%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86Hexo%E5%92%8CMathJax%E7%9A%84%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98/#小结)，然后可以参考mathjax的[说明文档](http://mlworks.cn/posts/introduction-to-mathjax-and-latex-expression/)编辑公式。
 
+## 希腊字母对应表
+
+|字母名称|	大写	|markdown原文|	小写	|markdown原文|
+| :-: | :-: | :-: |:-:|:-:|
+|alpha	|$A$	|A	|$\alpha$	|\alpha|
+|beta	|$B$	|B	|$\beta$	|\beta|
+|gamma	|$\Gamma$	|\Gamma	|$\gamma$	|\gamma|
+|delta	|$\Delta$	|\Delta	|$\delta$  |\delta|
+|epsilon	|$E$|	E|	$\epsilon$|	\epsilon|
+|-|-|-|$\varepsilon$	|\varepsilon|
+|zeta|	$Z$|	Z|	$\zeta$|	\zeta|
+|eta|	$E$|	E|	$\eta$|	\eta|
+|theta|	$\Theta$|	\Theta|	$\theta$|	\theta|
+|iota|	$I$|	I|	$\iota$	|\iota|
+|kappa|	$K$|	K|	$\kappa$	|\kappa|
+|lambda|	$\Lambda$|	\Lambda	|$\lambda$|	\lambda|
+|Mu	|$M$|   M	|$\mu$|	\mu|
+|nu	|$N$|	N   |$\nu$|	\nu|
+|xi	|$\Xi$|	\Xi|	$\xi$	|\xi|
+|omicron|	$O$|	O	|$\omicron$|	\omicron|
+|pi|	$\Pi$|	\Pi|	$\pi$|	\pi|
+|rho	|$P$|	P|	$\rho$|	\rho|
+|sigma	|$\Sigma$|	\Sigma|	$\sigma$|	\sigma|
+|tau	|$T$|	T|	$\tau$|	\tau|
+|upsilon|	$\Upsilon$	|\Upsilon|	$\upsilon$|	\upsilon|
+|phi|	$\Phi$|	\Phi|	$\phi$|	\phi|
+|-|-|-|$\varphi$	|\varphi|
+|chi|	$X$	|X	|$\chi$	|\chi|
+|psi	|$\Psi$|	\Psi|	$\psi$	|\psi|
+
 
 
 
