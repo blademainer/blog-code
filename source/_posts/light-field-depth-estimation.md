@@ -13,7 +13,7 @@ sticky: 1001
 ---
 ![](http://oofx6tpf6.bkt.clouddn.com/street.jpg)
 
-先占个坑，本文将介绍光场领域进行深度估计的相关研究。
+本文将介绍光场领域进行深度估计的相关研究。
 In this post, I'll introduce some depth estimation algorithms using Light field information. Here is some of the [code](https://github.com/Vincentqyw/Depth-Estimation-Light-Field).
 
 <!--more-->
@@ -75,7 +75,6 @@ $$
 <table>
 	<tr>
 	    <td rowspan="6"> MVS-based<br/>
-	        
 	    <td><b>Approach</b></td>
 	    <td><b>Main Feature</b></td>
 	</tr>
@@ -99,13 +98,62 @@ $$
 
 </table>
 
+在这里介绍Jeon等人[^8]提出的基于相移的亚像素多视角立体匹配算法。
+
+### 相移理论
+
+该算法的核心就是用到了相移理论，即空域的一个小的位移在频域为原始信号的频域表达与位移的指数的幂乘积，即如下公式：
+$$
+\mathcal{F}\left\{I(x+\Delta x)\right\} = \mathcal{F}\left\{I(x)\right\}\exp^{2\pi j\Delta x}. \tag{2}
+$$
+
+所以，经过位移后图像可以表示为：
+
+$$
+I'(x)=I(x+\Delta x)={\mathcal{F}^{-1}\left\{\mathcal{F}\left\{I(x)\right\}\exp^{2 \pi j \Delta x}\right\}},\tag{3}
+$$
+
+面对Lytro相机窄基线的难点，通过相移的思想能够实现亚像素精度的匹配，在一定程度上解决了基线短的问题。那么大家可能好奇的是，如何将这个理论用在多视角立体匹配中呢？带着这样的疑问，继续介绍该算法。
+
+### 匹配代价构建
+
+为了能够使子视角图像之间进行匹配，作者设计了2中不同的代价量：Sum of Absolute Differences (SAD)以及Sum of Gradient Differences (GRAD)，最终通过加权的方式获得最终的匹配量$C$，它是位点$x$以及损失编号（可以理解成深度/视差层）$l$的函数，具体形式如下公式所示：
+
+$$
+C(x,l) = \alpha C_A(x,l)+(1-\alpha)C_G(x,l),\tag{4}
+$$
+其中$\alpha \in [0,1]$表示SAD损失量$C_A$以及SGD损失量$C_G$之间的权重。同时其中的$C_A$被定义为如下形式：
+$$
+C_A(x,l) = \sum_{u \in V}\sum_{x \in R_x}{\min\left( | I(u_c,x)-I(u,x+\Delta x(u,l))|,\tau _1\right)},\tag{5}
+$$
+其中的$R_x$表示在$x$点邻域的矩形区域；$\tau _1$是代价的截断值（为了增加算法鲁棒性）；$V$表示除了中心视角$u_c$之外的其余视角。上述公式通过比较中心视角图像$I(u_c,x)$与其余视角$I(u,x)$的差异来构建损失量，具体而言就是通过不断地在某个视角$I(u_i,x)$上$x$点的周围移动一个**小的距离**并于中心视角做差；重复这个过程直到比较完所有的视角(i=1...视角数目N)为止。此时会用到上节提及的相移理论以得到移动后的像素强度，注意上面提到的**小的距离**实际上就是公式中的$\Delta x$，它被定义为如下形式：
+$$
+\Delta x(u,l) = lk(u-u_c),\tag{6}
+$$
+其中k表示深度/视差层的单位（像素），$\Delta x$会随着任意视角与中心视角之间距离的增大而线性增加。同理，可以构造出第二个匹配代价量SGD，其基本形式如下所示：
+
+$$
+C_G(x,l) = \sum_{u \in V}\sum_{x \in R_x}\beta (u){\min\left( Diff_x(u_c,u,x,l),\tau _2\right)}+ (1-\beta (u)){\min\left( Diff_y(u_c,u,x,l),\tau _2\right)},\tag{7}
+$$
+
+其中的$Diff_x(u_c,u,x,l)=|I_x(u_c,x)-I_x(u,x+\Delta x(u,l))|$表示子视角图像在x方向的上的梯度，同理$Diff_y$表示子孔径图像在y方向上的梯度；$\beta (u)$控制着这两个方向代价量的权重，它由任意视角与中心视角之间的相对距离表示：
+
+$$
+\beta (u) = \frac{|u-u_c|}{|u-u_c|+|v-v_c|}.\tag{8}
+$$
+
+至此，代价函数构建完毕。随后对于该代价函数利用边缘保持滤波器进行损失聚合，得到优化后的代价量。紧接着作者建立了一个多标签优化模型（GC求解）以及迭代优化模型对深度图进行优化，再此不做详细介绍。下面是其算法的分部结果：
+
+![](http://oofx6tpf6.bkt.clouddn.com/jeon-depth-step.png)
+
+
 ## 基于EPI的方法
 
 <img src="http://oofx6tpf6.bkt.clouddn.com/2pp-epi-depth.png" width="100%">
 
 不同于多视角立体匹配的方式，EPI的方式是通过分析光场数据结构的从而进行深度估计的方式。EPI图像中斜线的斜率就能够反映出场景的深度。上图中点P为空间点，平面$\Pi$为相机平面，平面$\Omega$为像平面。图中$\Delta u$与$\Delta x$的关系可以表示为如下公式[^6]：
 $$
-\Delta x=- \frac{f}{Z}\Delta u,\tag{2}
+\Delta x=- \frac{f}{Z}\Delta u,\tag{9}
 $$
 
 假如固定相同的$\Delta u$，水平方向位移较大的EPI图中斜线所对应的视差就越大，即深度就越小。如下图所示，$\Delta x_2$>$\Delta x_1$，那么绿色线所对应的空间点要比红色线所对应的空间点深度小。
@@ -153,12 +201,15 @@ $$
 	</tr>
     
 </table>
+
 在以上表格中最具代表性的算法是由wanner[^14]提出的结构张量法得到EPI图中线的斜率，如下公式所示：
+
 $$
- J=\left[
+ J=
+ \left[
  \begin{matrix}
    G_{\sigma}*(S_xS_x) & G_{\sigma}*(S_xS_y)  \\
-   G_{\sigma}*(S_xS_y) & G_{\sigma}*(S_yS_y) 
+   G_{\sigma}*(S_xS_y) & G_{\sigma}*(S_yS_y)
   \end{matrix}
   \right]=
   \left[
@@ -167,10 +218,38 @@ $$
    J_{xy} & J_{yy}
   \end{matrix}
   \right],
-  \tag{3}
+  \tag{10}
 $$
-【待补充……】
+
+其中$S=S_{y^\*,v^\*}$为极线图。$S_x$以及$S_y$表示极线图在x以及y方向上的梯度，$G_{\sigma}$表示高斯平滑算子。最终极线图中局部斜线的斜率可以表示成如下形式：
+$$
+ J=\left[
+ \begin{matrix}
+   \Delta x  \\
+    \Delta v
+  \end{matrix}
+  \right]=
+  \left[
+ \begin{matrix}
+  \sin \varphi\\
+   \cos \varphi
+  \end{matrix}
+  \right],
+  \tag{11}
+$$
+其中$\varphi = \frac{1}{2}\arctan\left(\frac{J_{yy}-J_{xx}}{2J_{xy}}\right)$。因此深度可以由公式（9）推出：
+
+$$
+Z=-f\frac{\Delta v}{\Delta x},  \tag{12}
+$$
+通常情况下，可以用一种更加简单的形式，如视差对其进行表示：
+$$
+d_{y^*,v^*}=-f/Z=\frac{\Delta x}{\Delta v}=\tan \phi .  \tag{13}
+$$
+至此，利用上述公式可以从EPI中估计出视差。
+
 ## 散焦及融合的方法
+
 光场相机一个很重要的卖点是先拍照后对焦，这其实是根据光场剪切原理[^31]得到的。通过衡量像素在不同焦栈处的“模糊度”可以得到其对应的深度。以下列举几种基于散焦的深度估计算法[^7] [^16] [^17] [^22] [^23]。
 <table>
 	<tr>
@@ -210,28 +289,28 @@ $$
 
 首先对光场图像进行重聚焦，然后得到一系列具有不同深度的焦栈。然后对该焦栈分别提取2个线索：散焦量以及匹配量。其中散焦量被定义为：
 $$
-{D}_{\alpha}(x)=\frac{1}{|W_{D}|}\sum _{x' \in W_D} {|\Delta _x{L}_{\alpha}(x')|}
+D_{\alpha}(x)=\frac{1}{|W_{D}|}{\sum _{x' \in W_D} {|\Delta _x{L}_{\alpha}(x')|}},\tag{14}
 $$
 其中，$W_D$表示为当前像素领域窗口大小，$\Delta _x$表示水平方向拉式算子，$\overline{L}_{\alpha}(x)$为每个经过平均化后的重聚焦后光场图像，其表达式如下：
 $$
-\overline{L}_{\alpha}(x)=\frac{1}{N_{u}}\sum _{u'} {L}_{\alpha}(x,u')
+\overline{L}_{\alpha}(x)=\frac{1}{N_{u}}\sum _{u'} {L}_{\alpha}(x,u'),\tag{15}
 $$
 其中$N_{u}$表示每一个角度域内像素的数目。然后匹配量被定义成如下形式：
 $$
-{C}_{\alpha}(x)=\frac{1}{|W_{C}|}\sum _{x' \in W_C} {\sigma}_{\alpha}(x')
+{C}_{\alpha}(x)=\frac{1}{|W_{C}|}\sum _{x' \in W_C} {\sigma}_{\alpha}(x'),\tag{16}
 $$
 其中，$W_C$表示为当前像素领域窗口大小，${\sigma}_{\alpha}(x)$表示每个宏像素强度的标准差，其表达式为：
 $$
-{\sigma}_{\alpha}(x)^2=\frac{1}{N_{u}}\sum _{u'} \left({L}_{\alpha}(x,u')-\overline{L}_{\alpha}(x)\right)^2.
+{\sigma}_{\alpha}(x)^2=\frac{1}{N_{u}}\sum _{u'} \left({L}_{\alpha}(x,u')-\overline{L}_{\alpha}(x)\right)^2.\tag{17}
 $$
 经过以上两个线索可以通过赢者通吃（Winner Takes All，WTA）得到两张原始深度图。注意：对这两个线索使用WTA时略有不同，通过最大化空间对比度可以得到散焦线索对应的深度，最小化角度域方差能够获得匹配量对应的深度。因此二者深度可以分别表示为如下公式：
 
 $$
-\alpha ^{*}_D(x)=\mathop{\arg\max}_{\alpha} \ \ {D}_{\alpha}(x).
+\alpha ^{*}_D(x)=\mathop{\arg\max}_{\alpha} \ \ {D}_{\alpha}(x).\tag{18}
 $$
 
 $$
-\alpha ^{*}_C(x)=\mathop{\arg\min}_{\alpha} \ \ {C}_{\alpha}(x).
+\alpha ^{*}_C(x)=\mathop{\arg\min}_{\alpha} \ \ {C}_{\alpha}(x).\tag{19}
 $$
 
 ### 置信度分析及深度融合
@@ -241,11 +320,11 @@ $$
 上图中显示了两个线索随着深度层次而变化的曲线。接下来的置信度分析用**主次峰值比例**（Peak Ratio）来定义每种线索的置信度，可表示为如下公式，其中的$\alpha ^{\*2}_D(x)$以及$\alpha ^{\*2}_C(x)$分别表示曲线的次峰值对应的深度层次。
 
 $$
-D_{conf}(x)=\frac{D_{\alpha ^{*}_D}(x)}{D_{\alpha ^{*2}_D}(x)}.
+D_{conf}(x)=\frac{D_{\alpha ^{*}_D}(x)}{D_{\alpha ^{*2}_D}(x)}.\tag{20}
 $$
 
 $$
-C_{conf}(x)=\frac{C_{\alpha ^{*}_C}(x)}{C_{\alpha ^{*2}_C}(x)}.
+C_{conf}(x)=\frac{C_{\alpha ^{*}_C}(x)}{C_{\alpha ^{*2}_C}(x)}.\tag{21}
 $$
 接下来对原始深度进行MRF置信度融合：
 $$
@@ -255,15 +334,16 @@ $$
 $$
 +\lambda _{flat} \sum _{(x,y)}\left( \left |\frac{\partial Z_i}{\partial x}\right|_{(x,y)}+\left|\frac{\partial Z_i}{\partial y}\right|_{(x,y)}\right)
 $$
+
 $$
- + \lambda _{smooth} \sum _{(x,y)}|\Delta Z_i|_{(x,y)}.
+ + \lambda _{smooth} \sum _{(x,y)}|\Delta Z_i|_{(x,y)}.\tag{22}
 $$
 其中，$source$控制着数据项，即优化后的深度要与原始深度尽量保持一致。第二项与第三项分别控制着平坦性（flatness）与平滑性（smoothness）。注意：**平坦**的意思是物体表面没有凹凸变化的沟壑，例如魔方任一侧面，无论是否拼好（忽略中间黑线）。而**平滑**则表示在平坦的基础上物体表面没有花纹，如拼好的魔方的一个侧面。另外的$W$是权重量，此处选用的是每个线索的置信度。
 $$
- \{Z_1^{source},Z_2^{source}\}=\{\alpha_C^{*},\alpha_D^{*}\}.
+ \{Z_1^{source},Z_2^{source}\}=\{\alpha_C^{*},\alpha_D^{*}\}.\tag{23}
 $$
 $$
- \{W_1^{source},W_2^{source}\}=\{C_{conf},D_{conf}\}.
+ \{W_1^{source},W_2^{source}\}=\{C_{conf},D_{conf}\}.\tag{24}
 $$
 至此，该算法介绍完毕，其代码已经放在我的[Github](https://github.com/Vincentqyw/Depth-Estimation-Light-Field/tree/master/LF_DC)。
 
@@ -311,13 +391,13 @@ $$
 由于光场图像可以等效成多个视角图像的集合，这里的视角数目通常要比传统的立体匹配算法需要的视角数目多得多。所以，如果利用全部的视角做深度估计将会相当耗时，所以在实际情况下并不需要用到全部的视角。作者的思路就是想办法尽量减少实际要使用的视角数目，所以作者探究了不同角度域方向光场图像的特征。中心视角图像与其余视角的关系可以表示成如下公式：
 
 $$
-L(x,y,0,0)=L(x+d(x,y)*u,y+d(x,y)*v,u,v),
+L(x,y,0,0)=L(x+d(x,y)*u,y+d(x,y)*v,u,v),\tag{25}
 $$
 
 其中$d(x,y)$表示中心视角到其相应相邻视角之间的视差（disparity）。令角度方向为$\theta$（$\tan \theta=v/u$），我们可以将上式改写成如下公式：
 
 $$
-L(x,y,0,0)=L(x+d(x,y)*u,y+d(x,y)*u \tan \theta,u,u \tan \theta).
+L(x,y,0,0)=L(x+d(x,y)*u,y+d(x,y)*u \tan \theta,u,u \tan \theta).\tag{26}
 $$
 作者选择了四个方向$\theta$: 0<sup>o</sup>，45<sup>o</sup>，90<sup>o</sup>，135<sup>o</sup>，同时假设光场图像总视角数为$(2N+1)\times(2N+1)$。
 
@@ -337,67 +417,67 @@ $$
 
 【未完待续...】
 
-## References
-[^1]: Gershun, A. "The Light Field." Studies in Applied Mathematics 18.1-4(1939):51–151.
+# References
+[^1]: Gershun, A. "[The Light Field](http://p9kx5cva1.bkt.clouddn.com/1.Gershun-1939-Journal_of_Mathematics_and_Physics.pdf)." Studies in Applied Mathematics 18.1-4(1939):51–151.
 
-[^2]: Adelson, Edward H, and J. R. Bergen. "The plenoptic function and the elements of early vision. " Computational Models of Visual Processing (1991):3-20.
+[^2]: Adelson, Edward H, and J. R. Bergen. "[The plenoptic function and the elements of early vision](http://p9kx5cva1.bkt.clouddn.com/2.The%20plenoptic%20function%20and%20the%20elements%20of%20early%20vision.pdf). " Computational Models of Visual Processing (1991):3-20.
 
-[^3]: Levoy, Marc. "Light field rendering." Conference on Computer Graphics and Interactive Techniques ACM, 1996:31-42.
+[^3]: Levoy, Marc. "[Light field rendering](http://p9kx5cva1.bkt.clouddn.com/3.Light_Field_Rendering.pdf)." Conference on Computer Graphics and Interactive Techniques ACM, 1996:31-42.
 
-[^4]: Gortler, Steven J., et al. "The Lumigraph." Proc Siggraph 96(1996):43-54.
+[^4]: Gortler, Steven J., et al. "[The Lumigraph](http://p9kx5cva1.bkt.clouddn.com/4.The%20lumigraph.pdf)." Proc Siggraph 96(1996):43-54.
 
-[^5]: Wu G, Masia B, Jarabo A, et al. "Light Field Image Processing: An Overview." IEEE Journal of Selected Topics in Signal Processing, 2017(99):1-1.
+[^5]: Wu, Gaochang, et al. "[Light Field Image Processing: An Overview](http://p9kx5cva1.bkt.clouddn.com/5.Light-Field-Image-Processing-An%20Overview.pdf)." IEEE Journal of Selected Topics in Signal Processing PP.99(2017):1-1.
 
-[^6]: Wanner, Sven, and B. Goldluecke. "Variational Light Field Analysis for Disparity Estimation and Super-Resolution." IEEE Transactions on Pattern Analysis & Machine Intelligence 36.3(2013):1.
+[^6]: Wanner, Sven, and B. Goldluecke. "[Variational Light Field Analysis for Disparity Estimation and Super-Resolution](http://p9kx5cva1.bkt.clouddn.com/6.Variational%20Light%20Field%20Analysis%20for%20Disparity%20Estimation%20and%20Super-Resolution.pdf)." IEEE Transactions on Pattern Analysis & Machine Intelligence 36.3(2013):1.
 
-[^7]: T.-C. Wang, A. A. Efros, and R. Ramamoorthi, “Occlusion-aware depth estimation using light-field cameras,” in IEEE ICCV, 2015, pp. 3487–3495.
+[^7]: Wang, Ting Chun, A. A. Efros, and R. Ramamoorthi. "[Occlusion-Aware Depth Estimation Using Light-Field Cameras](http://p9kx5cva1.bkt.clouddn.com/7.Occlusion-aware%20Depth%20Estimation%20Using%20Light-field%20Cameras.pdf)." IEEE International Conference on Computer Vision IEEE, 2016:3487-3495.
 
-[^8]: H. G. Jeon, J. Park, G. Choe, and J. Park, “Accurate depth map estimation from a lenslet light field camera,” in IEEE CVPR, 2015, pp. 1547–1555.
+[^8]: Jeon, Hae Gon, et al. "[Accurate depth map estimation from a lenslet light field camera](http://p9kx5cva1.bkt.clouddn.com/8.Accurate%20Depth%20Map%20Estimation%20from%20a%20Lenslet%20Light%20Field%20Camera.pdf)." Computer Vision and Pattern Recognition IEEE, 2015:1547-1555.
 
-[^9]: Z. Yu, X. Guo, H. Ling, A. Lumsdaine, and J. Yu, “Line assisted light field triangulation and stereo matching,” in IEEE CVPR.
+[^9]: Yu, Zhan, et al. "[Line Assisted Light Field Triangulation and Stereo Matching](http://p9kx5cva1.bkt.clouddn.com/9.Line%20Assisted%20Light%20Field%20Triangulation%20and%20Stereo%20Matching.pdf)." IEEE International Conference on Computer Vision IEEE, 2014:2792-2799.
 
-[^10]: S. Heber and T. Pock, “Shape from light field meets robust pca,” in IEEE ECCV, 2014.
+[^10]: Heber, Stefan, and T. Pock. "[Shape from Light Field Meets Robust PCA](http://p9kx5cva1.bkt.clouddn.com/10.Shape%20from%20Light%20Field%20meets%20Robust%20PCA.pdf)." Computer Vision – ECCV 2014. 2014:751-767.
 
-[^11]: C. Kim, H. Zimmer, Y. Pritch, A. Sorkine-Hornung, and M. Gross, “Scene reconstruction from high spatio-angular resolution light fields,” ACM Trans. Graph. (Proc. SIGGRAPH), vol. 32, no. 4, 2013.
+[^11]: Kim, Changil, et al. "[Scene reconstruction from high spatio-angular resolution light fields](http://p9kx5cva1.bkt.clouddn.com/11.scene-reconstruction-from-high-spatio-angular-resolution-light-fields-siggraph-2013-compressed-kim-et-al.pdf)." Acm Transactions on Graphics 32.4(2017):1-12.
 
-[^12]: J. Li, M. Lu, and Z.-N. Li, “Continuous depth map reconstruction from light fields,” IEEE TIP, vol. 24, no. 11, pp. 3257–3265, 2015.
+[^12]: Li, J., M. Lu, and Z. N. Li. "[Continuous Depth Map Reconstruction From Light Fields](http://p9kx5cva1.bkt.clouddn.com/12.Continuous%20Depth%20Map%20Reconstruction%20From%20Light%20Fields.pdf)." IEEE Transactions on Image Processing A Publication of the IEEE Signal Processing Society 24.11(2015):3257.
 
-[^13]: B. Krolla, M. Diebold, B. Goldl ¨ ucke, and D. Stricker, “Spherical light fields,” in British Machine Vision Conference (BMVC), 2014.
+[^13]: Krolla, Bernd, et al. "[Spherical Light Fields](http://p9kx5cva1.bkt.clouddn.com/13.Spherical%20light%20field.pdf)." British Machine Vision Conference 2014.
 
-[^14]: Wanner S, Straehle C, Goldluecke. B. Globally consistent multi-label assignment on the ray space of 4D light fields. Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2013:1011-1018.
+[^14]: Wanner, Sven, C. Straehle, and B. Goldluecke. "[Globally Consistent Multi-label Assignment on the Ray Space of 4D Light Fields](http://p9kx5cva1.bkt.clouddn.com/14.Globally%20consistent%20multi-label%20assignment%20on%20the%20ray%20space%20of%204D%20light%20field.pdf)." IEEE Conference on Computer Vision and Pattern Recognition IEEE Computer Society, 2013:1011-1018.
 
-[^15]: M. Diebold, B. J¨ahne, and A. Gatto, “Heterogeneous light fields,” in IEEE CVPR, 2016, pp. 1745–1753.
+[^15]: Diebold, Maximilian, B. Jahne, and A. Gatto. "[Heterogeneous Light Fields](http://p9kx5cva1.bkt.clouddn.com/15.Heterogeneous%20Light%20Fields.pdf)." Computer Vision and Pattern Recognition IEEE, 2016:1745-1753.
 
-[^16]: M. W. Tao, S. Hadap, J. Malik, and R. Ramamoorthi, “Depth from combining defocus and correspondence using light-field cameras,” in IEEE CVPR, 2013.
+[^16]: Tao, M. W, et al. "[Depth from Combining Defocus and Correspondence Using Light-Field Cameras](http://p9kx5cva1.bkt.clouddn.com/16.Depth%20from%20Combining%20Defocus%20and%20Correspondence%20Using%20Light-Field%20Cameras.pdf)." IEEE International Conference on Computer Vision IEEE Computer Society, 2013:673-680.
 
-[^17]: M. W. Tao, P. P. Srinivasan, J. Malik, S. Rusinkiewicz, and R. Ramamoorthi, “Depth from shading, defocus, and correspondence using light-field angular coherence,” in IEEE CVPR, 2015, pp. 1940–1948.
+[^17]: Tao, Michael W., et al. "[Depth from shading, defocus, and correspondence using light-field angular coherence](http://p9kx5cva1.bkt.clouddn.com/17.Depth%20from%20Shading,%20Defocus,%20and%20Correspondence%20Using%20Light-Field%20Angular%20Coherence.pdf)." Computer Vision and Pattern Recognition IEEE, 2015:1940-1948.
 
-[^18]: O. Johannsen, A. Sulc, and B. Goldluecke, “Variational separation of light field layers,” in Vision, Modeling & Visualization, VMV, 2015, pp. 135–142.
+[^18]: Johannsen, Ole, A. Sulc, and B. Goldluecke. "[Variational Separation of Light Field Layers](http://p9kx5cva1.bkt.clouddn.com/18.Variational%20separation%20of%20light%20field%20layers.pdf)." (2015).
 
-[^19]: S. Heber and T. Pock, “Convolutional networks for shape from light field,” in IEEE CVPR, 2016, pp. 3746–3754.
+[^19]: Heber, Stefan, and T. Pock. "[Convolutional Networks for Shape from Light Field](http://p9kx5cva1.bkt.clouddn.com/19.Heber_Convolutional_Networks_for_CVPR_2016_paper.pdf)." Computer Vision and Pattern Recognition IEEE, 2016:3746-3754.
 
-[^20]: Heber S, Ranftl R, Pock T. Variational Shape from Light Field. Energy Minimization Methods in Computer Vision and Pattern Recognition (CVPR), Springer Berlin Heidelberg, 2013:66-79.
+[^20]: Heber, Stefan, R. Ranftl, and T. Pock. "[Variational Shape from Light Field](http://p9kx5cva1.bkt.clouddn.com/20.Variational%20Shape%20from%20Light%20Field.pdf)." Energy Minimization Methods in Computer Vision and Pattern Recognition. Springer Berlin Heidelberg, 2013:66-79.
 
-[^21]: Chen C, Lin H, Yu Z, et al. Light field stereo matching using bilateral statistics of surface cameras. IEEE Conference on Computer Vision and Pattern Recognition (CVPR), IEEE Computer Society, 2014:1518-1525.
+[^21]: Chen, Can, et al. "[Light Field Stereo Matching Using Bilateral Statistics of Surface Cameras](http://p9kx5cva1.bkt.clouddn.com/21.Light%20Field%20Stereo%20Matching%20Using%20Bilateral%20Statistics%20of%20Surface%20Cameras-Can_CVPR14_stereo.pdf)." IEEE Conference on Computer Vision and Pattern Recognition IEEE Computer Society, 2014:1518-1525.
 
-[^22]: Williem W, Kyu P I. Robust light field depth estimation for noisy scene with occlusion. Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016:4396-4404.
+[^22]: Williem W, Kyu P I. "[Robust light field depth estimation for noisy scene with occlusion](http://p9kx5cva1.bkt.clouddn.com/22.Williem_Robust_Light_Field_CVPR_2016_paper.pdf)." Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016:4396-4404.
 
-[^23]: Williem W, Park I K, Lee K M. Robust light field depth estimation using occlusion-noise aware data costs. IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), 2017(99):1-1.
+[^23]: Williem W, Park I K, Lee K M. "[Robust light field depth estimation using occlusion-noise aware data costs](http://p9kx5cva1.bkt.clouddn.com/23.TPAMI2017_Williem.pdf)." IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), 2017(99):1-1.
 
-[^24]: Zhang S, Sheng H, Li C, et al. Robust depth estimation for light field via spinning parallelogram operator. Computer Vision and Image Understanding, 2016, 145:148-159.
+[^24]: Zhang S, Sheng H, Li C, et al. "[Robust depth estimation for light field via spinning parallelogram operator](http://p9kx5cva1.bkt.clouddn.com/24.Robust%20Depth%20Estimation%20for%20Light%20Field%20via%20Spinning%20Parallelogram%20Operator.pdf)." Computer Vision and Image Understanding, 2016, 145:148-159.
 
-[^25]: Johannsen O, Sulc A, Goldluecke B. What sparse light field coding reveals about scene structure. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016(1/3/4):3262-3270.
+[^25]: Johannsen O, Sulc A, Goldluecke B. "[What sparse light field coding reveals about scene structure](http://p9kx5cva1.bkt.clouddn.com/25.What%20Sparse%20Light%20Field%20Coding%20Reveals%20about%20Scene%20Structure.pdf)." In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016(1/3/4):3262-3270.
 
-[^26]: Wanner S, Goldluecke B. Reconstructing reflective and transparent surfaces from epipolar plane images. In German Conference on Pattern Recognition (Proc. GCPR), 2013:1-10.
+[^26]: Wanner S, Goldluecke B. "[Reconstructing reflective and transparent surfaces from epipolar plane images](http://p9kx5cva1.bkt.clouddn.com/26.Reconstructing%20reflective%20and%20transparent%20surfaces%20from%20epipolar%20plane%20images.pdf)." In German Conference on Pattern Recognition (Proc. GCPR), 2013:1-10.
 
-[^27]: Heber S, Yu W, Pock T. U-shaped networks for shape from light field. British Machine Vision Conference, 2016, 37:1-12.
+[^27]: Heber S, Yu W, Pock T. "[U-shaped networks for shape from light field](http://p9kx5cva1.bkt.clouddn.com/27.U-shaped%20Networks%20for%20Shape%20from%20Light%20Field.pdf)." British Machine Vision Conference, 2016, 37:1-12.
 
-[^28]: Heber S, Yu W, Pock T. Neural EPI-Volume networks for shape from light field. IEEE International Conference on Computer Vision (ICCV), IEEE Computer Society, 2017:2271-2279.
+[^28]: Heber S, Yu W, Pock T. "[Neural EPI-Volume networks for shape from light field](http://p9kx5cva1.bkt.clouddn.com/28.Neural%20EPI-volume%20Networks%20for%20Shape%20from%20Light%20Field.pdf)." IEEE International Conference on Computer Vision (ICCV), IEEE Computer Society, 2017:2271-2279.
 
-[^29]: Jeon H G, Park J, Choe G, et.al. Depth from a Light Field Image with Learning-based Matching Costs. IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), 2018.
+[^29]: Jeon H G, Park J, Choe G, et.al. "[Depth from a Light Field Image with Learning-based Matching Costs](http://p9kx5cva1.bkt.clouddn.com/29.Depth%20from%20a%20Light%20Field%20Image%20with%20Learning-based%20Matching%20Costs.pdf)." IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), 2018.
 
-[^30]: Shin C, Jeon H G, Yoon Y. EPINET: A Fully-Convolutional Neural Network for Light Field Depth Estimation Using Epipolar Geometry. Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2018.
+[^30]: Shin C, Jeon H G, Yoon Y. "[EPINET: A Fully-Convolutional Neural Network for Light Field Depth Estimation Using Epipolar Geometry](http://p9kx5cva1.bkt.clouddn.com/30.EPINET%20A%20fully-Convolutional%20Neural%20Network%20Using%20Epipolar%20Geometry%20for%20Depth%20from%20Light%20Field%20Images.pdf)." Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2018.
 
-[^31]: Ng, Ren. Digital light field photography. 2006, 115(3):38-39. 
+[^31]: Ng, Ren. "[Digital light field photography](http://p9kx5cva1.bkt.clouddn.com/31.Digital%20light%20field%20photography.pdf)." 2006, 115(3):38-39.
 
-[^32]: W. Luo, A. G. Schwing, and R. Urtasun. Efficient deep learning for stereo matching. In Proceedings of IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016. 3
+[^32]: Luo, Wenjie, A. G. Schwing, and R. Urtasun. "[Efficient Deep Learning for Stereo Matching](http://p9kx5cva1.bkt.clouddn.com/32.Efficient%20deep%20learning%20for%20stereo%20matching.pdf)." IEEE Conference on Computer Vision and Pattern Recognition IEEE Computer Society, 2016:5695-5703.
