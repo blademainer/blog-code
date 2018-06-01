@@ -16,12 +16,13 @@ tags: CV
 
 ## 凸优化
 - [Selected Applications of Convex Optimization：凸优化应用讲义](http://p73slabes.bkt.clouddn.com/1.%20Selected%20Applications%20of%20Convex%20Optimization-Springer-Verlag%20Berlin%20Heidelberg%20%282015%29.pdf)
+- [CVX:凸优化问题求解](http://p73slabes.bkt.clouddn.com/CVX.pdf)
 
 ## 矩阵
 - [Iterative Methods for Sparse Linear Systems：稀疏线性系统求解](http://p73slabes.bkt.clouddn.com/2.%20Iterative%20Methods%20for%20Sparse%20Linear%20Systems.pdf)
 - [The Matrix Cookbook：矩阵分析](http://p73slabes.bkt.clouddn.com/3.%20The%20Matrix%20Cookbook.pdf)
 - [Markov Random Field Image Modelling：马尔科夫随机场模型](http://p73slabes.bkt.clouddn.com/MRF.pdf)
-
+- [Numerical Recipes：数值运算](http://p73slabes.bkt.clouddn.com/numerical_recipes-3E.pdf)【20.41 MB】
 
 ## 机器学习算法
 

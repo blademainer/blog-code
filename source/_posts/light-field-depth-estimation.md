@@ -13,12 +13,16 @@ sticky: 1001
 ---
 ![](http://oofx6tpf6.bkt.clouddn.com/street.jpg)
 
+{%note success%}
+
 本文将介绍光场领域进行深度估计的相关研究。
 In this post, I'll introduce some depth estimation algorithms using Light field information. Here is some of the [code](https://github.com/Vincentqyw/Depth-Estimation-Light-Field).
+研究生阶段的研究方向是光场深度信息的恢复。再此做一些总结，以便于让大家了解光场数据处理的一般步骤以及深度估计的相关的知识，光场可视化部分代码见[light-field-Processing](https://github.com/Vincentqyw/light-field-Processing)。如有任何疑问或者建议，请大家在评论区提出。
+{%endnote%}
 
 <!--more-->
 
-研究生阶段的研究方向是光场深度信息的恢复。再此做一些总结，以便于让大家了解光场数据处理的一般步骤以及深度估计的相关的知识。如有任何疑问或者建议，请大家在评论区提出。
+
 
 # 什么是光场？
 提到光场，很多人对它的解释模糊不清，在此我对它的概念进行统一表述。它的故事可以追溯到1936年，那是一个春天，Gershun写了一本名为**The Light Field**[^1]的鸿篇巨著（感兴趣的同学可以看看那个年代的论文），于是光场的概念就此诞生，但它并没有因此被世人熟知。经过了近六十年的沉寂，1991年Adelson[^2]等一帮帅小伙将光场表示成了如下的7维函数：
@@ -415,7 +419,7 @@ $$
 
 ![](http://oofx6tpf6.bkt.clouddn.com/epinet-evaluation.png)
 
-【未完待续...】
+以上介绍了目前已有的深度估计算法不同类别中具有代表性的算法，它们不一定是最优的，但绝对是最容易理解其精髓的。到目前为止，光场领域已经有一大波人做深度估计的工作，利用传统的方式其精度很难再往上提高。随着深度学习的大热，已经有一批先驱开始用深度学习做深度估计，虽然在仿真数据上可以表现得很好，但实际场景千变万化，即使是深度学习的策略也不敢保证对所有的场景都有效。路漫漫其修远兮，深度估计道路阻且长。我认为以后的趋势应该是从EPI图像下手，然后利用CNN提feature（或者响应）；此时可供选择的工具有[KITTI Stereo](http://www.cvlibs.net/datasets/kitti/eval_scene_flow.php?benchmark=stereo)/[HCI新数据集算法比较](http://hci-lightfield.iwr.uni-heidelberg.de/)/[Middlebury Stereo](http://vision.middlebury.edu/stereo/)中较好的几种算法，我们需要总结其算法优势并迁移到光场领域中来。GPU这个Powerful的计算工具一定要用到光场领域中来，发挥出多线程的优势。否则传统的CPU对于动辄上百兆的数据有心无力。这样一来，深度图像不仅仅可以从精度上得以提高，而且深度估计的速度也会更快。至此，本文介绍到此结束。
 
 # References
 [^1]: Gershun, A. "[The Light Field](http://p9kx5cva1.bkt.clouddn.com/1.Gershun-1939-Journal_of_Mathematics_and_Physics.pdf)." Studies in Applied Mathematics 18.1-4(1939):51–151.
