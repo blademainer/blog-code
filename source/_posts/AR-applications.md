@@ -8,7 +8,7 @@ abbrlink: 35408
 date: 2016-08-09 12:37:42
 ---
 
-<center>{% asset_img AR.jpg %}</center>
+![](http://oofx6tpf6.bkt.clouddn.com/AR.jpg)
 
 # 前言
 <p ID="div-border-left-red">当前，微软、谷歌、苹果、Facebook 等 IT 巨头都在布局虚拟现实Virtual Reality简称 VR）虚拟现实也许是下一个颠覆人类生活的新技术之一。增强现实Augmented Reality简称 AR）是虚拟现实技术的延伸它可以用来模拟对象让学习者在现实环境背景中看到虚拟生成的模型对象 而且这一模型可以快速生成、操纵和旋转。</p>

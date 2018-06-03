@@ -10,7 +10,7 @@ abbrlink: 40595
 date: 2017-05-07 20:02:56
 ---
 
-<center>{% asset_img ML.jpg 机器学习%}</center>
+![](http://oofx6tpf6.bkt.clouddn.com/ML.jpg)
 
 <p id="div-border-left-green">对机器学习的学习我开始于二年级的《数据挖掘》课，当时袁老师对数据挖掘中的常用的算法做了一些介绍，但是这仅仅是个入门教学，我并没有深入了解的其中的原理。到现在我才深刻的意识到ML的重要性，我就抽空看了一些这方面的资料，整理了这一份文档。</p>
 

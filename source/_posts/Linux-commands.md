@@ -11,7 +11,7 @@ date: 2017-05-06 17:04:20
 ---
 
 
-<center>{% asset_img ubuntu2.jpg Ubuntu%}</center>
+![](http://oofx6tpf6.bkt.clouddn.com/ubuntu.jpg)
 
 今天看了基本的<span id="inline-purple">Linux</span>指令以及<span id="inline-red">makefile</span>的写法，大体总结了一下。
 <!--more-->

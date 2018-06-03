@@ -12,7 +12,7 @@ date: 2017-04-30 14:22:20
 sticky: 999
 ---
 
-<center>{% asset_img buddha2.gif Buddha2%}</center>
+<img src="http://oofx6tpf6.bkt.clouddn.com/buddha2.gif" width="80%">
 
 {%note success%}
 好的数据集是做出漂亮实验的必要条件.
@@ -39,7 +39,8 @@ sticky: 999
 10. rx_watch
 
 其中，1-8为仿真场景，9-10是由Raytrix拍摄的场景。他们的文件后缀为 .h5, 格式是HDF5，这是一种文件组织格式，可以很好的将数据组织在一起，具体不做展开。MATLAB 提供了一系列相应的读取该文件的函数，如：h5disp，hdf5info(新版本用h5info)，hdf5read等函数，如利用h5disp就可以得到HDF5文件的内容信息，如下图：
-<center>{% asset_img Buddha2Hd5.gif Buddha2%}</center>
+
+![](http://oofx6tpf6.bkt.clouddn.com/Buddha2Hd5.gif)
 
 以下给出解码HDF5文件得到子孔径图像以及重排图像的代码：
 
@@ -86,11 +87,17 @@ IM_Pinhole = data(:,:,:,UV_radius+1,UV_radius+1); % the pinhole image
 这个数据集共有4大类：
 
 - Stratified（4）
-- training（4）
-- test（4）
-- additional（16）
-<center>{% asset_img scenes.png 数据集们%}</center>
 
+- training（4）
+
+- test（4）
+
+- additional（16）
+
+  ​
+
+
+![](http://oofx6tpf6.bkt.clouddn.com/scenes.png)
 
 总结而言这个4D光场数据集提供了如下信息：
 
@@ -112,24 +119,24 @@ IM_Pinhole = data(:,:,:,UV_radius+1,UV_radius+1); % the pinhole image
 
 
 - Packages per category:
-	- [stratified](http://lightfield-analysis.net/benchmark/downloads/stratified.zip)
-	- [test](http://lightfield-analysis.net/benchmark/downloads/test.zip)
-	- [training](http://lightfield-analysis.net/benchmark/downloads/training.zip)
-	- [additional](http://lightfield-analysis.net/benchmark/downloads/additional.zip)
+ - [stratified](http://lightfield-analysis.net/benchmark/downloads/stratified.zip)
+ - [test](http://lightfield-analysis.net/benchmark/downloads/test.zip)
+ - [training](http://lightfield-analysis.net/benchmark/downloads/training.zip)
+ - [additional](http://lightfield-analysis.net/benchmark/downloads/additional.zip)
 
 
 - Stratified scenes:
-	- [backgammon](http://lightfield-analysis.net/benchmark/downloads/backgammon.zip)
-	- [dots](http://lightfield-analysis.net/benchmark/downloads/dots.zip)
-	- [pyramids](http://lightfield-analysis.net/benchmark/downloads/pyramids.zip)
-	- [stripes](http://lightfield-analysis.net/benchmark/downloads/stripes.zip)
+ - [backgammon](http://lightfield-analysis.net/benchmark/downloads/backgammon.zip)
+ - [dots](http://lightfield-analysis.net/benchmark/downloads/dots.zip)
+ - [pyramids](http://lightfield-analysis.net/benchmark/downloads/pyramids.zip)
+ - [stripes](http://lightfield-analysis.net/benchmark/downloads/stripes.zip)
 
 
 - Test scenes:
-	- [bedroom](http://lightfield-analysis.net/benchmark/downloads/bedroom.zip)
-	- [bicycle](http://lightfield-analysis.net/benchmark/downloads/bicycle.zip)
-	- [herbs](http://lightfield-analysis.net/benchmark/downloads/herbs.zip)
-	- [origami](http://lightfield-analysis.net/benchmark/downloads/origami.zip)
+ - [bedroom](http://lightfield-analysis.net/benchmark/downloads/bedroom.zip)
+ - [bicycle](http://lightfield-analysis.net/benchmark/downloads/bicycle.zip)
+ - [herbs](http://lightfield-analysis.net/benchmark/downloads/herbs.zip)
+ - [origami](http://lightfield-analysis.net/benchmark/downloads/origami.zip)
 
 
 
@@ -142,22 +149,22 @@ IM_Pinhole = data(:,:,:,UV_radius+1,UV_radius+1); % the pinhole image
 
 - Additional scenes:
 
-	- [antinous](http://lightfield-analysis.net/benchmark/downloads/antinous.zip)
-	- [boardgames](http://lightfield-analysis.net/benchmark/downloads/boardgames.zip)
-	- [dishes](http://lightfield-analysis.net/benchmark/downloads/dishes.zip)
-	- [greek](http://lightfield-analysis.net/benchmark/downloads/greek.zip)
-	- [kitchen](http://lightfield-analysis.net/benchmark/downloads/kitchen.zip)
-	- [medieval2](http://lightfield-analysis.net/benchmark/downloads/medieval2.zip)
-	- [museum](http://lightfield-analysis.net/benchmark/downloads/museum.zip)
-	- [pens](http://lightfield-analysis.net/benchmark/downloads/pens.zip)
-	- [pillows](http://lightfield-analysis.net/benchmark/downloads/pillows.zip)
-	- [platonic](http://lightfield-analysis.net/benchmark/downloads/platonic.zip)
-	- [rosemary](http://lightfield-analysis.net/benchmark/downloads/rosemary.zip)
-	- [table](http://lightfield-analysis.net/benchmark/downloads/table.zip)
-	- [tomb](http://lightfield-analysis.net/benchmark/downloads/tomb.zip)
-	- [tower](http://lightfield-analysis.net/benchmark/downloads/tower.zip)
-	- [town](http://lightfield-analysis.net/benchmark/downloads/town.zip)
-	- [vinyl](http://lightfield-analysis.net/benchmark/downloads/vinyl.zip)
+ - [antinous](http://lightfield-analysis.net/benchmark/downloads/antinous.zip)
+ - [boardgames](http://lightfield-analysis.net/benchmark/downloads/boardgames.zip)
+ - [dishes](http://lightfield-analysis.net/benchmark/downloads/dishes.zip)
+ - [greek](http://lightfield-analysis.net/benchmark/downloads/greek.zip)
+ - [kitchen](http://lightfield-analysis.net/benchmark/downloads/kitchen.zip)
+ - [medieval2](http://lightfield-analysis.net/benchmark/downloads/medieval2.zip)
+ - [museum](http://lightfield-analysis.net/benchmark/downloads/museum.zip)
+ - [pens](http://lightfield-analysis.net/benchmark/downloads/pens.zip)
+ - [pillows](http://lightfield-analysis.net/benchmark/downloads/pillows.zip)
+ - [platonic](http://lightfield-analysis.net/benchmark/downloads/platonic.zip)
+ - [rosemary](http://lightfield-analysis.net/benchmark/downloads/rosemary.zip)
+ - [table](http://lightfield-analysis.net/benchmark/downloads/table.zip)
+ - [tomb](http://lightfield-analysis.net/benchmark/downloads/tomb.zip)
+ - [tower](http://lightfield-analysis.net/benchmark/downloads/tower.zip)
+ - [town](http://lightfield-analysis.net/benchmark/downloads/town.zip)
+ - [vinyl](http://lightfield-analysis.net/benchmark/downloads/vinyl.zip)
 
 
 - [Depth and disparity maps for all views of the additional scenes](http://lightfield-analysis.net/benchmark/downloads/additional_depth_disp_all_views.zip)
@@ -220,7 +227,9 @@ view(90.6338,  88.5605);
 zoom(1.2)
 ```
 结果如下所示：
-<center>{% asset_img PCs.gif 点云%}</center>
+
+
+![](http://oofx6tpf6.bkt.clouddn.com/PCs.gif)
 
 <span id="inline-red" >注意</span>：生成点云这一步，低版本的MATLAB（如R2014a）由于没有加入相应的函数所以不能够生成点云，高版本（R2016b）可以正常生成。另外，在此提供另外一个函数`visualizeZ_3D`，该函数将depth map当做彩色图像的z向延伸，然后构图。
 <img src="http://p66ri5yke.bkt.clouddn.com/3d-demo.jpg" width=1200px>

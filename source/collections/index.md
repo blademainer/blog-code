@@ -112,12 +112,7 @@ This is a (work in progress) repo for collecting links to data sets, source code
 - [Latex2html](https://www.codecogs.com/latex/eqneditor.php)
 - [Latex2svg](http://www.tlhiv.org/ltxpreview/)
 
-## Others
-- [Free Images](https://unsplash.com/)
-- [mouto](http://i.mouto.org/#kodak)
-- [Lab](http://lab.mouto.org/)
-- [Metheno](https://blog.metheno.net/)
-- [You Know](http://x.mouto.org/wb/)
+
 
 
 

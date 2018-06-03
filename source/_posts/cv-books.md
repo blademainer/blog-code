@@ -44,7 +44,10 @@ tags: CV
 
 - [OpenCV Guide：Opencv简明教程](http://p73slabes.bkt.clouddn.com/OpenCV-Guide-Primer.pdf)
 
+## 会议
+- [CVPapers - Computer Vision Resource](http://www.cvpapers.com/)
+- [中国计算机学会推荐国际会议及期刊目录](http://oofx6tpf6.bkt.clouddn.com/ccf_conferences.pdf)
 
-- To be continued, welcome to commit.
+To be continued, welcome to commit.
 
 

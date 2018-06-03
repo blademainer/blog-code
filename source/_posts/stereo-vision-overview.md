@@ -9,9 +9,7 @@ mathjax: true
 
 ---
 
-
-
-![](https://source.unsplash.com/random/1600x900)
+![](http://oofx6tpf6.bkt.clouddn.com/cat_girl_cut.jpg)
 
 本文主要翻译自[Mattoccia](www.vision.deis.unibo.it/smatt)的双目视差估计综述，对于刚刚接触立体深度估计方向的小伙伴会有帮助；如果你是专家也可以做一下复习，如有错误请在评论中指出。文中主要介绍以下几个方面的内容：
 

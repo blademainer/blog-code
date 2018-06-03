@@ -10,7 +10,7 @@ abbrlink: 11431
 date: 2016-08-08 22:10:22
 ---
 
-<center>{% asset_img i-love-markdown.png %}</center>
+![](http://oofx6tpf6.bkt.clouddn.com/guide-to-markdown-writing.png)
 
 <!--<a href="https://www.vincentqin.tech"><img border="0" src="i-love-markdown.png" /></a>-->
 

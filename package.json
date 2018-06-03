@@ -6,8 +6,10 @@
     "version": "3.3.1"
   },
   "dependencies": {
+    "deasync": "^0.1.13",
     "hexo": "^3.2.0",
-    "hexo-abbrlink": "^2.0.4",
+    "hexo-abbrlink": "^2.0.5",
+    "hexo-all-minifier": "^0.5.2",
     "hexo-deployer-git": "^0.2.0",
     "hexo-generator-archive": "^0.1.4",
     "hexo-generator-baidu-sitemap": "^0.1.2",
@@ -24,6 +26,8 @@
     "hexo-renderer-stylus": "^0.3.1",
     "hexo-server": "^0.2.0",
     "hexo-tag-asset-res": "^0.1.2",
-    "hexo-tag-dplayer": "^0.3.1"
+    "hexo-tag-dplayer": "^0.3.1",
+    "jsdom": "^9.12.0",
+    "mathjax-node-page": "^2.0.0"
   }
 }

@@ -12,7 +12,7 @@ date: 2016-08-09 12:37:42
 ---
 
 
-<center>{% asset_img hexo.png %}</center>
+![](http://oofx6tpf6.bkt.clouddn.com/hexo-cover.png)
 
 {%note success%}
 **Hexo**作为建立Blog利器，为我们没有JS基础的小白们提供了建立专属自己博客的机会！经常使用的语法很简单，我们完全可以在10min分钟之内建立自己的Blog，后期的优化才是最耗费时间的。好了，直接进入正文。
@@ -28,6 +28,42 @@ hexo deploy   # 部署自己的blog，本人部署在了Git上，简写 hexo d
 hexo server   # 以启动本地服务， 可预览，简写 hexo s
 hexo new blog_name #　新建以blog_name为名的blog
 在.md文档中加入 <!-- more --> 可以显示“阅读全文”
+```
+
+## 网页压缩
+
+参考@[muyunyun](http://muyunyun.cn/posts/f55182c5/#快速实现博客压缩)给出的教程，可以进行如下设置。首先安装[`hexo-all-minifier`](https://github.com/chenzhutian/hexo-all-minifier)，这个模块集成了对 html、css、js、image 的优化。
+``` sh
+$ npm install hexo-all-minifier --save
+```
+然后在根目录下修改站点配置文件`_config.yml`，添加如下命令重新部署即可。
+
+```yaml
+html_minifier:
+  enable: true
+  ignore_error: false
+  exclude:
+
+css_minifier:
+  enable: true
+  exclude:
+    - '*.min.css'
+
+js_minifier:
+  enable: true
+  mangle: true
+  output:
+  compress:
+  exclude:
+    - '*.min.js'
+
+image_minifier:
+  enable: true
+  interlaced: false
+  multipass: false
+  optimizationLevel: 2
+  pngquant: false
+  progressive: false
 ```
 
 ## 代码区高级设置
@@ -351,10 +387,11 @@ $link-image-size  = 180px;
 ## 添加fork me on github
 
 文件位置：`\themes\next\layout\_layout.swig`，在`<div class="headband"></div>`下一行添加如下代码。
+
 ``` js 文件路径：\themes\next\layout\_layout.swig
 <a href="https://www.github.com/Vincentqyw" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
-
 ```
+
 更多样式，参考[这里](http://tholman.com/github-corners/)。
 
 
@@ -362,49 +399,44 @@ $link-image-size  = 180px;
 
 推荐**Haroopad**
 
-<center>{% asset_img 100.png Haroopad%}</center>
-
+![](http://oofx6tpf6.bkt.clouddn.com/haroopad.png)
 
 ## 插入PDF文档以及图片
 
 
-1. 插入PDF文档：
+- 插入PDF文档：
 将相应的PDF文档放在与博客标题同名的文件夹内，然后再按照如下方式进行插入。
 ``` js
 [点我，这里是PDF文档](latex入门教程.pdf)
 ```
-	[点我，这里是PDF文档](latex入门教程.pdf)
+	[点我，这里是PDF文档](http://oofx6tpf6.bkt.clouddn.com/latex-tutorial.pdf)
 
-2. 利用html`img`标签嵌入图片
+- 利用html`img`标签嵌入图片
 ``` js
 <img src= image_path alt="Lytro相机" width="100%">
 <center>Lytro</center>
 ```
     注意以上的`image_path`既可以是图床中的路径，亦可以把图片放在`source/images/`文件下，然后`image_path=/images/logo.png`，当然也可以如下插入图片，更加方便。
+
     ``` js
     ![](/images/logo.png)
     ```
-3. 利用插件，以下我在Github上找到的别人已经做好的一个小工具。
-- 安装 [hexo-tag-asset-res](https://github.com/timnew/hexo-tag-asset-res)
 
-    打开Git Shell, 在Hexo根目录下, 输入如下代码
-
+- 利用插件，以下我在Github上找到的别人已经做好的一个小工具。
+安装插件[hexo-tag-asset-res](https://github.com/timnew/hexo-tag-asset-res)，打开Git Shell, 在Hexo根目录下, 输入如下代码：
     ```javascript
     $ npm install hexo-tag-asset-res --save
     ```
-- 修改Hexo根目录下_config.yml文件
-
-    打开Hexo根目录, 找到站点配置文件`_config.yml`文件, 用任何一个文本编辑器打开, 找到如下代码
-
+    修改Hexo根目录下_config.yml文件：打开Hexo根目录, 找到站点配置文件`_config.yml`文件, 用任何一个文本编辑器打开, 找到如下代码：
     ```javascript
     post_asset_folder: false
     ```
 	将`false`改成`true`即可。测试插入代码：
-``` js
-<center>{% asset_img Naruto.jpg Naruto%}</center>
-```
+    ``` js
+    <center>{% asset_img Naruto.jpg Naruto%}</center>
+    ```
 	效果如下：
-<center>{% asset_img Naruto.jpg Naruto%}</center>
+    ![](http://oofx6tpf6.bkt.clouddn.com/Naruto.jpg) 
 
 
 
@@ -433,12 +465,12 @@ $font-family-logo	= "Lobster Two"
 我们可以利用网易云提供的代码直接在markdown文档里面插入。
 
 - 在网页上找到你想要播放的音乐，如下图：
-{% asset_img wangyiMusic.png %}
-
+ 
+![](http://oofx6tpf6.bkt.clouddn.com/wangyiMusic.png) 
 
 - 点击**生成外链播放器**
-{% asset_img wangyiMusicCode.png %}
 
+![](http://oofx6tpf6.bkt.clouddn.com/wangyiMusicCode.png)
 
 注意自动播放，以及音乐播放器的大小可调。
 
