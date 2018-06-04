@@ -26,9 +26,11 @@ In this post, I'll introduce some depth estimation algorithms using Light field 
 
 # 什么是光场？
 提到光场，很多人对它的解释模糊不清，在此我对它的概念进行统一表述。它的故事可以追溯到1936年，那是一个春天，Gershun写了一本名为**The Light Field**[^1]的鸿篇巨著（感兴趣的同学可以看看那个年代的论文），于是光场的概念就此诞生，但它并没有因此被世人熟知。经过了近六十年的沉寂，1991年Adelson[^2]等一帮帅小伙将光场表示成了如下的7维函数：
+
 $$
 P(\theta,\phi,\lambda,t,V_x,V_y,V_z). \tag{1}
 $$
+
 其中$(\theta,\phi)$表示球面坐标，$\lambda$表示光线的波长，$t$表示时间，$(V_x,V_y,V_z)$表示观察者的位置。
 可以想象假如有这样一张由针孔相机拍摄的黑白照片，它表示：我们从**某个时刻**、**单一视角**观察到的**可见光谱**中某个**波长**的光线的平均。也就是说，它记录了通过$P$点的光强分布，光线方向可以由球面坐标$P(\theta,\phi)$或者笛卡尔坐标$P(x,y)$来表示。对于彩色图片而已，我们要添加光线的波长$\lambda$信息即变为$P(\theta,\phi,\lambda)$。按照同样的思路，彩色电影也就是增加了时间维度$t$，因此$P(\theta,\phi,\lambda,t)$。对于彩色全息电影而言，我们可以从任意空间位置$(V_x,V_y,V_z)$进行观看，于是其可以表达为最终的形式$P(\theta,\phi,\lambda,t,V_x,V_y,V_z)$。这个函数又被成为全光函数（Plenoptic Function）。
 但是以上的七维的全光函数过于复杂，难以记录以及编程实现。所以在实际应用中我们对其进行简化处理。第一个简化是单色光以及时不变。可分别记录3原色以简化掉波长$\lambda$，可以通过记录不同帧以简化$t$，这样全光函数就变成了5D。第二个简化是Levoy[^3]等人（1996年）认为5D光场中还有一定的冗余，可以在自由空间（光线在传播过程中能量保持不变）中简化成4D。
@@ -107,6 +109,7 @@ $$
 ### 相移理论
 
 该算法的核心就是用到了相移理论，即空域的一个小的位移在频域为原始信号的频域表达与位移的指数的幂乘积，即如下公式：
+
 $$
 \mathcal{F}\left\{I(x+\Delta x)\right\} = \mathcal{F}\left\{I(x)\right\}\exp^{2\pi j\Delta x}. \tag{2}
 $$
@@ -126,18 +129,23 @@ $$
 $$
 C(x,l) = \alpha C_A(x,l)+(1-\alpha)C_G(x,l),\tag{4}
 $$
+
 其中$\alpha \in [0,1]$表示SAD损失量$C_A$以及SGD损失量$C_G$之间的权重。同时其中的$C_A$被定义为如下形式：
+
 $$
 C_A(x,l) = \sum_{u \in V}\sum_{x \in R_x}{\min\left( | I(u_c,x)-I(u,x+\Delta x(u,l))|,\tau _1\right)},\tag{5}
 $$
+
 其中的$R_x$表示在$x$点邻域的矩形区域；$\tau _1$是代价的截断值（为了增加算法鲁棒性）；$V$表示除了中心视角$u_c$之外的其余视角。上述公式通过比较中心视角图像$I(u_c,x)$与其余视角$I(u,x)$的差异来构建损失量，具体而言就是通过不断地在某个视角$I(u_i,x)$上$x$点的周围移动一个**小的距离**并于中心视角做差；重复这个过程直到比较完所有的视角(i=1...视角数目N)为止。此时会用到上节提及的相移理论以得到移动后的像素强度，注意上面提到的**小的距离**实际上就是公式中的$\Delta x$，它被定义为如下形式：
+
 $$
 \Delta x(u,l) = lk(u-u_c),\tag{6}
 $$
+
 其中k表示深度/视差层的单位（像素），$\Delta x$会随着任意视角与中心视角之间距离的增大而线性增加。同理，可以构造出第二个匹配代价量SGD，其基本形式如下所示：
 
 $$
-C_G(x,l) = \sum_{u \in V}\sum_{x \in R_x}\beta (u){\min\left( Diff_x(u_c,u,x,l),\tau _2\right)}+ (1-\beta (u)){\min\left( Diff_y(u_c,u,x,l),\tau _2\right)},\tag{7}
+C_G(x,l) = \sum_{u \in V}\sum_{x \in R_x}\beta (u){\min\left( Diff_x(u_c,u,x,l),\tau _2\right)}+ \\ \ \ \ (1-\beta (u)){\min\left( Diff_y(u_c,u,x,l),\tau _2\right)},\tag{7}
 $$
 
 其中的$Diff_x(u_c,u,x,l)=|I_x(u_c,x)-I_x(u,x+\Delta x(u,l))|$表示子视角图像在x方向的上的梯度，同理$Diff_y$表示子孔径图像在y方向上的梯度；$\beta (u)$控制着这两个方向代价量的权重，它由任意视角与中心视角之间的相对距离表示：
@@ -156,6 +164,7 @@ $$
 <img src="http://oofx6tpf6.bkt.clouddn.com/2pp-epi-depth.png" width="100%">
 
 不同于多视角立体匹配的方式，EPI的方式是通过分析光场数据结构的从而进行深度估计的方式。EPI图像中斜线的斜率就能够反映出场景的深度。上图中点P为空间点，平面$\Pi$为相机平面，平面$\Omega$为像平面。图中$\Delta u$与$\Delta x$的关系可以表示为如下公式[^6]：
+
 $$
 \Delta x=- \frac{f}{Z}\Delta u,\tag{9}
 $$
@@ -246,10 +255,13 @@ $$
 $$
 Z=-f\frac{\Delta v}{\Delta x},  \tag{12}
 $$
+
 通常情况下，可以用一种更加简单的形式，如视差对其进行表示：
+
 $$
 d_{y^*,v^*}=-f/Z=\frac{\Delta x}{\Delta v}=\tan \phi .  \tag{13}
 $$
+
 至此，利用上述公式可以从EPI中估计出视差。
 
 ## 散焦及融合的方法
@@ -292,21 +304,29 @@ $$
 ### 双线索提取
 
 首先对光场图像进行重聚焦，然后得到一系列具有不同深度的焦栈。然后对该焦栈分别提取2个线索：散焦量以及匹配量。其中散焦量被定义为：
+
 $$
 D_{\alpha}(x)=\frac{1}{|W_{D}|}{\sum _{x' \in W_D} {|\Delta _x{L}_{\alpha}(x')|}},\tag{14}
 $$
+
 其中，$W_D$表示为当前像素领域窗口大小，$\Delta _x$表示水平方向拉式算子，$\overline{L}_{\alpha}(x)$为每个经过平均化后的重聚焦后光场图像，其表达式如下：
+
 $$
 \overline{L}_{\alpha}(x)=\frac{1}{N_{u}}\sum _{u'} {L}_{\alpha}(x,u'),\tag{15}
 $$
+
 其中$N_{u}$表示每一个角度域内像素的数目。然后匹配量被定义成如下形式：
+
 $$
 {C}_{\alpha}(x)=\frac{1}{|W_{C}|}\sum _{x' \in W_C} {\sigma}_{\alpha}(x'),\tag{16}
 $$
+
 其中，$W_C$表示为当前像素领域窗口大小，${\sigma}_{\alpha}(x)$表示每个宏像素强度的标准差，其表达式为：
+
 $$
 {\sigma}_{\alpha}(x)^2=\frac{1}{N_{u}}\sum _{u'} \left({L}_{\alpha}(x,u')-\overline{L}_{\alpha}(x)\right)^2.\tag{17}
 $$
+
 经过以上两个线索可以通过赢者通吃（Winner Takes All，WTA）得到两张原始深度图。注意：对这两个线索使用WTA时略有不同，通过最大化空间对比度可以得到散焦线索对应的深度，最小化角度域方差能够获得匹配量对应的深度。因此二者深度可以分别表示为如下公式：
 
 $$
@@ -330,7 +350,9 @@ $$
 $$
 C_{conf}(x)=\frac{C_{\alpha ^{*}_C}(x)}{C_{\alpha ^{*2}_C}(x)}.\tag{21}
 $$
+
 接下来对原始深度进行MRF置信度融合：
+
 $$
 \mathop{minimize}_{Z} \ \ \sum_{source}\lambda _{source} \sum _i W_i|Z_i-Z_i^{source}|
 $$
@@ -342,13 +364,17 @@ $$
 $$
  + \lambda _{smooth} \sum _{(x,y)}|\Delta Z_i|_{(x,y)}.\tag{22}
 $$
+
 其中，$source$控制着数据项，即优化后的深度要与原始深度尽量保持一致。第二项与第三项分别控制着平坦性（flatness）与平滑性（smoothness）。注意：**平坦**的意思是物体表面没有凹凸变化的沟壑，例如魔方任一侧面，无论是否拼好（忽略中间黑线）。而**平滑**则表示在平坦的基础上物体表面没有花纹，如拼好的魔方的一个侧面。另外的$W$是权重量，此处选用的是每个线索的置信度。
+
 $$
  \{Z_1^{source},Z_2^{source}\}=\{\alpha_C^{*},\alpha_D^{*}\}.\tag{23}
 $$
+
 $$
  \{W_1^{source},W_2^{source}\}=\{C_{conf},D_{conf}\}.\tag{24}
 $$
+
 至此，该算法介绍完毕，其代码已经放在我的[Github](https://github.com/Vincentqyw/Depth-Estimation-Light-Field/tree/master/LF_DC)。
 
 ## 学习的方法
@@ -403,6 +429,7 @@ $$
 $$
 L(x,y,0,0)=L(x+d(x,y)*u,y+d(x,y)*u \tan \theta,u,u \tan \theta).\tag{26}
 $$
+
 作者选择了四个方向$\theta$: 0<sup>o</sup>，45<sup>o</sup>，90<sup>o</sup>，135<sup>o</sup>，同时假设光场图像总视角数为$(2N+1)\times(2N+1)$。
 
 ### 网络设计
