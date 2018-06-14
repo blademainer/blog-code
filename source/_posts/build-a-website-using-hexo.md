@@ -483,6 +483,7 @@ $font-family-logo	= "Lobster Two"
 
 <center><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=500 height=86 src="http://music.163.com/outchain/player?type=2&id=29722263&auto=0&height=66"></iframe></center>
 
+
 ## 播放视频
 推荐使用[Dplayer](https://github.com/MoePlayer/DPlayer)。首先在站点文件夹根目录安装`Dplayer`插件：
 ``` sh
@@ -491,7 +492,7 @@ npm install hexo-tag-dplayer --save
 然后文章中的写法：
 
 ``` markdown
-{% dplayer url"=https://******.mp4" "http://******.jpg" "api=https://api.prprpr.me/dplayer/" "id=" "loop=false" %}
+{% dplayer url="https://******.mp4" "http://******.jpg" "api=https://api.prprpr.me/dplayer/" "id=" "loop=false" %}
 ```
 
 要使用弹幕，必须有api和id两项。id 的值自己随便取，唯一要求就是前面这点。可以通过[这里](http://tool.oschina.net/encrypt?type=2)获取id，保证每次都不一样。

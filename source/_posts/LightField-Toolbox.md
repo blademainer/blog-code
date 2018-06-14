@@ -71,15 +71,15 @@ LFToolbox0.4就是我们需要的工具包，该工具包里包含很多函数�
 
 #### step 3: 把白图像文件拷贝到相应的文件夹下
 
-在每个序列号文件夹下又有一个文件夹<font color=red >WhiteImages</font>，这里面放着由该相机拍摄的白图像。所谓白图像就是一张由光场相机拍摄的白色的图像，当然自己也可以拿着光场相机对着白色的墙面拍几张，但是效果并不一定很好。庆幸的是LYTRO官方提供了白图像，以Lytro为例，我们可以从以下目录找到:<u> c:\Users\ **username**\AppData\Local\Lytro\cameras\sn- serial_number</u>。如下图所示：
+在每个序列号文件夹下又有一个文件夹**<font color=red >WhiteImages</font>**，这里面放着由该相机拍摄的白图像。所谓白图像就是一张由光场相机拍摄的白色的图像，当然自己也可以拿着光场相机对着白色的墙面拍几张，但是效果并不一定很好。庆幸的是LYTRO官方提供了白图像，以Lytro为例，我们可以从以下目录找到:<u> c:\Users\ **username**\AppData\Local\Lytro\cameras\sn- serial_number</u>。如下图所示：
 
 ![](http://oofx6tpf6.bkt.clouddn.com/white-image-files-folders.png)
 
-我们发现这里有以下4个文件：**data.C.0/1/2/3**，这是官方把白图像压缩成了这种格式，我们需要用工具箱进行解码。我们需要的正是这四个文件，拷贝出这4个文件，放在<font color=red >WhiteImages</font>文件夹里。这一步相当关键，一定要确保拷贝对了目录。<font color=red><u>注意，Illum相机的白图像与Lytro的白图像的存放位置不一样，在相机的SD卡里</u>。</font>
+我们发现这里有以下4个文件：**data.C.0/1/2/3**，这是官方把白图像压缩成了这种格式，我们需要用工具箱进行解码。我们需要的正是这四个文件，拷贝出这4个文件，放在**<font color=red >WhiteImages</font>**文件夹里。这一步相当关键，一定要确保拷贝对了目录。**<font color=red>注意</font>**，Illum相机的白图像与Lytro的白图像的存放位置不一样，在[相机的SD](#Whiteimage-Illum)卡里。
 
 #### step 4: 将测试文件放到Images目录
 
-**<font color=red >Images</font>**文件夹下包含我们需要处理的文件们，<font color=red >F01</font>下存放LYTRO系列拍摄的文件，<font color=red >B01</font>下存放ILLUM系列拍摄的文件。以Lytro为例，由于前面已经有了测试文件**<font color=red >raw.lfp</font>**，我们就把这个文件放在<font color=red >F01</font>下。经过我们上述的过程之后，最后我们的目录会变成这样（注意：<u>Sample_test与LFToolBox0.4为同级目录，各个文件夹的名字务必正确</u>）：
+**<font color=red >Images</font>**文件夹下包含我们需要处理的文件们，**<font color=red >F01</font>**下存放LYTRO系列拍摄的文件，**<font color=red >B01</font>**下存放ILLUM系列拍摄的文件。以Lytro为例，由于前面已经有了测试文件**<font color=red >raw.lfp</font>**，我们就把这个文件放在**<font color=red >F01</font>**下。经过我们上述的过程之后，最后我们的目录会变成这样（注意：<u>Sample_test与LFToolBox0.4为同级目录，各个文件夹的名字务必正确</u>）：
 
 ![](http://oofx6tpf6.bkt.clouddn.com/folder-structure.png)
 
@@ -145,10 +145,11 @@ DecodeOptions = LFDefaultField( 'DecodeOptions', 'WhiteImageDatabasePath'...
 
 ## **<font color=red >注意事项及测试代码</font>**
 
-### 参数设置好了再Run
+### <span id="Whiteimage-Illum">参数设置好了再Run</span>
+
 不少同学是因为设置不当，导致运行错误，以下我列举了可能出现错误的地方。
 - 务必在WhiteImagesPath处写明相机型号，确定好到底是Lytro还是Illum
-- 注意Illum相机的白图像们在相机的SD卡中，那些白图像们拷贝出来放在路径**Sample_test\Cameras\B5151500510\**下即可
+- 注意Illum相机的配对数据在相机的SD卡中，解压`caldata-Bxxxxxxxxx.tar`，将里面的文件拷贝出来放在路径**Sample_test\Cameras\Bxxxxxxxxx\**下即可
 - 白图像的处理过程比较久，耐心等待就行即可
 - Lytro与Illum的频域滤波调用函数是不同的，我已经把代码添加在了相应位置；这个函数用时较久，耐心等待
 - 结果存放在**Results_saving**文件夹下
@@ -420,12 +421,27 @@ figure;imshow(concatImg);set(gcf,'color',[1 1 1]);
 imwrite(concatImg,'concatImg.png');
 ```
 
-**<center>以上，如有问题欢迎评论，不出意外我一直在线</center>**
+### Lytro Desktop
+
+Lytro Desktop是曾经的Lytro官方提供的软件，可以处理由Lytro系列相机拍摄到的图像。利用该软件能够导出相机配对数据、重聚焦图像、全聚焦图、深度图、原始文件等。下面给出一些常用的导出文件。
+- 导入需要处理的图像
+
+![](http://oofx6tpf6.bkt.clouddn.com/lytro-desktop-1.jpg)
+- 导出配对数据
+
+![](http://oofx6tpf6.bkt.clouddn.com/lytro-desktop-3.jpg)
+- 导出待处理图像的各种格式
+
+![](http://oofx6tpf6.bkt.clouddn.com/lytro-desktop-2.jpg)
+- 全聚焦彩色图与内置深度图
+
+![](http://oofx6tpf6.bkt.clouddn.com/color-depth.jpg)
+- 重聚焦
+
+![](http://oofx6tpf6.bkt.clouddn.com/refocusing.jpg)
+- H.264电影
+
+{% dplayer url="http://oofx6tpf6.bkt.clouddn.com/molly.mp4" "http://oofx6tpf6.bkt.clouddn.com/molly.jpg" "api=https://api.prprpr.me/dplayer/" "id=4d5c01842f37d90651f9693783c6564279fed6f4" "loop=true" %}
 
 
-
-
-
-
-
-
+**<center>以上，如有问题欢迎评论</center>**

@@ -12,8 +12,8 @@ abbrlink: 48503
 date: 2017-10-02 13:22:25
 ---
 
-
-![](http://oofx6tpf6.bkt.clouddn.com/smile.jpg)
+![](http://oofx6tpf6.bkt.clouddn.com/pca-cover.jpg)
+[//]:![](http://oofx6tpf6.bkt.clouddn.com/smile.jpg)
 
 <!--more-->
 
