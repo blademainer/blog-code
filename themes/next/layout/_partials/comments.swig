@@ -7,6 +7,23 @@
       <div id="gitalk_container" style="display:none;"></div>
   {% endif %}
 	
+  {% if theme.livere_uid %}
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="{{ theme.livere_uid }}"></div>
+    </div>
+  {% endif %}
+
+  {% if theme.gitment.enable %}
+    <div class="comments" id="comments">
+      {% if theme.gitment.lazy %}
+        <div onclick="showGitment()" id="gitment-display-button">{{ __('gitmentbutton') }}</div>
+        <div id="gitment-container" style="display:none"></div>
+      {% else %}
+        <div id="gitment-container"></div>
+      {% endif %}
+    </div>
+  {% endif %}
+
   {% if (theme.duoshuo and theme.duoshuo.shortname) or theme.duoshuo_shortname %}
     <div class="comments" id="comments">
       <div class="ds-thread" data-thread-key="{{ page.path }}"
@@ -49,25 +66,11 @@
       <div id="uyan_frame"></div>
     </div>
 
-  {% elseif theme.livere_uid %}
-    <div class="comments" id="comments">
-      <div id="lv-container" data-id="city" data-uid="{{ theme.livere_uid }}"></div>
-    </div>
-
   {% elseif theme.changyan.appid and theme.changyan.appkey %}
     <div class="comments" id="comments">
       <div id="SOHUCS"></div>
     </div>
 
-  {% elseif theme.gitment.enable %}
-    <div class="comments" id="comments">
-      {% if theme.gitment.lazy %}
-        <div onclick="showGitment()" id="gitment-display-button">{{ __('gitmentbutton') }}</div>
-        <div id="gitment-container" style="display:none"></div>
-      {% else %}
-        <div id="gitment-container"></div>
-      {% endif %}
-    </div>
 
   {% elseif theme.valine.appid and theme.valine.appkey %}
     <div class="comments" id="comments">

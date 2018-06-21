@@ -30,6 +30,51 @@ hexo new blog_name #　新建以blog_name为名的blog
 在.md文档中加入 <!-- more --> 可以显示“阅读全文”
 ```
 
+
+## Gitment 小小改动
+
+文件：`~\themes\next\layout\_third-party\comments\gitment.swig`，Gitment与Gitmint的`css`以及`js`文件上传到网站相应的目录下，分别是：`~\themes\next\source\js\src`以及`~\themes\next\source\css`。
+
+``` css
+<!-- LOCAL: You can save these files to your site and update links -->
+    {% if theme.gitment.mint %}
+        {% set CommentsClass = "Gitmint" %}
+        <link rel="stylesheet" href="https://www.vincentqin.tech/css/gitmint-default.css">
+        <script src="https://www.vincentqin.tech/js/src/gitmint.browser.js"></script>
+    {% else %}
+        {% set CommentsClass = "Gitment" %}
+        <link rel="stylesheet" href="https://www.vincentqin.tech/css/gitment-default.css">
+        <script src="https://www.vincentqin.tech/js/src/gitment.browser.js"></script>
+    {% endif %}
+<!-- END LOCAL -->
+```
+
+## Valine 刷新后评论消失
+参考这个[Issue](https://github.com/xCss/Valine/issues/92)，删除文件`.\themes\next\layout\_third-party\analytics\lean-analytics.swig`中第四行：
+
+``` html
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js">
+```
+但是这样之后无法显示阅读量了。
+
+## 删除 Powered by Valine
+
+文件路径： `~/themes/next/layout/_third-party/comments/valine.swig`
+``` html 
+new Valine({
+...
+pageSize:'{{ theme.valine.pageSize }}' || 10,
+});
+{# 新增以下代码即可，可以移除.info下所有子节点。#}
+var infoEle = document.querySelector('#comments .info');
+if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
+  infoEle.childNodes.forEach(function(item) {
+    item.parentNode.removeChild(item);
+  });
+}
+```
+
+
 ## 网页压缩
 
 参考@[muyunyun](http://muyunyun.cn/posts/f55182c5/#快速实现博客压缩)给出的教程，可以进行如下设置。首先安装[`hexo-all-minifier`](https://github.com/chenzhutian/hexo-all-minifier)，这个模块集成了对 html、css、js、image 的优化。
@@ -171,7 +216,14 @@ mathjax:
 我使用的是[Next](http://theme-next.iissnan.com/)主题， [Make the theme more beautiful, recommended](http://www.arao.me/)
 
 ## 关于评论系统
-多说已死，~~评论系统转到了Disqus，但是被墙的事实让人感觉不爽~~。几经周折，从多说转到Disqus，然后在gitment和gitalk之间徘徊，最后还是选择了[valine](https://valine.js.org/#/)，不过它只能在中国区进行评论，于是我还是保留了[gitalk](http://www.whtis.com/2017/10/19/%E7%BB%99hexo%E5%8D%9A%E5%AE%A2nexT%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0Gitalk%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/)。然后，最后的最后我还是选择了**Hypercomment**。
+多说已死，~~评论系统转到了Disqus，但是被墙的事实让人感觉不爽~~。几经周折，从多说转到Disqus，然后在gitment和gitalk之间徘徊，最后还是选择了[valine](https://valine.js.org/#/)，不过它只能在中国区进行评论，于是我还是保留了[gitalk](http://www.whtis.com/2017/10/19/%E7%BB%99hexo%E5%8D%9A%E5%AE%A2nexT%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0Gitalk%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/)。然而，最后的最后我还是选择了**Hypercomment**。
+
+> 2018年6月21日 更新
+
+最近评论系统[HyperComments](https://www.hypercomments.com)竟然开始收费了，于是我不得不改用新的评论系统[LiveRe](https://livere.com/) ~~[Gitalk](https://gitalk.github.io/)/[valine](https://valine.js.org/)~~。这样一来，原来的评论都看不到了，由此给大家带来的不便，特此道歉！
+
+Hello everyone, the comment system [HyperComments](https://www.hypercomments.com) is charging recently, so I had to switch to the new comment system [LiveRe](https://livere.com/). As a result, the original comments are invisible. I deeply apologize for this inconveniences!
+
 
 ## 关于旋转头像
 
