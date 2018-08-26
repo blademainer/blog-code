@@ -9,7 +9,7 @@ tags:
   - Light Field
 abbrlink: 20681
 date: 2017-04-30 14:22:20
-sticky: 999
+
 ---
 
 <img src="http://oofx6tpf6.bkt.clouddn.com/buddha2.gif" width="80%">

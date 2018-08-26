@@ -3,10 +3,10 @@ title: NEWS
 abbrlink: 1dd39950
 date: 2018-06-19 20:15:27
 tags:
-sticky: 2000
+sticky: 10000
 ---
 
-> 毕业季，最近暂停更新博客。
+> 是时候回归了！
 
 <!--more-->
 
