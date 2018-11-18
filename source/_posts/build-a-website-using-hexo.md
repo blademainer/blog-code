@@ -518,11 +518,11 @@ $font-family-logo	= "Lobster Two"
 
 - 在网页上找到你想要播放的音乐，如下图：
 
-![](build-a-website-using-hexo/wangyiMusic.png) 
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/build-a-website-using-hexo/wangyiMusic.png) 
 
 - 点击**生成外链播放器**
 
-![](build-a-website-using-hexo/wangyiMusicCode.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/build-a-website-using-hexo/wangyiMusicCode.png)
 
 注意自动播放，以及音乐播放器的大小可调。
 

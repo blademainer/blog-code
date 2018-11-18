@@ -9,7 +9,7 @@ mathjax: true
 
 ---
 
-![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/stereo-vision-overview/depth-overview-cover.jpg)
+<img src="/posts/stereo-vision-overview/depth-overview-cover.jpg" width=1600px>
 [//]: ![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/stereo-vision-overview/cat_girl_cut.jpg)
 
 本文主要翻译自[Mattoccia](www.vision.deis.unibo.it/smatt)的双目视差估计综述，对于刚刚接触立体深度估计方向的小伙伴会有帮助；如果你是专家也可以做一下复习，如有错误请在评论中指出。文中主要介绍以下几个方面的内容：
@@ -50,7 +50,8 @@ mathjax: true
 - 极线约束规定，属于（红色）视线的点对应位于目标图像T的图像平面${\pi}_T$上的绿线上。
 
 我们可以在维基百科上找到更为详细的[介绍](https://en.wikipedia.org/wiki/Epipolar_geometry)，具体描述可见下图。特别感谢[@岳麓吹雪同学](https://blog.csdn.net/lin453701006/article/details/55096777)的帮忙，以下是他已经整理好的译文。下图是针孔相机模型图。两个针孔相机看向空间点，实际相机的像面位于焦点中心后面，生成了一幅关于透镜的焦点中心对称的图像。**这个问题可以简化为在焦点中心前方放置一个虚拟像面来生成正立图像，而不需要对称变换得到**。$O_L$和$O_R$表示两个相机透镜中心，$X$表示两个相机共同的目标点，$X_L$和$X_R$是点$X$在两像面上的投影。
-<img src="https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/stereo-vision-overview/Epipolar_geometry.svg" width=900px>
+<img src="/posts/stereo-vision-overview/Epipolar_geometry.svg" width=1600px>
+
 - **epipolar points极点**
 每一个相机的透镜中心是不同的，会投射到另一个相机像面的不同点上。这两个像点用$e_L$和$e_R$表示，被称为**epipolar points极点**。两个极点$e_L$、$e_R$分别与透镜中心$O_L$、$O_R$在空间中位于一条直线上。
 
