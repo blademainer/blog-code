@@ -12,7 +12,7 @@ date: 2017-04-30 14:22:20
 
 ---
 
-<img src="http://oofx6tpf6.bkt.clouddn.com/buddha2.gif" width="80%">
+<img src="https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/new-hci-lightfield-datasets/buddha2.gif" width="80%">
 
 {%note success%}
 好的数据集是做出漂亮实验的必要条件.
@@ -40,7 +40,7 @@ date: 2017-04-30 14:22:20
 
 其中，1-8为仿真场景，9-10是由Raytrix拍摄的场景。他们的文件后缀为 .h5, 格式是HDF5，这是一种文件组织格式，可以很好的将数据组织在一起，具体不做展开。MATLAB 提供了一系列相应的读取该文件的函数，如：h5disp，hdf5info(新版本用h5info)，hdf5read等函数，如利用h5disp就可以得到HDF5文件的内容信息，如下图：
 
-![](http://oofx6tpf6.bkt.clouddn.com/Buddha2Hd5.gif)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/new-hci-lightfield-datasets/Buddha2Hd5.gif)
 
 以下给出解码HDF5文件得到子孔径图像以及重排图像的代码：
 
@@ -97,7 +97,7 @@ IM_Pinhole = data(:,:,:,UV_radius+1,UV_radius+1); % the pinhole image
   ​
 
 
-![](http://oofx6tpf6.bkt.clouddn.com/scenes.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/new-hci-lightfield-datasets/scenes.png)
 
 总结而言这个4D光场数据集提供了如下信息：
 
@@ -229,10 +229,10 @@ zoom(1.2)
 结果如下所示：
 
 
-![](http://oofx6tpf6.bkt.clouddn.com/PCs.gif)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/new-hci-lightfield-datasets/PCs.gif)
 
 <span id="inline-red" >注意</span>：生成点云这一步，低版本的MATLAB（如R2014a）由于没有加入相应的函数所以不能够生成点云，高版本（R2016b）可以正常生成。另外，在此提供另外一个函数`visualizeZ_3D`，该函数将depth map当做彩色图像的z向延伸，然后构图。
-<img src="http://p66ri5yke.bkt.clouddn.com/3d-demo.jpg" width=1200px>
+<img src="https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/new-hci-lightfield-datasets/3d-demo.jpg" width=1200px>
 
 
 ``` matlab 文件名: visualizeZ_3D.m

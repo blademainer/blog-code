@@ -14,20 +14,20 @@ date: 2018-06-30 23:25:15
 
 毕业季申请了一下Tsinghua和google主办的研讨会（Tsinghua-Google AI Symposium），有幸被选上参会。在此，我就此时研讨会进行一下总结。会议共分为两天进行。会上聚集了多个学术界以及产业界的大牛，其中包括Bo Zhang，Jeff Dean，Fei Fei Li，Bill Freeman等大佬。他们分别在其专业领域进行了主题演讲（Keynote）。
 
-![](http://pb1anqzoj.bkt.clouddn.com/all-people.jpg)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/tsinghua-google-ai/all-people.jpg)
 
 # Bo Zhang（张钹院士）
 
 出任清华谷歌AI研究院院长的张钹是清华大学计算机系教授，中科院院士。
 
-![](http://pb1anqzoj.bkt.clouddn.com/zhangbo-2.jpg)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/tsinghua-google-ai/zhangbo-2.jpg)
 
 
 
 
 1958 年毕业于清华大学自动控制系，同年留校任教至今。他在 2011 年获汉堡大学授予的自然科学荣誉博士，并现任微软亚洲研究院技术顾问。
 
-![](http://pb1anqzoj.bkt.clouddn.com/zhangbo_0.jpg)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/tsinghua-google-ai/zhangbo_0.jpg)
 
 （上图）张钹院士进行名为“Towards A Real Artifical Intelligence”的主题报告
 
@@ -52,7 +52,7 @@ date: 2018-06-30 23:25:15
 
 
 
-![](http://pb1anqzoj.bkt.clouddn.com/jeff-dean-3.jpg)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/tsinghua-google-ai/jeff-dean-3.jpg)
 
 （上图）Jeff Dean进行名为“Deep Learning to Solve Challenging Problems”的主题报告
 
@@ -66,7 +66,7 @@ Jeff Dean 大神无需过多介绍，想必大家都了解。这次他又多了�
 
 
 演讲从深度学习热潮的兴起讲起：从2010年开始，深度学习的热度稳步上升，如今Arxiv上发表的机器学习论文增长趋势已经超过了摩尔定律。深度学习在图像和语音识别为代表的一系列任务中取得了越来越卓越的成果，这个概念和技术并不是全新的，但为什么在过去的几年当中实现了极大的突破？这一切都得益于计算力的提升，**在有充分计算力的情况下，深度学习解决问题的精度将大幅超越传统方法**。
-![](http://pb1anqzoj.bkt.clouddn.com/trend.jpg)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/tsinghua-google-ai/trend.jpg)
 
 
 
@@ -77,7 +77,7 @@ Jeff Dean 大神无需过多介绍，想必大家都了解。这次他又多了�
 
 
 
-![](http://pb1anqzoj.bkt.clouddn.com/jeff-dean-4.jpg)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/tsinghua-google-ai/jeff-dean-4.jpg)
 
 （上图）2008：21世纪重大工程难题
 
@@ -105,7 +105,7 @@ Jeff Dean 大神无需过多介绍，想必大家都了解。这次他又多了�
 
 其他还有使用深度学习预测分子性质，制作更好的药物，开发碳封存方法，管理氮循环……这些问题都能够在更好的科学工具的帮助下实现。而这个帮助科学工具开发的工具，就是谷歌深度学习开源框架TensorFlow：**TensorFlow的目标是成为每个人都可以使用的机器学习平台，成为通用的平台，成为最好的平台**，去更好的促进行业交流和创新。
 
-![](http://pb1anqzoj.bkt.clouddn.com/tensorflow.jpg)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/tsinghua-google-ai/tensorflow.jpg)
 TensorFlow是目前全球最受欢迎的深度学习框架，在中国也有强劲的开发者生态。此前一位参与TensorFlow开发的中国开发者声称，他认为谷歌推广TensorFlow不是为了赚钱，而是很纯粹的为了技术。
 
 
@@ -115,13 +115,13 @@ TensorFlow是目前全球最受欢迎的深度学习框架，在中国也有强�
 
 谷歌当然明白这一点，而包括这次研讨会在内的众多高校活动，将进一步把TensorFlow的用户人群拓展到学生里面。最后，这位谷歌AI的总负责人号召大家都使用深度学习：“深度神经网络和机器学习取得的重大突破，正在解决世界上一些最为重大的挑战；如果你还没有考虑使用深度学习，我几乎可以肯定你应该马上这么做！”
 
-![](http://pb1anqzoj.bkt.clouddn.com/more_info.jpg)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/tsinghua-google-ai/more_info.jpg)
 
 
 
 # Feifei Li：机器理解人类，提供医疗环境智能
 
-![](http://pb1anqzoj.bkt.clouddn.com/feifeili-2.jpg)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/tsinghua-google-ai/feifeili-2.jpg)
 
 李飞飞进行名为“Illuminating the Dark Space: Towards Ambient Intelligence in AI-assisted Healthcare”的主题讲座
 
@@ -134,7 +134,7 @@ TensorFlow是目前全球最受欢迎的深度学习框架，在中国也有强�
 
 在开始之前，我想向众多的合作方、学生、博士后，特别是在过去的五六年时间里，与我们在 AI 和医疗健康领域一起工作的临床医生表示感谢。除了以上与我列举的这部分人员合作之外，我们还与世界各地的医院合作，包括斯坦福大学Lucile Packard儿童医院以及斯坦福大学医学院。此外，我们还与犹他州山间麦凯迪医院、旧金山Unlock高级中心合作。刚刚，我们还与上海交通大学以及瑞金医院开展了一项令人兴奋的研究合作。
 
-![](http://pb1anqzoj.bkt.clouddn.com/feifeili-4.jpg)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/tsinghua-google-ai/feifeili-4.jpg)
 
 李飞飞团队成员
 
@@ -169,11 +169,11 @@ TensorFlow是目前全球最受欢迎的深度学习框架，在中国也有强�
 那么我们能做些什么呢？有另一种方式可以考虑改善医疗健康的质量。大概五年前，我和斯坦福的同事们就开始跟进一种新的技术浪潮——自动驾驶技术，而这种新技术似乎与医疗健康毫无关系。但事实上，它们是高度相关的。先来看看自动驾驶汽车是如何工作的。
 
 
-![](http://pb1anqzoj.bkt.clouddn.com/auto_drive.jpg)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/tsinghua-google-ai/auto_drive.jpg)
 
 这是一款配备了智能传感器的汽车，它能够感知从行人，到汽车、物体、路标等的道路环境。而且，一旦它能感知环境，就会将信息输入到后台，你就能利用机器学习算法做出决定和预测，辅助汽车驾驶。所以，我们受到这种思维以及“Ambient Intelligence”概念的启发，想要将 AI 注入到医疗服务的物理空间中，以便我们能够协助执行预期的步骤。
 
-![](http://pb1anqzoj.bkt.clouddn.com/healthcare_delivery.jpg)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/tsinghua-google-ai/healthcare_delivery.jpg)
 
 这是一个医院单元的示意图：由许多传感器覆盖，可以观察不同的医疗服务情况。首先，我们需要通过传感器的性能来改造物理空间，如果是一家（设备）传统的医院，它可能就没有现代化的传感器以帮助收集并将这些潜在的信息传递给算法。接下来，一旦我们收集了数据，我们需要辨认出在这个环境里的活动，无论是手术室、病人康复室，还是在养老院里。
 
@@ -189,7 +189,7 @@ TensorFlow是目前全球最受欢迎的深度学习框架，在中国也有强�
 
 接下来的演讲中，通过展示我们最近的一些工作，我将分享到以下三个研究方向：感知、人类活动识别，以及医疗生态体系。
 
-![](http://pb1anqzoj.bkt.clouddn.com/feifeili-1.jpg)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/tsinghua-google-ai/feifeili-1.jpg)
 
 
 
@@ -224,9 +224,9 @@ TensorFlow是目前全球最受欢迎的深度学习框架，在中国也有强�
 
 在我们的两所试点医院（犹他州儿童医院和承认重症监护病房）中，我们进行了深度传感器的试用。这些深度传感器被安装在医院的病房中。例如，在儿童医院，我们安装了将近30个不同的传感器，目的就是为了通过传感器获取更多的数据以理解人类的行为。
 
-![](http://pb1anqzoj.bkt.clouddn.com/sensors.jpg)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/tsinghua-google-ai/sensors.jpg)
 
-![](http://pb1anqzoj.bkt.clouddn.com/sensors2.jpg)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/tsinghua-google-ai/sensors2.jpg)
 
 还有一种传感器，它与前者相互补，主要作用于生理信息，即热传感器。通过深度传感器可以看到病人轮廓；而通过热传感器收集信息，你不仅可以看到病人的轮廓，你实际上还能看到其他关键的物体，如氧气管。这对病人而言是非常重要的。所以，在我们的试点研究中，我们同样也会用到热传感器。实际上，我们正在与旧金山的一所养老院合作，在养老院里安装了热传感器和深度传感器，以帮助医生监测老人的行为，帮助他们独立生活。
 
@@ -252,7 +252,7 @@ TensorFlow是目前全球最受欢迎的深度学习框架，在中国也有强�
 
 
 
-![](http://pb1anqzoj.bkt.clouddn.com/Vanilla_CNN.jpg)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/tsinghua-google-ai/Vanilla_CNN.jpg)
 
 比如，我们希望检测临床医师在进出病人的房间前后是否都有洗手，就需要面临很多的挑战。首先，由于我们的传感器大都安在天花板上，因此画面的视角和正常的 YouTube 视频画面的视角非常不一样。此外，人是运动的，因此我们安装了很多传感器，来对人进行追踪。
 
@@ -264,7 +264,7 @@ TensorFlow是目前全球最受欢迎的深度学习框架，在中国也有强�
 为什么我们会选择手部卫生作为第一个应用案例呢？因为不注意手部卫生是病人死亡的重要元凶之一。实际上，因为每年死于医院获得性感染的病人是交通事故致死人数的三倍。
 
 
-![](http://pb1anqzoj.bkt.clouddn.com/death.jpg)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/tsinghua-google-ai/death.jpg)
 
 而大多数的医院获得性感染都是没有注意手部卫生导致的。这是医疗系统里的一个顽疾，解决这个问题的唯一办法是派人到医院里监督医生和护士，督促他们洗手。但是这种方法非常低效，不仅不能做到实施监督，也非常耗费时间，而且人也可能会犯错误。因此，通过使用深度学习和智能传感器系统来对医务人员进行追踪，我们取得了非常好的结果。和人类检查员相比，我们的方法观察到与事实更接近。
 
@@ -288,7 +288,7 @@ TensorFlow是目前全球最受欢迎的深度学习框架，在中国也有强�
 为了解决这个问题，我们开发了基于 RNN 序列模型的网络，使用 multilevel loss 来预测同时发生的活动。我们在 MultiHUMOS 数据集上进行了计算机视觉基准测试，与Vanilla LSTM 或者Stream CNN 相比，我们的算法在多活动标记领域取得了领先的成果。我们正试着在 InterMountain 医院的 ICU 里部署我们的模型，来观察病人的活动。我们选择从病人的四种活动开始，比如上床、下床等动作。知晓病人的活动水平，对医务人员提供更好的医疗服务至关重要。
 
 
-![](http://pb1anqzoj.bkt.clouddn.com/senior_pop_growth.jpg)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/tsinghua-google-ai/senior_pop_growth.jpg)
 
 最后，我还想介绍下我们在减少训练数据量方面的工作，这在养老院的应用中非常有用。人口老龄化是世界性的问题，我们真的需要做一些事情来帮助老人们。
 
@@ -320,7 +320,7 @@ TensorFlow是目前全球最受欢迎的深度学习框架，在中国也有强�
 
 > 人类拥有卓越的人声辨识能力，甚至在嘈杂的多人环境中识别出特定的一个人。但，计算机很难做到这点。我们最近的一项研究工作就是让计算机具备这种能力，我们借鉴了人类在这个过程中利用到的线索：“看”着说话人讲话。我们算法的输入时两个或者多于两个人的说话视频，输出就是被挑选出的某个说话人的声音。这个技术我们把它命名为“Looking to Listen”，可以应用于多个领域例如：语音识别、翻译以及辅助听力等。
 
-![](http://pb1anqzoj.bkt.clouddn.com/freeman-3.jpg)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/tsinghua-google-ai/freeman-3.jpg)
 
 主题报告＂Look to Listen: Using Vision to Improve Speech Understanding＂
 
@@ -330,15 +330,15 @@ TensorFlow是目前全球最受欢迎的深度学习框架，在中国也有强�
 
 最近，Freeman教授的团队通过让计算机“看”，也即观察说话者来辅助语音识别，大幅提升了计算机语言识别的性能。实际上，这也是人类在语音识别时常常采用的方法。他们的研究论文[“Looking to Listen at the Cocktail Party”](https://arxiv.org/pdf/1804.03619.pdf)，已经被SIGGRAPH 2018接收。这项研究的起点，是MIT的研究人员发现，视频信息实际上可以充当一种“视觉麦克风”。一袋放在桌上的薯片，在旁边播放音乐，观察高速摄像头拍摄下的薯片包装袋，能发现包装袋在颤动，从而推理出音频信息。
 
-![](http://pb1anqzoj.bkt.clouddn.com/freeman-1.jpg)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/tsinghua-google-ai/freeman-1.jpg)
 
 在此基础上，Freeman教授带领的Google Research团队，通过计算生成视频，使用视觉信息，加强其中特定人物的语音，同时抑制其他的所有声音。这个方法适用于带有单个音频轨道的普通视频，用户需要的只是选择他们想要听的视频中人物的脸部，或者根据上下文在算法上选择这样的人物就行了。
 
-![](http://pb1anqzoj.bkt.clouddn.com/Looking2Listen-1.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/tsinghua-google-ai/Looking2Listen-1.png)
 
 他们设计了一种算法，输入有两个及更多人同时说话的视频，算法能够输出其中被选定的那个人的音频，非常清晰
 
-![](http://pb1anqzoj.bkt.clouddn.com/Looking2Listen-2.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/tsinghua-google-ai/Looking2Listen-2.png)
 
 “鸡尾酒效应”论文提出的基于神经网络的多数据流架构
 
@@ -347,13 +347,13 @@ TensorFlow是目前全球最受欢迎的深度学习框架，在中国也有强�
 
 除了“从看到听”，在更早一些的时候，Freeman教授的团队还做了“从听到看”的研究，也即从声音中学习画面（Learning Sight from Sound）。在一项工作中，他们表明环境声音可以用作学习视觉模型的监督信号。他们训练了一个卷积神经网络来预测与视频帧相关的声音的统计汇总，网络学会了关于某个物体（对象）和场景有关声音信息的表示。结果发现，具有类似声音特征的视频，比如海边和河边，虽然视觉信息非常不同，但在网络学会的声音信号空间中，却是十分类似的。
 
-![](http://pb1anqzoj.bkt.clouddn.com/audio-video.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/tsinghua-google-ai/audio-video.png)
 
 通过这个过程，网络学会了关于某个物体（对象）和场景有关声音信息的表示。实验结果显示，这种方法的性能与其他最先进的无监督学习方法相当。图像是声音的补充，从一种模态（比如图像）中能够得到一些很难或者无法从另一种模态（比如语音）分析中得到的信息。反之也一样。通过这样将视觉和语音信号相结合，能够彼此促进。此外，如果能够确定哪些视觉信号能在训练过程中帮助检测特定的声音信号，将进一步提升语音识别的效果。
 
 # 大合影
 
-![](http://pb1anqzoj.bkt.clouddn.com/group2.jpg)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/tsinghua-google-ai/group2.jpg)
 
 距离较远，只能拍成这样了
 

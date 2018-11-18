@@ -11,7 +11,7 @@ abbrlink: 25505
 date: 2017-11-19 01:22:40
 ---
 
-![](http://oofx6tpf6.bkt.clouddn.com/cifar10-fig.jpg)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/Matlab-Deep-Learning/cifar10-fig.jpg)
 
 {%note %}
 最近对深度学习尤其着迷，是时候用万能的Matlab去践行我的DL学习之路了。之所以用Matlab，是因为Matlab真的太强大了！自从大学开始我就一直用这个神奇的软件，算是最熟悉的编程工具。加上最近mathworks公司一大波大佬的不懈努力，在今年下半年发行的R2017b版本中又加入了诸多新颖的[特性](https://cn.mathworks.com/products/new_products/latest_features.html?s_tid=hp_release_2017b&from=timeline&isappinstalled=0)，尤其在[DL](https://cn.mathworks.com/solutions/deep-learning.html)方面，可以发现：仅仅几条简单的代码，就能够实现复杂的功能。基于以上，我在本文列举了几个在Matlab上学习Deep Learning的例子：1. [手写字符识别](#example1)；2. [搭建网络对CIFAR10分类](#example2)；3.[搭建一个Resnet](#example3)。务必保证主机已经安装Matlab 2017a及以上。
@@ -51,7 +51,7 @@ end
 ```
 以下是手写字符的部分数据：
 
-![](http://oofx6tpf6.bkt.clouddn.com/17-11-18/63361958.jpg)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/Matlab-Deep-Learning/63361958.png)
 
 ### 创建训练集与验证集
 
@@ -170,7 +170,7 @@ image=frame.cdata;
 imwrite(image,map,'weight-layer2.png'); 
 ```
 图像如下所示：
-![](http://oofx6tpf6.bkt.clouddn.com/weight-layer2.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/Matlab-Deep-Learning/weight-layer2.png)
 
 再看一下第10层的参数：
 ``` matlab
@@ -195,7 +195,7 @@ for i=1:iter
 end
 ```
 
-![](http://oofx6tpf6.bkt.clouddn.com/weight-inf.gif)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/Matlab-Deep-Learning/weight-inf.gif)
 
 
 
@@ -213,7 +213,7 @@ XBatch = reshape(XBatch, 32,32,3,[]);
 XBatch = permute(XBatch, [2 1 3 4]);
 ```
 以下是cifar10的部分数据。
-![](http://oofx6tpf6.bkt.clouddn.com/cifar10-images.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/Matlab-Deep-Learning/cifar10-images.png)
 共有10类，包括：airplane，automobile，bird，cat，deer，dog，frog，horse，ship，truck。
 
 ### Just run it
@@ -282,13 +282,13 @@ image=frame.cdata;
 imwrite(image,map,[name,'.png']); 
 ```
 
-![](http://oofx6tpf6.bkt.clouddn.com/cifar10-weight-layer2.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/Matlab-Deep-Learning/cifar10-weight-layer2.png)
 
 
 ## <span id="example3">搭建一个Resnet</span>
 
 接下来，为了验证下这个DL工具包的强大之处，我打算纯手工建一个Resnet。为方便起见，我搭了一个Resnet34（更深的网络敬请期待吧）。这里是它的[prototxt](./resnet34.prototxt)，我们可以用[网络可视化工具](http://ethereon.github.io/netscope/#/editor)进行查看resnet34的结构。以下是Resnet34的一部分（太长了没有截下全部视图）。
-![](http://oofx6tpf6.bkt.clouddn.com/resnet34.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/Matlab-Deep-Learning/resnet34.png)
 
 ### 定义每一层与连接层
 

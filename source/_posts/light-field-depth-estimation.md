@@ -11,7 +11,9 @@ abbrlink: 6884
 date: 2018-05-16 13:35:54
 
 ---
-![](http://oofx6tpf6.bkt.clouddn.com/street.jpg)
+
+
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/street.jpg)
 
 {%note success%}
 
@@ -38,7 +40,7 @@ $$
 ## 光场参数化表示
 参数化表示要解决的问题包括：1. 计算高效；2. 光线可控；3. 光线均匀采样。目前比较常用的表示方式是双平面法（$2PP$）[^3]，利用双平面法可以将光场表示为：$L(u,v,s,t)$。其中$(u,v)$为第一个平面，$(s,t)$是第二个平面。那么一条有方向的直线可以表示为连接$uv$以及$st$平面上任意两点确定的线，如下图所示：
 
-![](http://oofx6tpf6.bkt.clouddn.com/2pp-v1.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/2pp-v1.png)
 
 【注】：Levoy[^3]首先利用双平面法对光场进行表示，光线首先通过$uv$平面，然后再通过$st$平面。但是后来（同年）Gortler[^4]等人将其传播方向反了过来，导致后续研究者对此表述并不一致。与此同时，也有不少文献中也引入了$xy$坐标，例如著名的光场相机的缔造者N.G.博士的毕业论文。通常情况下，这指的是像平面坐标，即指的是由传感器得到的图像中像素的位置坐标。由于后续处理中都是针对图像而言，而对于光学结构以及光线的传播过程并不感兴趣。所以为了方便起见，我们在本文中统一采用Levoy[^3]的方式对**光场图像**进行表示，即$uv$表示角度分辨率，$xy$表示空间分辨率，即$L(u,v,x,y)$。同时在表示**光场**时用$L(u,v,s,t)$。有时候二者不做区分，注意即可。
 
@@ -46,30 +48,30 @@ $$
 
 虽然光场由$7D$全光函数降维到$4D$，但是其结构还是很难直观想象。通过固定4D光场参数化表示$L(u,v,s,t)$中的某些变量，我们可以很容易地对光场进行可视化。我们通常认为$(u,v)$控制着某个视角的位置，即相机平面；而$(s,t)$控制着从某个视角观察到的图像。说简单点：$uv$控制角度分辨率，$st$控制空间分辨率（视野）。注意上式描述的是光线的表示方法，并没有涉及图像处理，所以没有$xy$。
 
-<img src="http://oofx6tpf6.bkt.clouddn.com/uvst2images.png" width="600" alt="uvst2images">
+<img src="https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/uvst2images.png" width="600" alt="uvst2images">
 
 接下来讲解，几种常见的可视化方式（图片来源[^5]）。首先是**多视图法**。很容易理解，对于最简单的情况，首先固定$u=u^\*,v=v^\*$，我们可以得到多视角的某个视图$L(u^\*,v^\*,s,t)$，如下图所示：
 
-![](http://oofx6tpf6.bkt.clouddn.com/allviews.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/allviews.png)
 
 第二种表示方法是**角度域法**，通过固定$s=s^\*,t=t^\*$可以得到某个宏像素$L(u,v,s^\*,t^\*)$，如下图所示：
 
-![](http://oofx6tpf6.bkt.clouddn.com/angular-patch.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/angular-patch.png)
 
 第三种表示方法是**极线图法**，通过固定$v=v^\*,t=t^\*$可以得到极线图：$L(u,v^\*,s,t^\*)$，如下图中水平方向的图所示；同理固定$u=u^\*,s=s^\*$可以得到极线图：$L(u^\*,v,s^\*,t)$，如下图中竖直方向的图所示：
 
-![](http://oofx6tpf6.bkt.clouddn.com/epi.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/epi.png)
 
 最后，给出这几种方式的对应关系图（注意图中，$xy$对应于以上$st$，$st$对应于$uv$）。
 
-![](http://oofx6tpf6.bkt.clouddn.com/lf-all-view.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/lf-all-view.png)
 
 
 # 光场的获取
 
 我们知道传统的相机只能采集来自场景某个方向的$2D$信息，那怎么才能够采集到光场信息呢？试想一下，当多个相机在多个不同视角同时拍摄时，这样我们就可以得到一个光场的采样（多视角图像）了。当然，这是容易想到的方法，目前已有多种获得光场的方式，如下表格中列举了其中具有代表性的方式[^5]。
 
-![](http://oofx6tpf6.bkt.clouddn.com/lf-acquisition.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/lf-acquisition.png)
 
 # 光场深度估计算法分类
 
@@ -156,12 +158,12 @@ $$
 
 至此，代价函数构建完毕。随后对于该代价函数利用边缘保持滤波器进行损失聚合，得到优化后的代价量。紧接着作者建立了一个多标签优化模型（GC求解）以及迭代优化模型对深度图进行优化，再此不做详细介绍。下面是其算法的分部结果：
 
-![](http://oofx6tpf6.bkt.clouddn.com/jeon-depth-step.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/jeon-depth-step.png)
 
 
 ## 基于EPI的方法
 
-<img src="http://oofx6tpf6.bkt.clouddn.com/2pp-epi-depth.png" width="100%">
+<img src="https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/2pp-epi-depth.png" width="100%">
 
 不同于多视角立体匹配的方式，EPI的方式是通过分析光场数据结构的从而进行深度估计的方式。EPI图像中斜线的斜率就能够反映出场景的深度。上图中点P为空间点，平面$\Pi$为相机平面，平面$\Omega$为像平面。图中$\Delta u$与$\Delta x$的关系可以表示为如下公式[^6]：
 
@@ -171,7 +173,7 @@ $$
 
 假如固定相同的$\Delta u$，水平方向位移较大的EPI图中斜线所对应的视差就越大，即深度就越小。如下图所示，$\Delta x_2$>$\Delta x_1$，那么绿色线所对应的空间点要比红色线所对应的空间点深度小。
 
-<img src="http://oofx6tpf6.bkt.clouddn.com/epi-depth.png" width="100%">
+<img src="https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/epi-depth.png" width="100%">
 
 以下列举几种基于EPI的深度估计算法[^11] [^12] [^13] [^14] [^15] [^24]。
 
@@ -297,8 +299,8 @@ $$
 
 这里介绍一个最具代表性的工作，由Tao等人[^16]在2013年提出，下图为其算法框架以及分部结果。
 
-![](http://oofx6tpf6.bkt.clouddn.com/tao2013.png)
-![](http://oofx6tpf6.bkt.clouddn.com/tao2013-results-step-by-step.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/tao2013.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/tao2013-results-step-by-step.png)
 
 该工作其实就做了2件事情：1. 设计两种深度线索并估计原始深度；2. 置信度分析及MRF融合。以下对其进行具体介绍。
 ### 双线索提取
@@ -339,7 +341,7 @@ $$
 
 ### 置信度分析及深度融合
 
-![](http://oofx6tpf6.bkt.clouddn.com/tao2013-confidence-analysis.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/tao2013-confidence-analysis.png)
 
 上图中显示了两个线索随着深度层次而变化的曲线。接下来的置信度分析用**主次峰值比例**（Peak Ratio）来定义每种线索的置信度，可表示为如下公式，其中的$\alpha ^{\*2}_D(x)$以及$\alpha ^{\*2}_C(x)$分别表示曲线的次峰值对应的深度层次。
 
@@ -410,7 +412,7 @@ $$
 
 在此，我将对截止目前（2018年5月29日）而言，在HCI新数据集上表现最好的[EPINET: A Fully-Convolutional Neural Network Using Epipolar Geometry for Depth from Light Field Images](https://arxiv.org/abs/1804.02379)[^30]算法进行介绍，下图为该算法在各个指标上的表现情况。
 
-![](http://oofx6tpf6.bkt.clouddn.com/epinet-architecture.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/epinet-architecture.png)
 
 算法摘要：光场相机能够同时采集空间光线的空域以及角度域信息，因此可以根据这种特性恢复出空间场景的涉深度。在本文中，作者提出了一种基于CNN的快速准确的光场深度估计算法。作者在设计网络时将光场的几何结构加入考虑，同时提出了一种新的数据增强算法以克服训练数据不足的缺陷。作者提出的算法能够在HCI 4D-LFB上在多个指标上取得Top1的成绩。作者指出，光场相机存在优势的同时也有诸多缺点，例如：基线超级短且空间&角度分辨率有一定的权衡关系。目前已有很多工作去克服这些问题，这样一来，深度图像的精度提升了，但是带来的后果就是计算量超级大，无法快速地估计出深度。因此作者为了解决精度以及速度之间权衡关系设计了该算法（感觉很有意义吧）。
 
@@ -436,7 +438,7 @@ $$
 
 如本节开始的图所示的网络结构，该网络的开始为多路编码网络（类似于Flownet以及[Efficient Deep Learning for Stereo Matching](https://www.cs.toronto.edu/~urtasun/publications/luo_etal_cvpr16.pdf)[^32]），其输入为4个不同方向视角图像集合，每个方向对应于一路网络，每一路都可以对其对应方向上图像进行编码提取特征。每一路网络都由3个全卷积模块组成，因为全卷积层对逐点稠密预测问题卓有成效，所以作者将每一个全卷积模块定义为这样的卷积层的集合：**Conv-ReLU-Conv-BN-ReLU**，这样的话就可以在局部块中预逐点预测视差。为了解决基线短的问题，作者设计了非常小的卷积核：$2\times 2$，同时stride = 1，这样的话就可以测量$\pm 4$的视差。为了验证这种多路网络的有效性，作者同单路的网络做了对比试验，其结果如下表所示，可见多路网络相对于单路网络有10%的误差降低。
 
-<img src="http://oofx6tpf6.bkt.clouddn.com/viewpoints-effect.png" width="60%">
+<img src="https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/viewpoints-effect.png" width="60%">
 
 在完成多路编码之后，网络将这些特征串联起来组成更维度更高的特征。后面的融合网络包含8个卷积块，其目的是寻找经多路编码之后特征之间的相关性。注意除了最后一个卷积块之外，其余的卷积块全部相同。为了推断得到亚像素精度的视差图，作者将最后一个卷积块设计为**Conv-ReLU-Conv**结构。
 
@@ -444,71 +446,71 @@ $$
 
 以下为其各个指标上的性能表现：
 
-![](http://oofx6tpf6.bkt.clouddn.com/epinet-evaluation.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/epinet-evaluation.png)
 
 以上介绍了目前已有的深度估计算法不同类别中具有代表性的算法，它们不一定是最优的，但绝对是最容易理解其精髓的。到目前为止，光场领域已经有一大波人做深度估计的工作，利用传统的方式其精度很难再往上提高。随着深度学习的大热，已经有一批先驱开始用深度学习做深度估计，虽然在仿真数据上可以表现得很好，但实际场景千变万化，即使是深度学习的策略也不敢保证对所有的场景都有效。路漫漫其修远兮，深度估计道路阻且长。我认为以后的趋势应该是从EPI图像下手，然后利用CNN提feature（或者响应）；此时可供选择的工具有[KITTI Stereo](http://www.cvlibs.net/datasets/kitti/eval_scene_flow.php?benchmark=stereo)/[HCI新数据集算法比较](http://hci-lightfield.iwr.uni-heidelberg.de/)/[Middlebury Stereo](http://vision.middlebury.edu/stereo/)中较好的几种算法，我们需要总结其算法优势并迁移到光场领域中来。GPU这个Powerful的计算工具一定要用到光场领域中来，发挥出多线程的优势。否则传统的CPU对于动辄上百兆的数据有心无力。这样一来，深度图像不仅仅可以从精度上得以提高，而且深度估计的速度也会更快。至此，本文介绍到此结束。
 
 # References
-[^1]: Gershun, A. "[The Light Field](http://p9kx5cva1.bkt.clouddn.com/1.Gershun-1939-Journal_of_Mathematics_and_Physics.pdf)." Studies in Applied Mathematics 18.1-4(1939):51–151.
+[^1]: Gershun, A. "[The Light Field](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/1.Gershun-1939-Journal_of_Mathematics_and_Physics.pdf)." Studies in Applied Mathematics 18.1-4(1939):51–151.
 
-[^2]: Adelson, Edward H, and J. R. Bergen. "[The plenoptic function and the elements of early vision](http://p9kx5cva1.bkt.clouddn.com/2.The%20plenoptic%20function%20and%20the%20elements%20of%20early%20vision.pdf). " Computational Models of Visual Processing (1991):3-20.
+[^2]: Adelson, Edward H, and J. R. Bergen. "[The plenoptic function and the elements of early vision](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/2.The%20plenoptic%20function%20and%20the%20elements%20of%20early%20vision.pdf). " Computational Models of Visual Processing (1991):3-20.
 
-[^3]: Levoy, Marc. "[Light field rendering](http://p9kx5cva1.bkt.clouddn.com/3.Light_Field_Rendering.pdf)." Conference on Computer Graphics and Interactive Techniques ACM, 1996:31-42.
+[^3]: Levoy, Marc. "[Light field rendering](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/3.Light_Field_Rendering.pdf)." Conference on Computer Graphics and Interactive Techniques ACM, 1996:31-42.
 
-[^4]: Gortler, Steven J., et al. "[The Lumigraph](http://p9kx5cva1.bkt.clouddn.com/4.The%20lumigraph.pdf)." Proc Siggraph 96(1996):43-54.
+[^4]: Gortler, Steven J., et al. "[The Lumigraph](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/4.The%20lumigraph.pdf)." Proc Siggraph 96(1996):43-54.
 
-[^5]: Wu, Gaochang, et al. "[Light Field Image Processing: An Overview](http://p9kx5cva1.bkt.clouddn.com/5.Light-Field-Image-Processing-An%20Overview.pdf)." IEEE Journal of Selected Topics in Signal Processing PP.99(2017):1-1.
+[^5]: Wu, Gaochang, et al. "[Light Field Image Processing: An Overview](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/5.Light-Field-Image-Processing-An%20Overview.pdf)." IEEE Journal of Selected Topics in Signal Processing PP.99(2017):1-1.
 
-[^6]: Wanner, Sven, and B. Goldluecke. "[Variational Light Field Analysis for Disparity Estimation and Super-Resolution](http://p9kx5cva1.bkt.clouddn.com/6.Variational%20Light%20Field%20Analysis%20for%20Disparity%20Estimation%20and%20Super-Resolution.pdf)." IEEE Transactions on Pattern Analysis & Machine Intelligence 36.3(2013):1.
+[^6]: Wanner, Sven, and B. Goldluecke. "[Variational Light Field Analysis for Disparity Estimation and Super-Resolution](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/6.Variational%20Light%20Field%20Analysis%20for%20Disparity%20Estimation%20and%20Super-Resolution.pdf)." IEEE Transactions on Pattern Analysis & Machine Intelligence 36.3(2013):1.
 
-[^7]: Wang, Ting Chun, A. A. Efros, and R. Ramamoorthi. "[Occlusion-Aware Depth Estimation Using Light-Field Cameras](http://p9kx5cva1.bkt.clouddn.com/7.Occlusion-aware%20Depth%20Estimation%20Using%20Light-field%20Cameras.pdf)." IEEE International Conference on Computer Vision IEEE, 2016:3487-3495.
+[^7]: Wang, Ting Chun, A. A. Efros, and R. Ramamoorthi. "[Occlusion-Aware Depth Estimation Using Light-Field Cameras](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/7.Occlusion-aware%20Depth%20Estimation%20Using%20Light-field%20Cameras.pdf)." IEEE International Conference on Computer Vision IEEE, 2016:3487-3495.
 
-[^8]: Jeon, Hae Gon, et al. "[Accurate depth map estimation from a lenslet light field camera](http://p9kx5cva1.bkt.clouddn.com/8.Accurate%20Depth%20Map%20Estimation%20from%20a%20Lenslet%20Light%20Field%20Camera.pdf)." Computer Vision and Pattern Recognition IEEE, 2015:1547-1555.
+[^8]: Jeon, Hae Gon, et al. "[Accurate depth map estimation from a lenslet light field camera](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/8.Accurate%20Depth%20Map%20Estimation%20from%20a%20Lenslet%20Light%20Field%20Camera.pdf)." Computer Vision and Pattern Recognition IEEE, 2015:1547-1555.
 
-[^9]: Yu, Zhan, et al. "[Line Assisted Light Field Triangulation and Stereo Matching](http://p9kx5cva1.bkt.clouddn.com/9.Line%20Assisted%20Light%20Field%20Triangulation%20and%20Stereo%20Matching.pdf)." IEEE International Conference on Computer Vision IEEE, 2014:2792-2799.
+[^9]: Yu, Zhan, et al. "[Line Assisted Light Field Triangulation and Stereo Matching](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/9.Line%20Assisted%20Light%20Field%20Triangulation%20and%20Stereo%20Matching.pdf)." IEEE International Conference on Computer Vision IEEE, 2014:2792-2799.
 
-[^10]: Heber, Stefan, and T. Pock. "[Shape from Light Field Meets Robust PCA](http://p9kx5cva1.bkt.clouddn.com/10.Shape%20from%20Light%20Field%20meets%20Robust%20PCA.pdf)." Computer Vision – ECCV 2014. 2014:751-767.
+[^10]: Heber, Stefan, and T. Pock. "[Shape from Light Field Meets Robust PCA](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/10.Shape%20from%20Light%20Field%20meets%20Robust%20PCA.pdf)." Computer Vision – ECCV 2014. 2014:751-767.
 
-[^11]: Kim, Changil, et al. "[Scene reconstruction from high spatio-angular resolution light fields](http://p9kx5cva1.bkt.clouddn.com/11.scene-reconstruction-from-high-spatio-angular-resolution-light-fields-siggraph-2013-compressed-kim-et-al.pdf)." Acm Transactions on Graphics 32.4(2017):1-12.
+[^11]: Kim, Changil, et al. "[Scene reconstruction from high spatio-angular resolution light fields](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/11.scene-reconstruction-from-high-spatio-angular-resolution-light-fields-siggraph-2013-compressed-kim-et-al.pdf)." Acm Transactions on Graphics 32.4(2017):1-12.
 
-[^12]: Li, J., M. Lu, and Z. N. Li. "[Continuous Depth Map Reconstruction From Light Fields](http://p9kx5cva1.bkt.clouddn.com/12.Continuous%20Depth%20Map%20Reconstruction%20From%20Light%20Fields.pdf)." IEEE Transactions on Image Processing A Publication of the IEEE Signal Processing Society 24.11(2015):3257.
+[^12]: Li, J., M. Lu, and Z. N. Li. "[Continuous Depth Map Reconstruction From Light Fields](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/12.Continuous%20Depth%20Map%20Reconstruction%20From%20Light%20Fields.pdf)." IEEE Transactions on Image Processing A Publication of the IEEE Signal Processing Society 24.11(2015):3257.
 
-[^13]: Krolla, Bernd, et al. "[Spherical Light Fields](http://p9kx5cva1.bkt.clouddn.com/13.Spherical%20light%20field.pdf)." British Machine Vision Conference 2014.
+[^13]: Krolla, Bernd, et al. "[Spherical Light Fields](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/13.Spherical%20light%20field.pdf)." British Machine Vision Conference 2014.
 
-[^14]: Wanner, Sven, C. Straehle, and B. Goldluecke. "[Globally Consistent Multi-label Assignment on the Ray Space of 4D Light Fields](http://p9kx5cva1.bkt.clouddn.com/14.Globally%20consistent%20multi-label%20assignment%20on%20the%20ray%20space%20of%204D%20light%20field.pdf)." IEEE Conference on Computer Vision and Pattern Recognition IEEE Computer Society, 2013:1011-1018.
+[^14]: Wanner, Sven, C. Straehle, and B. Goldluecke. "[Globally Consistent Multi-label Assignment on the Ray Space of 4D Light Fields](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/14.Globally%20consistent%20multi-label%20assignment%20on%20the%20ray%20space%20of%204D%20light%20field.pdf)." IEEE Conference on Computer Vision and Pattern Recognition IEEE Computer Society, 2013:1011-1018.
 
-[^15]: Diebold, Maximilian, B. Jahne, and A. Gatto. "[Heterogeneous Light Fields](http://p9kx5cva1.bkt.clouddn.com/15.Heterogeneous%20Light%20Fields.pdf)." Computer Vision and Pattern Recognition IEEE, 2016:1745-1753.
+[^15]: Diebold, Maximilian, B. Jahne, and A. Gatto. "[Heterogeneous Light Fields](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/15.Heterogeneous%20Light%20Fields.pdf)." Computer Vision and Pattern Recognition IEEE, 2016:1745-1753.
 
-[^16]: Tao, M. W, et al. "[Depth from Combining Defocus and Correspondence Using Light-Field Cameras](http://p9kx5cva1.bkt.clouddn.com/16.Depth%20from%20Combining%20Defocus%20and%20Correspondence%20Using%20Light-Field%20Cameras.pdf)." IEEE International Conference on Computer Vision IEEE Computer Society, 2013:673-680.
+[^16]: Tao, M. W, et al. "[Depth from Combining Defocus and Correspondence Using Light-Field Cameras](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/16.Depth%20from%20Combining%20Defocus%20and%20Correspondence%20Using%20Light-Field%20Cameras.pdf)." IEEE International Conference on Computer Vision IEEE Computer Society, 2013:673-680.
 
-[^17]: Tao, Michael W., et al. "[Depth from shading, defocus, and correspondence using light-field angular coherence](http://p9kx5cva1.bkt.clouddn.com/17.Depth%20from%20Shading,%20Defocus,%20and%20Correspondence%20Using%20Light-Field%20Angular%20Coherence.pdf)." Computer Vision and Pattern Recognition IEEE, 2015:1940-1948.
+[^17]: Tao, Michael W., et al. "[Depth from shading, defocus, and correspondence using light-field angular coherence](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/17.Depth%20from%20Shading,%20Defocus,%20and%20Correspondence%20Using%20Light-Field%20Angular%20Coherence.pdf)." Computer Vision and Pattern Recognition IEEE, 2015:1940-1948.
 
-[^18]: Johannsen, Ole, A. Sulc, and B. Goldluecke. "[Variational Separation of Light Field Layers](http://p9kx5cva1.bkt.clouddn.com/18.Variational%20separation%20of%20light%20field%20layers.pdf)." (2015).
+[^18]: Johannsen, Ole, A. Sulc, and B. Goldluecke. "[Variational Separation of Light Field Layers](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/18.Variational%20separation%20of%20light%20field%20layers.pdf)." (2015).
 
-[^19]: Heber, Stefan, and T. Pock. "[Convolutional Networks for Shape from Light Field](http://p9kx5cva1.bkt.clouddn.com/19.Heber_Convolutional_Networks_for_CVPR_2016_paper.pdf)." Computer Vision and Pattern Recognition IEEE, 2016:3746-3754.
+[^19]: Heber, Stefan, and T. Pock. "[Convolutional Networks for Shape from Light Field](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/19.Heber_Convolutional_Networks_for_CVPR_2016_paper.pdf)." Computer Vision and Pattern Recognition IEEE, 2016:3746-3754.
 
-[^20]: Heber, Stefan, R. Ranftl, and T. Pock. "[Variational Shape from Light Field](http://p9kx5cva1.bkt.clouddn.com/20.Variational%20Shape%20from%20Light%20Field.pdf)." Energy Minimization Methods in Computer Vision and Pattern Recognition. Springer Berlin Heidelberg, 2013:66-79.
+[^20]: Heber, Stefan, R. Ranftl, and T. Pock. "[Variational Shape from Light Field](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/20.Variational%20Shape%20from%20Light%20Field.pdf)." Energy Minimization Methods in Computer Vision and Pattern Recognition. Springer Berlin Heidelberg, 2013:66-79.
 
-[^21]: Chen, Can, et al. "[Light Field Stereo Matching Using Bilateral Statistics of Surface Cameras](http://p9kx5cva1.bkt.clouddn.com/21.Light%20Field%20Stereo%20Matching%20Using%20Bilateral%20Statistics%20of%20Surface%20Cameras-Can_CVPR14_stereo.pdf)." IEEE Conference on Computer Vision and Pattern Recognition IEEE Computer Society, 2014:1518-1525.
+[^21]: Chen, Can, et al. "[Light Field Stereo Matching Using Bilateral Statistics of Surface Cameras](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/21.Light%20Field%20Stereo%20Matching%20Using%20Bilateral%20Statistics%20of%20Surface%20Cameras-Can_CVPR14_stereo.pdf)." IEEE Conference on Computer Vision and Pattern Recognition IEEE Computer Society, 2014:1518-1525.
 
-[^22]: Williem W, Kyu P I. "[Robust light field depth estimation for noisy scene with occlusion](http://p9kx5cva1.bkt.clouddn.com/22.Williem_Robust_Light_Field_CVPR_2016_paper.pdf)." Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016:4396-4404.
+[^22]: Williem W, Kyu P I. "[Robust light field depth estimation for noisy scene with occlusion](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/22.Williem_Robust_Light_Field_CVPR_2016_paper.pdf)." Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016:4396-4404.
 
-[^23]: Williem W, Park I K, Lee K M. "[Robust light field depth estimation using occlusion-noise aware data costs](http://p9kx5cva1.bkt.clouddn.com/23.TPAMI2017_Williem.pdf)." IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), 2017(99):1-1.
+[^23]: Williem W, Park I K, Lee K M. "[Robust light field depth estimation using occlusion-noise aware data costs](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/23.TPAMI2017_Williem.pdf)." IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), 2017(99):1-1.
 
-[^24]: Zhang S, Sheng H, Li C, et al. "[Robust depth estimation for light field via spinning parallelogram operator](http://p9kx5cva1.bkt.clouddn.com/24.Robust%20Depth%20Estimation%20for%20Light%20Field%20via%20Spinning%20Parallelogram%20Operator.pdf)." Computer Vision and Image Understanding, 2016, 145:148-159.
+[^24]: Zhang S, Sheng H, Li C, et al. "[Robust depth estimation for light field via spinning parallelogram operator](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/24.Robust%20Depth%20Estimation%20for%20Light%20Field%20via%20Spinning%20Parallelogram%20Operator.pdf)." Computer Vision and Image Understanding, 2016, 145:148-159.
 
-[^25]: Johannsen O, Sulc A, Goldluecke B. "[What sparse light field coding reveals about scene structure](http://p9kx5cva1.bkt.clouddn.com/25.What%20Sparse%20Light%20Field%20Coding%20Reveals%20about%20Scene%20Structure.pdf)." In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016(1/3/4):3262-3270.
+[^25]: Johannsen O, Sulc A, Goldluecke B. "[What sparse light field coding reveals about scene structure](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/25.What%20Sparse%20Light%20Field%20Coding%20Reveals%20about%20Scene%20Structure.pdf)." In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016(1/3/4):3262-3270.
 
-[^26]: Wanner S, Goldluecke B. "[Reconstructing reflective and transparent surfaces from epipolar plane images](http://p9kx5cva1.bkt.clouddn.com/26.Reconstructing%20reflective%20and%20transparent%20surfaces%20from%20epipolar%20plane%20images.pdf)." In German Conference on Pattern Recognition (Proc. GCPR), 2013:1-10.
+[^26]: Wanner S, Goldluecke B. "[Reconstructing reflective and transparent surfaces from epipolar plane images](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/26.Reconstructing%20reflective%20and%20transparent%20surfaces%20from%20epipolar%20plane%20images.pdf)." In German Conference on Pattern Recognition (Proc. GCPR), 2013:1-10.
 
-[^27]: Heber S, Yu W, Pock T. "[U-shaped networks for shape from light field](http://p9kx5cva1.bkt.clouddn.com/27.U-shaped%20Networks%20for%20Shape%20from%20Light%20Field.pdf)." British Machine Vision Conference, 2016, 37:1-12.
+[^27]: Heber S, Yu W, Pock T. "[U-shaped networks for shape from light field](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/27.U-shaped%20Networks%20for%20Shape%20from%20Light%20Field.pdf)." British Machine Vision Conference, 2016, 37:1-12.
 
-[^28]: Heber S, Yu W, Pock T. "[Neural EPI-Volume networks for shape from light field](http://p9kx5cva1.bkt.clouddn.com/28.Neural%20EPI-volume%20Networks%20for%20Shape%20from%20Light%20Field.pdf)." IEEE International Conference on Computer Vision (ICCV), IEEE Computer Society, 2017:2271-2279.
+[^28]: Heber S, Yu W, Pock T. "[Neural EPI-Volume networks for shape from light field](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/28.Neural%20EPI-volume%20Networks%20for%20Shape%20from%20Light%20Field.pdf)." IEEE International Conference on Computer Vision (ICCV), IEEE Computer Society, 2017:2271-2279.
 
-[^29]: Jeon H G, Park J, Choe G, et.al. "[Depth from a Light Field Image with Learning-based Matching Costs](http://p9kx5cva1.bkt.clouddn.com/29.Depth%20from%20a%20Light%20Field%20Image%20with%20Learning-based%20Matching%20Costs.pdf)." IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), 2018.
+[^29]: Jeon H G, Park J, Choe G, et.al. "[Depth from a Light Field Image with Learning-based Matching Costs](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/29.Depth%20from%20a%20Light%20Field%20Image%20with%20Learning-based%20Matching%20Costs.pdf)." IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), 2018.
 
-[^30]: Shin C, Jeon H G, Yoon Y. "[EPINET: A Fully-Convolutional Neural Network for Light Field Depth Estimation Using Epipolar Geometry](http://p9kx5cva1.bkt.clouddn.com/30.EPINET%20A%20fully-Convolutional%20Neural%20Network%20Using%20Epipolar%20Geometry%20for%20Depth%20from%20Light%20Field%20Images.pdf)." Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2018.
+[^30]: Shin C, Jeon H G, Yoon Y. "[EPINET: A Fully-Convolutional Neural Network for Light Field Depth Estimation Using Epipolar Geometry](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/30.EPINET%20A%20fully-Convolutional%20Neural%20Network%20Using%20Epipolar%20Geometry%20for%20Depth%20from%20Light%20Field%20Images.pdf)." Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2018.
 
-[^31]: Ng, Ren. "[Digital light field photography](http://p9kx5cva1.bkt.clouddn.com/31.Digital%20light%20field%20photography.pdf)." 2006, 115(3):38-39.
+[^31]: Ng, Ren. "[Digital light field photography](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/31.Digital%20light%20field%20photography.pdf)." 2006, 115(3):38-39.
 
-[^32]: Luo, Wenjie, A. G. Schwing, and R. Urtasun. "[Efficient Deep Learning for Stereo Matching](http://p9kx5cva1.bkt.clouddn.com/32.Efficient%20deep%20learning%20for%20stereo%20matching.pdf)." IEEE Conference on Computer Vision and Pattern Recognition IEEE Computer Society, 2016:5695-5703.
+[^32]: Luo, Wenjie, A. G. Schwing, and R. Urtasun. "[Efficient Deep Learning for Stereo Matching](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/32.Efficient%20deep%20learning%20for%20stereo%20matching.pdf)." IEEE Conference on Computer Vision and Pattern Recognition IEEE Computer Society, 2016:5695-5703.

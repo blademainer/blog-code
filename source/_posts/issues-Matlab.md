@@ -7,7 +7,7 @@ abbrlink: 22789
 date: 2017-01-16 10:43:01
 ---
 
-<img src="http://oofx6tpf6.bkt.clouddn.com/matlab-logo.jpg" width=1000px>
+<img src="https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/issues-Matlab/matlab-logo.jpg" width=1000px>
 
 
 以下是我在使用Matlab编程时遇到的问题以及解决方法，最后彩蛋随时补充。
@@ -117,8 +117,8 @@ uimenufcn(gcf,'EditCopyFigure')
 xlswrite函数在调用时会占用Excel的com端口，所以要保证在调用时这个端口是开放的，也就是没有被其他程序占用。打开任意一个Excel（我的是16版）文档，点击**文件**--**选项**，弹出Excel选项卡，在**加载项**中可以看到，活动应用程序加载项，以及非活动应用程序加载项；
 由于我的系统中装了一个福昕阅读器，该程序占用了Excel的com端口，所以当Matlab再去调用这个端口时就会出现异常。具体解决方法：点击管理旁边的下拉菜单，选择COM加载项，点击转到，把福昕阅读器的前面的勾去掉，然后确定。
 
-<img src="http://oofx6tpf6.bkt.clouddn.com/issue-matlab-1.png" width="80%">
-<img src="http://oofx6tpf6.bkt.clouddn.com/issue-matlab-2.png" width="80%">
+<img src="https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/issues-Matlab/issue-matlab-1.png" width="100%">
+<img src="https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/issues-Matlab/issue-matlab-2.png" width="100%">
 
 
 ## Matlab设置绘图坐标轴信息
@@ -167,6 +167,6 @@ dbstop if error
 
  - 大神教我们怎么画图，#MATLAB无所不能#，[戳戳这里](http://blogs.mathworks.com/graphics/)~
  - Matlab 字体困扰了我很长时间，终于在网上找到了一个比较好的组合，[猛戳这里](http://pan.baidu.com/s/1geIRi2R)！[原文地址](http://blog.csdn.net/whoispo/article/details/50383362)
- - [Matlab与C混合编程](http://p73slabes.bkt.clouddn.com/matlab-cmex.pdf)
- - [Matlab并行](http://p73slabes.bkt.clouddn.com/matlab-parallel.pdf)
- - [Matlab代码优化：教你写出漂亮的Matlab代码](http://p73slabes.bkt.clouddn.com/Writing-Fast-Matlab-Code.pdf)
+ - [Matlab与C混合编程](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/cv-books/matlab-cmex.pdf)
+ - [Matlab并行](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/cv-books/matlab-parallel.pdf)
+ - [Matlab代码优化：教你写出漂亮的Matlab代码](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/cv-books/Writing-Fast-Matlab-Code.pdf)

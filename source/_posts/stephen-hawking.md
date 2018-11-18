@@ -8,7 +8,7 @@ tags:
 
 ---
 
-<img src="http://oofx6tpf6.bkt.clouddn.com/Hawkingsig.svg" width=1600px>
+<img src="/posts/stephen-hawking/Hawkingsig.svg" width=1600px>
 
 <!--more-->
 
@@ -24,7 +24,7 @@ tags:
 <p>谁也没料到
 <p>就在这等待的过程中
 <p>霍金去世了
-<img src="http://oofx6tpf6.bkt.clouddn.com/stephen-hawking-child.jpg" width=1600px>
+<img src="https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/stephen-hawking/stephen-hawking-child.jpg" width=1600px>
 
 <p>这条消息惊得我一身冷汗
 <p>整个人半天没有反应过来
@@ -35,7 +35,7 @@ tags:
 <p>改成了
 <p>2018年3月14日
 
-<img src="http://oofx6tpf6.bkt.clouddn.com/stephen-hawking.jpg" width=1600px>
+<img src="https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/stephen-hawking/stephen-hawking.jpg" width=1600px>
 
 
 <p>巧合的是
@@ -50,7 +50,7 @@ tags:
 <p>《A Brief History of Time》
 <p>至今没有读完...
 
-<img src="http://oofx6tpf6.bkt.clouddn.com/stephen-hawking-a-brief-history-of-time.jpg" width=1600px>
+<img src="https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/stephen-hawking/stephen-hawking-a-brief-history-of-time.jpg" width=1600px>
 
 
 
@@ -63,12 +63,12 @@ tags:
 <p>你作为一个立体的人
 <p>重新定义了我对你的认知
 
-<img src="http://oofx6tpf6.bkt.clouddn.com/stephen-hawking-the-theory-of-everything.jpg" width=1600px>
+<img src="https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/stephen-hawking/stephen-hawking-the-theory-of-everything.jpg" width=1600px>
 
 <p>考研时英语作文里写到了你
 <p>一个永垂不朽的凡人
 
-<img src="http://oofx6tpf6.bkt.clouddn.com/stephen-hawking-wedding.jpeg" width=1600px>
+<img src="https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/stephen-hawking/stephen-hawking-wedding.jpeg" width=1600px>
 
 
 
@@ -78,7 +78,7 @@ tags:
 <p>霍金老爷子，一路走好
 <p>时间简史，霍耀苍穹
 
-<img src="http://oofx6tpf6.bkt.clouddn.com/stephen-hawking-student.jpg" width=1600px>
+<img src="https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/stephen-hawking/stephen-hawking-student.jpg" width=1600px>
 
 
 <p>冥想
@@ -87,21 +87,21 @@ tags:
 <p>仅仅作为宇宙大爆炸数百亿年后
 <p>出现的粒子随机组合
 
-<img src="http://oofx6tpf6.bkt.clouddn.com/stephen-hawking-black-hole-2.jpg" width=1600px>
+<img src="https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/stephen-hawking/stephen-hawking-black-hole-2.jpg" width=1600px>
 
 <p>相比于宇宙的无穷
 <p>人类的寿命抑或人类的历史
 <p>只是这其中的
 <p>一朵不经意的涟漪
 
-<img src="http://oofx6tpf6.bkt.clouddn.com/stephen-hawking-smile.jpg" width=1600px>
+<img src="https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/stephen-hawking/stephen-hawking-smile.jpg" width=1600px>
 
 <p>但
 <p>这何尝不是一种幸运呢
 <p>对吧？
 <p>霍老爷子
 
-<img src="http://oofx6tpf6.bkt.clouddn.com/stephen-hawking-life.jpeg" width=1600px>
+<img src="https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/stephen-hawking/stephen-hawking-life.jpeg" width=1600px>
 
 
 

@@ -16,7 +16,7 @@ updated: 2018-01-28 22:55:30
 ---
 
 
-<img src="http://oofx6tpf6.bkt.clouddn.com/18-1-13/91252468.jpg" alt="Magic Leap">
+<img src="https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/LightField-Toolbox/91252468.png" alt="Magic Leap">
 
 {%note success%}
 [这里](https://www.vincentqin.tech/collections/)我汇总了有关光场（Light Field）一些有用的链接以及光场数据的处理过程。目前还在整理中，随时更新。
@@ -28,14 +28,14 @@ updated: 2018-01-28 22:55:30
 
 ## 光场相机
 大家在刚刚入手光场领域的时候可能会用到目前消费级的手持光场相机，如Lytro或者ILLUM，如图（实验室的设备，我可买不起ILLUM）：
-![](http://oofx6tpf6.bkt.clouddn.com/LF-cameras.jpg)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/LightField-Toolbox/LF-cameras.jpg)
 
 ## 获取.LFP(or .LFR)原文件
 由Lytro拍摄的图像的原格式是.lfp格式，我们要将其解码成我们需要的格式。
 工具：**Lytro Desktop**，**MATLAB光场工具包**（很强大，推荐，本文介绍该方法）。
 
 首先用数据线把设备连接到电脑，打开Lytro Desktop，点击想要导入的图片，选中点击右上角立即处理，然后打开我的电脑图片->Lytro Desktop\Libraries\Lytro 图库.lytrolibrary\*，就可以发现有很多文件夹名字是一串很长数字字母云云。点击进去可以发现里面有几个文件，以lytro为例，这几个文件如下形式：
-![](http://oofx6tpf6.bkt.clouddn.com/lfp_list.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/LightField-Toolbox/lfp_list.png)
 
 **<font color=red>raw.lfp</font>**就是我们需要的原文件，之后我们就要利用Matlab光场工具包对其进行解码操作。
 
@@ -46,15 +46,15 @@ updated: 2018-01-28 22:55:30
 
 首先下载[光场工具箱](http://cn.mathworks.com/matlabcentral/fileexchange/49683-light-field-toolbox-v0-4)并仔细阅读说明文档，根据文档把相应的数据拷贝到工具箱的文件夹下(这一步很关键，要仔细配置)。~~如果不想在官网下载的话我上传到了度娘的云盘链接：[链接](http://pan.baidu.com/s/1hsDo0ks) 密码：yykc。这是我修改后的一个版本，可以直接运行。~~**<font color=red >另外我在Github上传了一个版本，大家可以git clone[链接](https://github.com/Vincentqyw/Light_Field_TB)</font>**。下载下来的工具包是这样的：
 
-![](http://oofx6tpf6.bkt.clouddn.com/LF-TB-main.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/LightField-Toolbox/LF-TB-main.png)
 
 LFToolbox0.4就是我们需要的工具包，该工具包里包含很多函数，如下图：
 
-![](http://oofx6tpf6.bkt.clouddn.com/LF-TB-files.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/LightField-Toolbox/LF-TB-files.png)
 
 在此，我把一些比较常用的函数及文档用红色的框标注出来，其中PDF文档是该工具包的说明书。这个说明书中详细地介绍了该工具包的使用方法，我们完全可以根据该文档的介绍来实现自己想要的功能。如下是该说明书的截图：
 
-![](http://oofx6tpf6.bkt.clouddn.com/LF-TB.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/LightField-Toolbox/LF-TB.png)
 
 该说明文档提供了各种函数用于从LFP文件中提取出自己需要的各种信息：白图像(white image)，Raw Image，对齐后的图像，以及颜色校正，频域滤波后的图像等。
 ~~因为时间不足没有整理的，感觉大家都对这个过程比较感兴趣，我觉得有必要写一下到底如何读取lfp、lfr、raw文件了。好了言归正传，开写。~~
@@ -63,7 +63,7 @@ LFToolbox0.4就是我们需要的工具包，该工具包里包含很多函数�
 
 #### step 1: 创建自己的工作目录
 <u>如果是直接clone我在github上的[工程](https://github.com/Vincentqyw/Light_Field_TB)的话直接跳转**step 2**</u>。如果没有，那就要建立自己的工作目录，便于文件的管理。这一步是必要的，如果建立的目录不一致，可能导致程序无法运行，这也是我当时初次用这个工具包时常常出错的地方。好了，建立这样的目录结构：
-![](http://oofx6tpf6.bkt.clouddn.com/folder-structure-raw.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/LightField-Toolbox/folder-structure-raw.png)
 
 #### step 2: 根据相机序列号修改文件名
 **<font color=red >Sample_test</font>**表示我们的测试目录，里面包含了相机信息以及自己拍摄照片的图像（lfp/lfr）。
@@ -73,7 +73,7 @@ LFToolbox0.4就是我们需要的工具包，该工具包里包含很多函数�
 
 在每个序列号文件夹下又有一个文件夹**<font color=red >WhiteImages</font>**，这里面放着由该相机拍摄的白图像。所谓白图像就是一张由光场相机拍摄的白色的图像，当然自己也可以拿着光场相机对着白色的墙面拍几张，但是效果并不一定很好。庆幸的是LYTRO官方提供了白图像，以Lytro为例，我们可以从以下目录找到:<u> c:\Users\ **username**\AppData\Local\Lytro\cameras\sn- serial_number</u>。如下图所示：
 
-![](http://oofx6tpf6.bkt.clouddn.com/white-image-files-folders.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/LightField-Toolbox/white-image-files-folders.png)
 
 我们发现这里有以下4个文件：**data.C.0/1/2/3**，这是官方把白图像压缩成了这种格式，我们需要用工具箱进行解码。我们需要的正是这四个文件，拷贝出这4个文件，放在**<font color=red >WhiteImages</font>**文件夹里。这一步相当关键，一定要确保拷贝对了目录。**<font color=red>注意</font>**，Illum相机的白图像与Lytro的白图像的存放位置不一样，在[相机的SD](#Whiteimage-Illum)卡里。
 
@@ -81,7 +81,7 @@ LFToolbox0.4就是我们需要的工具包，该工具包里包含很多函数�
 
 **<font color=red >Images</font>**文件夹下包含我们需要处理的文件们，**<font color=red >F01</font>**下存放LYTRO系列拍摄的文件，**<font color=red >B01</font>**下存放ILLUM系列拍摄的文件。以Lytro为例，由于前面已经有了测试文件**<font color=red >raw.lfp</font>**，我们就把这个文件放在**<font color=red >F01</font>**下。经过我们上述的过程之后，最后我们的目录会变成这样（注意：<u>Sample_test与LFToolBox0.4为同级目录，各个文件夹的名字务必正确</u>）：
 
-![](http://oofx6tpf6.bkt.clouddn.com/folder-structure.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/LightField-Toolbox/folder-structure.png)
 
 ### 测试开始
 
@@ -95,11 +95,11 @@ LFToolbox0.4就是我们需要的工具包，该工具包里包含很多函数�
 
 处理白图像的目的是得到相机的某些参数，我当时是为了获得每幅光场的中心点坐标才进行的这一步。白图像拍摄的场景没有纹理，此时可以清楚的观察到微透镜成像的边界信息。如下图所示：
 
-![](http://oofx6tpf6.bkt.clouddn.com/white-image-macro-pixels.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/LightField-Toolbox/white-image-macro-pixels.png)
 
 可以看到的是，微透镜下成像是这种正六边形的网格，类似于蜂窝的结构，感觉很酷有木有。需要注意的是，该过程不是简单地提取出一张白图像来，而是提取几十张白图像对（image pairs），这个过程运行起来有点久，以下是运行的截图：
 
-![](http://oofx6tpf6.bkt.clouddn.com/running-process.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/LightField-Toolbox/running-process.png)
 
 #### 解码LFP文件
 
@@ -118,15 +118,15 @@ DecodeOptions = LFDefaultField( 'DecodeOptions', 'WhiteImageDatabasePath'...
 ```
 
 经过这样的修改之后，这下应该可以跑了。我们可以得到以下图像：
-<center><img src="http://oofx6tpf6.bkt.clouddn.com/deer.jpg" width="80%" ></center>
+<center><img src="https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/LightField-Toolbox/deer.jpg" width="80%" ></center>
 
 
 局部放大效果图：
-<center><img src="http://oofx6tpf6.bkt.clouddn.com/deer-zoom-in.png" width="80%"></center>
+<center><img src="https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/LightField-Toolbox/deer-zoom-in.png" width="80%"></center>
 
 
 所有视角的图像：
-<center><img src="http://oofx6tpf6.bkt.clouddn.com/all-views-raw.png" width="80%"></center>
+<center><img src="https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/LightField-Toolbox/all-views-raw.png" width="80%"></center>
 
 这时候可以看到在边界视角上的图像比较黑，所以我们接下来要进行频域滤波，以及颜色校正。
 
@@ -136,10 +136,10 @@ DecodeOptions = LFDefaultField( 'DecodeOptions', 'WhiteImageDatabasePath'...
 这部分分别用到了LFFilt4DFFT以及LFColourCorrect函数。以LYTRO 1.0 为例子，我们得到的光场图像一种有11*11个视角，但是这个121个视角子孔径图像的质量真的不敢恭维，尤其是边角处的视角(u=1,v=1)时，这个图像时完全变成黑色的。所以嘛，LFFilt4DFFT这个函数是将这些变成黑色的图像或者质量不好的图像进行校正的，具体原理不作展开。LFColourCorrect这个函数是利用gamma变化对原始图像进行颜色校正的，这一点比较简单。总之利用这两个函数能够让我们得到的光场图像的质量更好，当然你也可以选择不用。
 
 以下是经过滤波之后的所有子孔径图像，可以发现边界的视角相比于频域滤波之前有了很好的可视性。
-<center><img src="http://oofx6tpf6.bkt.clouddn.com/all-views-freq-correction.png" width="80%"></center>
+<center><img src="https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/LightField-Toolbox/all-views-freq-correction.png" width="80%"></center>
 
 以下是经过颜色校正之后的所有所有子孔径图像。
-<center><img src="http://oofx6tpf6.bkt.clouddn.com/all-views-freq-color-correction.png" width="80%"></center>
+<center><img src="https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/LightField-Toolbox/all-views-freq-color-correction.png" width="80%"></center>
 
 经过以上的步骤我们可以学习到白图像的处理，以及光场图像的处理等操作。当然我没有列出这个工具包所有的功能介绍，大家可以根据需要建立自己工程，对自己的数据进行测试，以上！
 
@@ -330,7 +330,7 @@ $$
 L_{\alpha}(x,y,u,v)=L_0(x+(1-\frac{1}{\alpha})u,y+(1-\frac{1}{\alpha})v,u,v)
 $$
 
-![](http://oofx6tpf6.bkt.clouddn.com/concatImg.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/LightField-Toolbox/concatImg.png)
 左图为其中心视角图像，右图为重聚焦（参数 $\alpha$ =0.5）之后的图像。
 
 给出部分测试代码如下，全部代码见**[Github](https://github.com/Vincentqyw/Light-Field-Refocusing)**;
@@ -426,22 +426,22 @@ imwrite(concatImg,'concatImg.png');
 Lytro Desktop是曾经的Lytro官方提供的软件，可以处理由Lytro系列相机拍摄到的图像。利用该软件能够导出相机配对数据、重聚焦图像、全聚焦图、深度图、原始文件等。下面给出一些常用的导出文件。
 - 导入需要处理的图像
 
-![](http://oofx6tpf6.bkt.clouddn.com/lytro-desktop-1.jpg)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/LightField-Toolbox/lytro-desktop-1.jpg)
 - 导出配对数据
 
-![](http://oofx6tpf6.bkt.clouddn.com/lytro-desktop-3.jpg)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/LightField-Toolbox/lytro-desktop-3.jpg)
 - 导出待处理图像的各种格式
 
-![](http://oofx6tpf6.bkt.clouddn.com/lytro-desktop-2.jpg)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/LightField-Toolbox/lytro-desktop-2.jpg)
 - 全聚焦彩色图与内置深度图
 
-![](http://oofx6tpf6.bkt.clouddn.com/color-depth.jpg)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/LightField-Toolbox/color-depth.jpg)
 - 重聚焦
 
-![](http://oofx6tpf6.bkt.clouddn.com/refocusing.jpg)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/LightField-Toolbox/refocusing.jpg)
 - H.264电影
 
-{% dplayer url="http://oofx6tpf6.bkt.clouddn.com/molly.mp4" "http://oofx6tpf6.bkt.clouddn.com/molly.jpg" "api=https://api.prprpr.me/dplayer/" "id=4d5c01842f37d90651f9693783c6564279fed6f4" "loop=true" %}
+{% dplayer url="https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/LightField-Toolbox/molly.mp4" "https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/LightField-Toolbox/molly.jpg" "api=https://api.prprpr.me/dplayer/" "id=4d5c01842f37d90651f9693783c6564279fed6f4" "loop=true" %}
 
 
 **<center>以上，如有问题欢迎评论</center>**

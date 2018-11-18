@@ -11,7 +11,7 @@ abbrlink: 39139
 date: 2017-04-16 20:48:20
 ---
 
-![](http://oofx6tpf6.bkt.clouddn.com/internship.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/internship/internship.png)
 
 <p id="div-border-left-red">实习季堪比就业季，今年的形势尤其严峻。伴随着忐忑的心情，我迎来了这个不得不面对的时期。</p>
 
@@ -41,7 +41,7 @@ date: 2017-04-16 20:48:20
 <br>
 # 腾讯基础研究实习生
 
-![](http://oofx6tpf6.bkt.clouddn.com/Tencent.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/internship/Tencent.png)
 
 <p id="div-border-left-green"> 上机考试包括很多数学方面的知识，比考研数学简单多了，但是范围很广，我想过了这么久大家都忘记了吧。概率论部分占了不少题目，尤其要注意后验概率以及假设检验的题目。基础研究没有编程题目！</p>
 
@@ -85,7 +85,7 @@ date: 2017-04-16 20:48:20
 <br>
 # 商汤算法实习生
 
-![](http://oofx6tpf6.bkt.clouddn.com/sensetime.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/internship/sensetime.png)
 
 ## 在线笔试
 <p id="div-border-left-green"> 本人申请的岗位是见习算法研究员，笔试1个小时，20道选择填空题，3道编程题。时间略紧。涉及面也非常广，数学，智力，概率统计，线代矩阵，图形学，机器学习，神经网络，C++，均有涉及。</p>
@@ -140,7 +140,7 @@ d) SVM算法中使用高斯核/RBF核代替线性核
 
 16. 有4个车站连通情况如下，每辆车每天都会等概率随机从一个车站出发，然后在某个车站呆一夜，第二天再出发。求稳定之后，每个车站的车辆比例。
 
-![](http://oofx6tpf6.bkt.clouddn.com/question.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/internship/question.png)
 
 ( 根据马尔科夫链 平稳分布，π=πP( P为转移概率矩阵)，和π1+π2+π3+π4=1，同时π1=π4, π2 = π3。可以求得2:3:3:2 ）
 
@@ -172,7 +172,7 @@ d) SVM算法中使用高斯核/RBF核代替线性核
 <br>
 # 搜狐图像处理实习生
 
-![](http://oofx6tpf6.bkt.clouddn.com/qianfan.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/internship/qianfan.png)
 
 初选简历过关之后进行面试。
 ## 笔试（60min）

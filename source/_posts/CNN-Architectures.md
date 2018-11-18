@@ -10,7 +10,7 @@ mathjax: true
 abbrlink: 57818
 date: 2017-11-07 00:24:45
 ---
-<center><img src="http://oofx6tpf6.bkt.clouddn.com/17-11-7/9721733.jpg" width="75%" Dense-Net></center>
+<center><img src="https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/CNN-Architectures/9721733.png" width="75%" Dense-Net></center>
 
 {% note %}
 本文来自于CS231N（2017 Spring），将介绍几种较为常见的CNN结构。以下网络均是ImageNet比赛的冠军之作，我们将从网络结构，参数规模，运算量等来描述各个网络的特点。
@@ -40,7 +40,7 @@ date: 2017-11-07 00:24:45
 ## AlexNet
 
 ### 网络结构
-![AlexNet](http://oofx6tpf6.bkt.clouddn.com/17-10-24/99013631.jpg)
+![AlexNet](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/CNN-Architectures/99013631.png)
 网络的输入大小为：227\*227\*3，每一层的结构以及参数设置如下：
 
 |Layer Type| \#Filters  |   Stride | Pading  |OUTPUT SIZE|Parameters|
@@ -60,7 +60,7 @@ date: 2017-11-07 00:24:45
 | FC8 |                 |           |        |1000|55\*55\*96|
 The size of output image is $\frac{N-Conv+2\times Pading}{stride}+1$
 
-![AlexNet-details](http://oofx6tpf6.bkt.clouddn.com/17-10-24/33818113.jpg)
+![AlexNet-details](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/CNN-Architectures/33818113.png)
 
 *后续将使用[Matlab DL 工具包](https://cn.mathworks.com/help/nnet/examples.html?s_cid=doc_flyout#bvljehw)补充Alexnet实验...*
 
@@ -70,10 +70,10 @@ The winner of ImageNet Large Scale Visual Recognition Challenge (ILSVRC) 2014.
 ### 网络结构
 **small filters, deeper networks**。
 将原来8层的AlexNet扩展到了16&19层。卷积层的大小仅仅有3\*3，stride=1，pad=1；池化层仅仅有stride=2的2\*2的MAXPOOL。以下是其与AlexNet的结构对比图。
-![VGG](http://oofx6tpf6.bkt.clouddn.com/17-11-6/89475867.jpg)
+![VGG](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/CNN-Architectures/89475867.png)
 
 更加具体的，VGG16的网络的参数个数以及内存消耗如下：
-![VGG-details](http://oofx6tpf6.bkt.clouddn.com/17-11-6/31257061.jpg)
+![VGG-details](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/CNN-Architectures/31257061.png)
 
 Q：为何采用更小的CONV？
 A：几个3\*3的CONV叠加后的接受域和一个7\*7大小的CONV的接受域一致，但是与此同时，**网络层数变深，引入了更多的非线性，参数数量更少**。（Stack of three 3x3 conv (stride 1) layers has same effective receptive field as one 7x7 conv layer，But deeper, more non-linearities. And fewer parameters: $3\times3^2C^2$ vs. $7^2C^2$ for C channels per layer）
@@ -101,14 +101,14 @@ A：几个3\*3的CONV叠加后的接受域和一个7\*7大小的CONV的接受域
 ### “Inception module”
 精心设计了一个局部网络模块，并且将这些模块叠加构成GoolgeNet。这种经过精心设计的模块就是Inception。（design a good local network topology (network within a network) and then stack these modules on top of each other）。
 Inception包含几个接受域不同的CONV核（1\*1，3\*3，5\*5）以及池化操作（3\*3）；最终将这些操作后的输出在depth方向串联。以下是两种两种不同的实现方式，左图时原始的inception模块，右图是改进版的inception模块。
-![inception](http://oofx6tpf6.bkt.clouddn.com/17-11-6/33298717.jpg)
+![inception](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/CNN-Architectures/33298717.png)
 对于naive inception而言，它面临这运算量巨大的问题。由于池化层的输出会保留原始输入的depth，所以经过CONV&MAXPOOL过后的输出的feature map势必比原始输入的depth更深。
-![inception-naive](http://oofx6tpf6.bkt.clouddn.com/17-11-6/53626485.jpg)
+![inception-naive](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/CNN-Architectures/53626485.png)
 那么如何去解决以上问题呢，一个通常的方式就是降维。我们在每个CONV前加上1\*1的CONV（“bottleneck” layers）来减少feature map的维度。所谓的1\*1CONV就是在保持输入的空间分辨率不变的情况下来减小depth维度，即通过将不同depth上的feature map进行组合，从而将输入的feature map映射到更低的depth维度上。经过以上操作就可以将运算的操作次数大大降低。
-![inception-improve](http://oofx6tpf6.bkt.clouddn.com/17-11-6/95592762.jpg)
+![inception-improve](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/CNN-Architectures/95592762.png)
 
 于是GoogLeNet的全貌如下：
-![googlenet](http://oofx6tpf6.bkt.clouddn.com/17-11-6/75689322.jpg)
+![googlenet](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/CNN-Architectures/75689322.jpg)
 
 ## ResNet
 
@@ -122,18 +122,18 @@ Inception包含几个接受域不同的CONV核（1\*1，3\*3，5\*5）以及池�
 - Swept all classification and detection competitions in ILSVRC' 15 and COCO' 15!
 
 ### 深度增加带来的问题
-![deeper-nets-problems](http://oofx6tpf6.bkt.clouddn.com/17-11-6/22279699.jpg)
+![deeper-nets-problems](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/CNN-Architectures/22279699.png)
 从上图可以发现，当网络层数增加时，训练误差和测试误差都有所下降。这并不符合以往的经验，我们会想，既然网络层数增加了，那么模型参数势必增多，此时会造成过拟合。然而过拟合的表现是：训练误差减小，测试误差增大。但是事实和分析并不吻合。
 何凯明认为：**The problem is an optimization problem, deeper models are harder to optimize**。这是一个优化问题，更深的网络更难优化。并且，更深的网络应该至少比浅层网络不差，这是因为我们可以通过拷贝浅层网络+identity mapping（恒等映射）来构造一个更深的网络，这个结构化的方案表明深层网络可以达到和浅层网络一致的性能。
 
 ### 解决方案
-![resnet-layer](http://oofx6tpf6.bkt.clouddn.com/17-11-6/63404628.jpg)
+![resnet-layer](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/CNN-Architectures/63404628.jpg)
 Use network layers to fit a residual mapping instead of directly trying to fit a desired underlying mapping.
 作者假设：**相较于最优化最初的无参照映射（残差函数以输入x作为参照），最优化残差映射是更容易的**。利用网络去拟合残差$F(x)$，并非直接拟合$H(x)$。
 
 
 ### 整个ResNet框架
-![resnet-structure](http://oofx6tpf6.bkt.clouddn.com/17-11-6/82101608.jpg)
+![resnet-structure](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/CNN-Architectures/82101608.png)
 
 - Stack residual blocks
 - Every residual block has two 3x3 conv layers
@@ -147,7 +147,7 @@ Use network layers to fit a residual mapping instead of directly trying to fit a
 
 ## 总结
 论文[An Analysis of Deep Neural Network Models for Practical Applications](https://arxiv.org/pdf/1605.07678.pdf) 比较了2016年以来的一些神经网络的规模、运算量、能耗以及精度等项目。
-![complexity-compare](http://oofx6tpf6.bkt.clouddn.com/17-11-6/40479799.jpg)
+![complexity-compare](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/CNN-Architectures/40479799.png)
 可以从上图总结出以下几点：
 - GoogLeNet: most efficient
 - VGG: Highest memory, most operations

@@ -14,7 +14,7 @@ abbrlink: 9710
 date: 2017-09-23 19:47:38
 ---
 
-![](http://oofx6tpf6.bkt.clouddn.com/Captain_America.jpg)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/summary-statistical-learning/Captain_America.jpg)
 
 本文主要研究监督学习，所谓的监督学习就是在给定的，有限的，用于学习的训练数据集合（training data）出发，假设数据是独立同分布产生的；并且假设要学习的模型属于某个集合，即**假设空间**；我们根据一定的评价准则，从假设空间中选取一个最优的模型，使它对已知的训练数据以及未知的测试数据在给定评价准则下有最优的预测，最优模型的选取由**算法**实现。
 所以统计学习方法有三个要素：**模型**、**策略**、**算法**。
@@ -83,7 +83,7 @@ $$
 
 
 
-![](http://oofx6tpf6.bkt.clouddn.com/norm12.jpg)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/summary-statistical-learning/norm12.jpg)
 
 
 ## 策略

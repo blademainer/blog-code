@@ -7,6 +7,7 @@ Allow: /tags/
 Allow: /guestbook/
 Allow: /collections/
 Allow: /page/
+Allow: /posts/
 Allow: /2016/
 Allow: /2017/
 

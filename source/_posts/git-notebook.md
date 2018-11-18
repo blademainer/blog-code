@@ -11,7 +11,7 @@ abbrlink: 58657
 date: 2017-05-30 22:40:20
 ---
 
-![](http://oofx6tpf6.bkt.clouddn.com/github-octocat.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/git-notebook/github-octocat.png)
 
 <!--more-->
 

@@ -12,9 +12,9 @@ abbrlink: 29679
 date: 2017-12-06 23:56:45
 ---
 
-<!--![Kitti](http://oofx6tpf6.bkt.clouddn.com/17-12-7/11107720.jpg)-->
+<!--![Kitti](17-12-7/11107720.jpg)-->
 
-![](http://oofx6tpf6.bkt.clouddn.com/game-jaime.jpg)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/depth-estimation-using-deeplearning-1/game-jaime.jpg)
 
 {% note %}
 本文对KITTI stereo 2015 datasets 冠军之作[Cascade Residual Learning: A Two-stage Convolutional Neural Network for Stereo Matching](http://openaccess.thecvf.com/content_ICCV_2017_workshops/papers/w17/Pang_Cascade_Residual_Learning_ICCV_2017_paper.pdf)进行简要解读。
@@ -30,7 +30,7 @@ date: 2017-12-06 23:56:45
 
 ## 网络结构
 下面详细的介绍下这个网络的结构:
-<img src=" http://oofx6tpf6.bkt.clouddn.com/17-12-6/38104630.jpg" ) width=120%/>
+<img src="https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/depth-estimation-using-deeplearning-1/38104630.png" ) width=120%/>
 
 可以很清楚地在上图中看到这两个不同的阶段。对于第一个阶段，类似于文献[1]中提到的**DispNetC**结构（C是correlation层的意思），本文作者同样采取了沙漏形的网络结构。但是**DispNetC**网络的输出图像的分辨率只有原始尺寸的一半！CRL中的**DispFulNet**在**DispNetC**的基础上，在最后的两个卷积层增加了添加了反卷积模块，然后再串联左图；通过再次添加一个额外的卷积层，可以使得网络输出为全分辨率（和左右图大小一致）。注意：每个尺度（共6个尺度）上的临时输出与其对应的ground truth之间计算$l_1$损失。
 总结一下就是，这个**DispFulNet**学习了这样一个网络：通过输入一对图片$I_L$和$I_R$，学习到了视差$d_1$，使得：
@@ -42,8 +42,8 @@ $$d_2^{(s)}=d_1^{(s)}+r_2^{(s)},0 \leq s \leq S$$
 于是$d_2^{(0)}$就是最后的全尺度输出。
 
 ## 实验结果
-以下是对其结果展示：
-![](http://oofx6tpf6.bkt.clouddn.com/17-12-6/68873144.jpg)
+以下是对其结果展示：（ps: 下图挂了，请查看原文）
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/depth-estimation-using-deeplearning-1/68873144.png)
 
 ## 参考文献
 

@@ -12,7 +12,7 @@ date: 2016-08-09 12:37:42
 ---
 
 
-![](http://oofx6tpf6.bkt.clouddn.com/hexo-cover.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/build-a-website-using-hexo/hexo-cover.png)
 
 {%note success%}
 **Hexo**作为建立Blog利器，为我们没有JS基础的小白们提供了建立专属自己博客的机会！经常使用的语法很简单，我们完全可以在10min分钟之内建立自己的Blog，后期的优化才是最耗费时间的。好了，直接进入正文。
@@ -352,7 +352,6 @@ $link-image-size  = 180px;
 		}
 	}
 }
-
 ```
 
 然后编辑站点的`source\Friends`下的`index.md`文件，内容如下：
@@ -371,25 +370,26 @@ $link-image-size  = 180px;
         <img src= "image_path" alt="balabala"/>
         <span class="link-name"> balabala</span></a></li>
 	<!--your another friend end-->
-	...
 	</ul>
-</div>
+</div> 
+
 ```
 
 此时，点击友情链接可能不会跳转到相应的页面，参考这个[issue](https://github.com/iissnan/hexo-theme-next/pull/1975/commits/fff58ebf79bd50418cbb00400530852716936675)，作以下修改。
 
-``` js 文件路径：themes\next\source\js\src\utils.js
-  wrapImageWithFancyBox: function () {
-    $('.content img')
-      .not('[hidden]')
-      .not('.group-picture img, .post-gallery img')
-      .not('a img') // 这里添加
-```
+``` js 
+wrapImageWithFancyBox: function () {
+$('.content img')
+  .not('[hidden]')
+  .not('.group-picture img, .post-gallery img')
+  .not('a img') // 这里添加
+``` 
 
 ## 增加Gitter
 
 参考[sidecar](https://sidecar.gitter.im)的示例，在`themes\next\layout\_layout.swig`的`</body>`前增加如下代码：
-``` html 文件路径：themes\next\layout\_layout.swig
+路径：`文件路径：themes\next\layout\_layout.swig`.
+``` html 
   <!-- add gitter on sidebar -->
   <script>
     ((window.gitter = {}).chat = {}).options = {
@@ -398,8 +398,10 @@ $link-image-size  = 180px;
   </script>
   <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
 ```
+
 其中的`room`换成你自己在[gitter](https://gitter.im/)创建的聊天室名字，例如我的是`vincentqin-blog-chat/Lobby`，所以我的设置`room: 'vincentqin-blog-chat/Lobby'`。之后可以在`themes\next\source\css\_custom\custom.styl`里增加如下设置：
-``` css 文件路径：themes\next\source\css\_custom\custom.styl
+
+``` css 
 // adjust the position of gitter
 .gitter-open-chat-button {
       right: 20px;
@@ -415,10 +417,10 @@ $link-image-size  = 180px;
 }
 ```
 
-
 ## 添加页面背景
 
 将背景图片放在`themes\next\source\images`下，例如bg.jpg，然后`themes\next\source\css\_custom\custom.styl`里增加如下设置：
+
 ``` css 文件路径：themes\next\source\css\_custom\custom.styl
 @media screen and (min-width:720px) {
 
@@ -451,7 +453,7 @@ $link-image-size  = 180px;
 
 推荐**Haroopad**
 
-![](http://oofx6tpf6.bkt.clouddn.com/haroopad.png)
+![](build-a-website-using-hexo/haroopad.png)
 
 ## 插入PDF文档以及图片
 
@@ -478,7 +480,7 @@ $link-image-size  = 180px;
 安装插件[hexo-tag-asset-res](https://github.com/timnew/hexo-tag-asset-res)，打开Git Shell, 在Hexo根目录下, 输入如下代码：
     ```javascript
     $ npm install hexo-tag-asset-res --save
-    ```
+	```
     修改Hexo根目录下_config.yml文件：打开Hexo根目录, 找到站点配置文件`_config.yml`文件, 用任何一个文本编辑器打开, 找到如下代码：
     ```javascript
     post_asset_folder: false
@@ -488,7 +490,7 @@ $link-image-size  = 180px;
     <center>{% asset_img Naruto.jpg Naruto%}</center>
     ```
 	效果如下：
-    ![](http://oofx6tpf6.bkt.clouddn.com/Naruto.jpg) 
+    ![](build-a-website-using-hexo/Naruto.jpg) 
 
 
 
@@ -510,19 +512,17 @@ $font-family-posts	= "Monda"
 // logo字体
 $font-family-logo	= "Lobster Two"
 ```
-
-
 ## 在博客中插入网易云音乐
 
 我们可以利用网易云提供的代码直接在markdown文档里面插入。
 
 - 在网页上找到你想要播放的音乐，如下图：
- 
-![](http://oofx6tpf6.bkt.clouddn.com/wangyiMusic.png) 
+
+![](build-a-website-using-hexo/wangyiMusic.png) 
 
 - 点击**生成外链播放器**
 
-![](http://oofx6tpf6.bkt.clouddn.com/wangyiMusicCode.png)
+![](build-a-website-using-hexo/wangyiMusicCode.png)
 
 注意自动播放，以及音乐播放器的大小可调。
 
