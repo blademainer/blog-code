@@ -64,7 +64,7 @@ date: 2018-03-24 14:36:36
 </style>
 
 [//]: ![](https://source.unsplash.com/random/1600x900)
-![](http://oofx6tpf6.bkt.clouddn.com/dora.jpg)
+![](images/ss.jpg)
 
 <center><font size="5" color="" style="center">404 Not Found! Sorry, the page you are visiting is missing. <br> You may visit this <a href="https://www.vincentqin.tech/posts/LightField-Toolbox/">page</a></font></center>
 
