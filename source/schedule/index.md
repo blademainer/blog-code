@@ -20,7 +20,13 @@ comments: false
 
 此处占坑。
 
-![](http://oofx6tpf6.bkt.clouddn.com/17-11-3/35039818.jpg)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/collections/Einstein.jpg)
+
+
+{% note%}
+**`2018年12月08日23:49`**
+目前正在学习SLAM相关知识，继续玩坑填坑。
+{% endnote%}
 
 {% note%}
 **`2018年05月25日15:30`**
