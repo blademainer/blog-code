@@ -2,10 +2,10 @@
 title: 资料：Eigen与Matlab语句之对应关系
 tags:
   - Eigen
-  - 资料
+  - SLAM
 abbrlink: ef0796b5
 date: 2018-08-26 01:59:37
-categories: 资料
+categories: SLAM
 
 ---
 

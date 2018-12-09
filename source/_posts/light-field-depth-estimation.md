@@ -4,7 +4,7 @@ tags:
   - depth estimation
   - light field
 comments: true
-categories: 计算机视觉
+categories: 光场
 copyright: false
 mathjax: true
 abbrlink: 6884

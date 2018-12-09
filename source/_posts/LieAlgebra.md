@@ -1,8 +1,11 @@
 ---
-title: 李群与李代数求导
+title: 笔记：李群与李代数求导
 mathjax: true
 tags:
-  - slam
+  - SLAM
+  - 李代数
+  - computer vision
+categories: SLAM
 abbrlink: 9eda79f0
 date: 2018-12-04 23:40:56
 ---

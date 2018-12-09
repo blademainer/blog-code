@@ -7,6 +7,7 @@ tags:
   - detection
 layout: blog
 comments: true
+categories: CV
 mathjax: true
 ---
 

@@ -12,6 +12,19 @@ type: "picture"
 
 <br>
 
+## Deep Learning for Graphics
+
+- [Deep Learning for Graphics(code)](https://github.com/smartgeometry-ucl/dl4g)
+- [Deep Learning for Graphics(Homepage)](http://geometry.cs.ucl.ac.uk/creativeai/)
+- [Part 1: Introduction](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/CreativeAI/part1_introduction_niloy.pdf)
+- [Part 2: Machine Learning Basics](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/CreativeAI/part2_mlBasics_niloy.pdf)
+- [Part 3: Neural Network Basics](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/CreativeAI/part3b_nn_continued.pdf)
+- [Part 4: Feature Visualization](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/CreativeAI/part4_feature_vis.pdf)
+- [Part 5: Alternatives to Direct Supervision](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/CreativeAI/part5_alternatives_to_direct_supervision.pdf)
+- [Part 6: Image Domains](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/CreativeAI/part6_image_domains.pdf)
+- [Part 7: 3D Domains](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/CreativeAI/part7_3Ddomains_niloy.pdf)
+- [Part 8: Physics and Animation](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/CreativeAI/part8_physics_animation.pdf)
+
 ## Links About Light Field
 
 

@@ -1,7 +1,7 @@
 ---
 title: Light Field 光场以及MATLAB光场工具包(LightField ToolBox)的使用说明
 comments: true
-categories: 计算机视觉
+categories: 光场
 copyright: false
 mathjax: true
 tags:
@@ -20,7 +20,7 @@ updated: 2018-01-28 22:55:30
 
 {%note success%}
 [这里](https://www.vincentqin.tech/collections/)我汇总了有关光场（Light Field）一些有用的链接以及光场数据的处理过程。目前还在整理中，随时更新。
-<span id="inline-red">声明</span>：<u>**一切理解都是本人观点，如有疑问，还望在**评论**中留言。如需转载请与本人联系，谢谢合作**</u>! 邮箱：[点我](/about)
+<span id="inline-red">声明</span>：<u>**一切理解都是本人观点，如有疑问，还望在**评论**中留言。如需转载请与本人联系，谢谢合作**</u>! )
 {%endnote%}
 
 <!-- more -->

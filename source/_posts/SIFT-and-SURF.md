@@ -2,7 +2,7 @@
 title: SIFT和SURF特性提取总结
 comments: true
 mathjax: true
-categories: 计算机视觉
+categories: CV
 
 tags:
   - sift

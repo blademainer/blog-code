@@ -1,7 +1,7 @@
 ---
 title: 初试HCI光场数据集
 comments: true
-categories: 计算机视觉
+categories: 光场
 tags:
   - 光场
   - 计算成像

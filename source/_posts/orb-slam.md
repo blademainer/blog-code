@@ -2,6 +2,7 @@
 title: 资料：ORB SLAM2 阅读报告
 mathjax: true
 abbrlink: 203b9068
+categories: SLAM
 date: 2018-11-30 23:14:30
 ---
 

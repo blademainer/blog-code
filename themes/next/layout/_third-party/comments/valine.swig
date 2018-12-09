@@ -24,5 +24,6 @@
         pageSize:'{{ theme.valine.pageSize }}' || 10,
         visitor: {{ theme.valine.visitor }}
     });
+
   </script>
 {% endif %}

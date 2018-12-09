@@ -23,13 +23,16 @@ date: 2016-08-09 12:37:42
 
 ```js
 hexo clean    # 清除缓存，简写 hexo c
-hexo generate # 作用：建立静态页面， 简写 hexo g 
+hexo generate # 作用：建立静态页面， 简写 hexo g
 hexo deploy   # 部署自己的blog，本人部署在了Git上，简写 hexo d
 hexo server   # 以启动本地服务， 可预览，简写 hexo s
 hexo new blog_name #　新建以blog_name为名的blog
 在.md文档中加入 <!-- more --> 可以显示“阅读全文”
 ```
 
+## valine 添加邮件提醒
+
+主要参考这个[链接](https://panjunwen.com/valine-admin-document/)，相当详细，在此不再赘述。
 
 ## Gitment 小小改动
 

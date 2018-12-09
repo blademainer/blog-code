@@ -5,7 +5,7 @@ tags:
   - 计算成像
   - Light Field
 comments: true
-categories: 计算机视觉
+categories: 光场
 copyright: false
 abbrlink: 24433
 date: 2018-03-23 09:57:02

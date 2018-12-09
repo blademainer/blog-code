@@ -1,17 +1,32 @@
 ---
 title: 资料：SLAM草稿
 tags:
-  - slam
+  - SLAM
+  - computer vision
+  - cv
+  - AR
 abbrlink: 5c27414f
 comments: true
-categories: 计算机视觉
+categories: SLAM
 copyright: false
 mathjax: true
 date: 2018-11-30 00:53:00
 ---
 
+## ECCV 2018 视觉定位综述
+以下是今年ECCV上几位大牛介绍SLAM技术的tutorial pdfs，涉及基于特征点以及基于学习的SLAM算法介绍，并在最后探究了SLAM领域的主要问题以及未来的发展趋势。
+- [Feature-based vs. Learned Approaches](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/slam/1.Intro.pdf)
+- [Current State of Feature-based Localization](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/slam/2.Sattler-Feature-Based-3D-Localization.pdf)
+- [Learning-based Localization](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/slam/3.Learning-Based Localization_Upload.pdf)
+- [Failure Cases of Feature-based and Learning-based Methods](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/slam/4.Failure_Cases.pdf)
+- [Long-term Localization: Towards Higher-level Scene Understanding](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/slam/5.Long_Term_Localization.pdf)
+- [Open Problems of Learning-based Methods](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/slam/6.Learning Problems_Upload.pdf)
+
 整理还未完备，先祭出这几本书&博客，方便随时查看。
 
+<!--more-->
+
+## 教程
 - [slambook](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/slam/slambook14.pdf)
 - [slambook code](https://github.com/gaoxiang12/slambook/tree/master/project/0.3)
 - [OpenCV3.0](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/slam/OpenCV3book.pdf)
@@ -24,7 +39,7 @@ date: 2018-11-30 00:53:00
 - [白巧克力亦唯心的博客](https://me.csdn.net/heyijia0327)
 - [Graph slam学习](http://www.360doc.com/content/17/0718/14/44420101_672315705.shtml)
 
-<!--more-->
+
 
 ## [g2o](https://openslam-org.github.io/g2o.html)漫谈
 
