@@ -29,6 +29,10 @@ hexo server   # 以启动本地服务， 可预览，简写 hexo s
 hexo new blog_name #　新建以blog_name为名的blog
 在.md文档中加入 <!-- more --> 可以显示“阅读全文”
 ```
+## 新增 clustrmaps
+
+文件路径：`themes\next\layout\_partials\footer.swig`
+页尾增加了访客地图，去这个[网站](https://clustrmaps.com/)注册，按照步骤添加即可。
 
 ## valine 添加邮件提醒
 

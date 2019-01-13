@@ -6,6 +6,7 @@ tags:
   - Deep Learning
   - Matlab
 comments: true
+categories: Deep Learning
 mathjax: true
 abbrlink: 25505
 date: 2017-11-19 01:22:40

@@ -7,6 +7,7 @@ tags:
   - ResNet
 comments: true
 mathjax: true
+categories: Deep Learning
 abbrlink: 57818
 date: 2017-11-07 00:24:45
 ---

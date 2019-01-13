@@ -47,3 +47,4 @@
   #}{{ theme.footer.custom_text }}{#
 #}</div>
 {% endif %}
+<script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=5e5e5e&w=300&t=n&d=Yz2tN2lgCu2UO212h8u_-bzkAB6pa8Gb4bF-dwNptuc&co=eeeeee&ct=808080&cmo=3acc3a&cmn=ff5353'></script>

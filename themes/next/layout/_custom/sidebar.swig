@@ -24,4 +24,5 @@ if (i<10)
 return i;
 }
 show_date_time();
+
 </script>

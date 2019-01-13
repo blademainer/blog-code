@@ -11,13 +11,15 @@ comments: false
 
 ## BIOGRAPHY
 
-Mr. Qin received the B.E. degree from the Department of Automation, Chongqing University of Posts and Telecommunications, Chongqing, China in 2015. He is currently pursuing the M.E. degree in Department of Automation at Tsinghua University, Beijing, China. He joined the IEEE and became a student member in 2016.
-His current research interests include computational photography and computer vision. His research area includes depth estimation and GPU acceleration.
+I am a SLAM algorithm engineer in HIKVISION. Before that I received my master degree in the Department of Automation, Tsinghua University, China, in Jul. 2018 and B.E. degree from the Department of Automation, Chongqing University of Posts and Telecommunications, Chongqing, China in 2015. From Jul. 2015, I was working with my master advisor Prof. Xin Jin on light field depth estimation in both Broadband Network & Digital Media Lab and Shenzhen Key Lab of Broadband Network and Multimedia, Tsinghua University. 
+
+My recent research interest is simultaneous localization and mapping. My research area broadly includes depth estimation and GPU acceleration when I was a student.
 
 <br>
 ## CONTACT INFORMATION
 
- - Department of Automation, [Tsinghua University](http://www.tsinghua.edu.cn/publish/newthuen/), China 
+<!--Department of Automation, [Tsinghua University](http://www.tsinghua.edu.cn/publish/newthuen/), China--> 
+
  - Email: qin123yw#163.com（replace # with @）
  - Github: https://github.com/Vincentqyw
  - Homepage: https://www.vincentqin.tech
@@ -25,7 +27,7 @@ His current research interests include computational photography and computer vi
 <br>
 ## RESEARCH INTEREST
 
-- Computer Vision: image processing (depth estimation from light field) and pattern recognition (license plate recognition).
+- Computer Vision: SLAM, image processing (depth estimation from light field) and pattern recognition (license plate recognition).
 - GPU Acceleration: code optimization,thread scheduling, memory management.
 - Computational photography
 - Deep Learning（*studying now* ）

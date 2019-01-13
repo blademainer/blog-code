@@ -442,11 +442,13 @@ $$
 
 在完成多路编码之后，网络将这些特征串联起来组成更维度更高的特征。后面的融合网络包含8个卷积块，其目的是寻找经多路编码之后特征之间的相关性。注意除了最后一个卷积块之外，其余的卷积块全部相同。为了推断得到亚像素精度的视差图，作者将最后一个卷积块设计为**Conv-ReLU-Conv**结构。
 
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/data-augmentation.png)
+
 最后，图像增强方式包括视角偏移（从9\*9视角中选7\*7，可扩展3\*3倍数据），图像旋转（90<sup>o</sup>，180<sup>o</sup>，270<sup>o</sup>），图像缩放（[0.25,1]），色彩值域变化（[0.5,2]），随机灰度变化，gamma变换（[0.8,1.2]）以及翻转，最终扩充了288倍。
 
 以下为其各个指标上的性能表现：
 
-![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/epinet-evaluation.png)
+![](https://qcloud.coding.net/u/vincentqin/p/blogResource/git/raw/master/light-field-depth-estimation/benchmark-ranking.png)
 
 以上介绍了目前已有的深度估计算法不同类别中具有代表性的算法，它们不一定是最优的，但绝对是最容易理解其精髓的。到目前为止，光场领域已经有一大波人做深度估计的工作，利用传统的方式其精度很难再往上提高。随着深度学习的大热，已经有一批先驱开始用深度学习做深度估计，虽然在仿真数据上可以表现得很好，但实际场景千变万化，即使是深度学习的策略也不敢保证对所有的场景都有效。路漫漫其修远兮，深度估计道路阻且长。我认为以后的趋势应该是从EPI图像下手，然后利用CNN提feature（或者响应）；此时可供选择的工具有[KITTI Stereo](http://www.cvlibs.net/datasets/kitti/eval_scene_flow.php?benchmark=stereo)/[HCI新数据集算法比较](http://hci-lightfield.iwr.uni-heidelberg.de/)/[Middlebury Stereo](http://vision.middlebury.edu/stereo/)中较好的几种算法，我们需要总结其算法优势并迁移到光场领域中来。GPU这个Powerful的计算工具一定要用到光场领域中来，发挥出多线程的优势。否则传统的CPU对于动辄上百兆的数据有心无力。这样一来，深度图像不仅仅可以从精度上得以提高，而且深度估计的速度也会更快。至此，本文介绍到此结束。
 
